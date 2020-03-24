@@ -30,10 +30,7 @@ const RootStack = createStackNavigator(
   {
     [CONSTANTS.ROUTES.HOME]: {
       screen: props => (
-        <Home
-          {...props}
-          LOCAL_STACK_ROUTES={LOCAL_STACK_ROUTES}
-        />
+        <Home {...props} LOCAL_STACK_ROUTES={LOCAL_STACK_ROUTES} />
       ),
       navigationOptions: () => ({
         headerBackTitle: null,
@@ -43,42 +40,48 @@ const RootStack = createStackNavigator(
 
     [CONSTANTS.ROUTES.PODCAST_DETAIL]: {
       screen: PodcastDetailContainer,
-      navigationOptions: ({ navigation, screenProps }) => getDefaultHeaderWithTitle('Podcast Detail', navigation, screenProps),
+      navigationOptions: ({ navigation, screenProps }) =>
+        getDefaultHeaderWithTitle('Podcast Detail', navigation, screenProps),
     },
 
     [LOCAL_STACK_ROUTES.TRENDING_AUTHORS_SEE_ALL]: {
       screen: TrendingAuthorsSeeAll,
-      navigationOptions: ({ navigation, screenProps }) => getDefaultHeaderWithTitle('Trending Authors', navigation, screenProps),
+      navigationOptions: ({ navigation, screenProps }) =>
+        getDefaultHeaderWithTitle('Trending Authors', navigation, screenProps),
     },
 
     [LOCAL_STACK_ROUTES.HOTTEST_PODCASTS_SEE_ALL]: {
       screen: HottestPodcastsSeeAll,
-      navigationOptions: ({ navigation, screenProps }) => getDefaultHeaderWithButton(
-        navigation,
-        screenProps,
-        'Hottest Podcasts',
-        'play-circle-outline',
-      ),
+      navigationOptions: ({ navigation, screenProps }) =>
+        getDefaultHeaderWithButton(
+          navigation,
+          screenProps,
+          'Hottest Podcasts',
+          'play-circle-outline',
+        ),
     },
 
     [LOCAL_STACK_ROUTES.NEW_RELEASES_SEE_ALL]: {
       screen: NewReleasesSeeAll,
-      navigationOptions: ({ navigation, screenProps }) => getDefaultHeaderWithButton(
-        navigation,
-        screenProps,
-        'New Releases',
-        'play-circle-outline',
-      ),
+      navigationOptions: ({ navigation, screenProps }) =>
+        getDefaultHeaderWithButton(
+          navigation,
+          screenProps,
+          'New Releases',
+          'play-circle-outline',
+        ),
     },
 
     [CONSTANTS.ROUTES.AUTHOR_DETAIL]: {
       screen: AuthorDetailContainer,
-      navigationOptions: ({ screenProps }) => getHiddenHeaderLayout(screenProps),
+      navigationOptions: ({ screenProps }) =>
+        getHiddenHeaderLayout(screenProps),
     },
 
     [CONSTANTS.ROUTES.PLAYER]: {
       screen: Player,
-      navigationOptions: ({ navigation }) => getPlayerNavigationOption(navigation),
+      navigationOptions: ({ navigation }) =>
+        getPlayerNavigationOption(navigation),
     },
   },
   {

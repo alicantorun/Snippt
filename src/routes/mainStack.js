@@ -44,10 +44,7 @@ const ApplicationTabs = createMaterialTopTabNavigator(
   },
   {
     tabBarComponent: ({ navigationState, navigation }) => (
-      <Navigation
-        navigationState={navigationState}
-        navigation={navigation}
-      />
+      <Navigation navigationState={navigationState} navigation={navigation} />
     ),
     initialRouteName: ROUTE_NAMES.HOME,
     tabBarPosition: 'bottom',

@@ -12,7 +12,7 @@ const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
 const middleware = [sagaMiddleware];
 
 const createAppropriateStore = __DEV__ ? console.tron.createStore : createStore;
-const store = createAppropriateStore(reducers, applyMiddleware(...middleware));
+const store = createStore(reducers, applyMiddleware(...middleware));
 
 sagaMiddleware.run(sagas);
 

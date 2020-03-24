@@ -25,10 +25,7 @@ const RootStack = createStackNavigator(
   {
     [CONSTANTS.ROUTES.SEARCH]: {
       screen: props => (
-        <Search
-          {...props}
-          LOCAL_STACK_ROUTES={LOCAL_STACK_ROUTES}
-        />
+        <Search {...props} LOCAL_STACK_ROUTES={LOCAL_STACK_ROUTES} />
       ),
       navigationOptions: () => ({
         headerBackTitle: null,
@@ -38,7 +35,8 @@ const RootStack = createStackNavigator(
 
     [LOCAL_STACK_ROUTES.SEARCH_AUTHORS_RESULT]: {
       screen: SearchAuthorListContainer,
-      navigationOptions: ({ navigation, screenProps }) => getDefaultHeaderWithTitle('Search Authors', navigation, screenProps),
+      navigationOptions: ({ navigation, screenProps }) =>
+        getDefaultHeaderWithTitle('Search Authors', navigation, screenProps),
     },
 
     [CONSTANTS.ROUTES.SUBJECT_DETAIL]: {
@@ -62,17 +60,20 @@ const RootStack = createStackNavigator(
 
     [CONSTANTS.ROUTES.AUTHOR_DETAIL]: {
       screen: AuthorDetailContainer,
-      navigationOptions: ({ screenProps }) => getHiddenHeaderLayout(screenProps),
+      navigationOptions: ({ screenProps }) =>
+        getHiddenHeaderLayout(screenProps),
     },
 
     [CONSTANTS.ROUTES.PODCAST_DETAIL]: {
       screen: PodcastDetailContainer,
-      navigationOptions: ({ navigation, screenProps }) => getDefaultHeaderWithTitle('Podcast Detail', navigation, screenProps),
+      navigationOptions: ({ navigation, screenProps }) =>
+        getDefaultHeaderWithTitle('Podcast Detail', navigation, screenProps),
     },
 
     [CONSTANTS.ROUTES.PLAYER]: {
       screen: Player,
-      navigationOptions: ({ navigation }) => getPlayerNavigationOption(navigation),
+      navigationOptions: ({ navigation }) =>
+        getPlayerNavigationOption(navigation),
     },
   },
   {

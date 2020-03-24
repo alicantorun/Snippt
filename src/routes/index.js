@@ -19,12 +19,13 @@ const InterestsScreen = createStackNavigator(
   {
     [CONSTANTS.ROUTES.INTERESTS]: {
       screen: Interests,
-      navigationOptions: ({ navigation, screenProps }) => getDefaultHeaderWithButton(
-        navigation,
-        screenProps,
-        'Your Interests',
-        'check-all',
-      ),
+      navigationOptions: ({ navigation, screenProps }) =>
+        getDefaultHeaderWithButton(
+          navigation,
+          screenProps,
+          'Your Interests',
+          'check-all',
+        ),
     },
   },
   {
@@ -60,7 +61,5 @@ const InitialStack = createSwitchNavigator(
 const AppContainer = createAppContainer(InitialStack);
 
 export default withTheme(({ theme }) => (
-  <AppContainer
-    screenProps={{ theme }}
-  />
+  <AppContainer screenProps={{ theme }} />
 ));

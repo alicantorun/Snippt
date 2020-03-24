@@ -20,10 +20,7 @@ const RootStack = createStackNavigator(
   {
     [CONSTANTS.ROUTES.SETTINGS]: {
       screen: props => (
-        <Settings
-          {...props}
-          LOCAL_STACK_ROUTES={LOCAL_STACK_ROUTES}
-        />
+        <Settings {...props} LOCAL_STACK_ROUTES={LOCAL_STACK_ROUTES} />
       ),
       navigationOptions: () => ({
         headerBackTitle: null,
@@ -33,12 +30,14 @@ const RootStack = createStackNavigator(
 
     [CONSTANTS.ROUTES.PLAYER]: {
       screen: Player,
-      navigationOptions: ({ navigation }) => getPlayerNavigationOption(navigation),
+      navigationOptions: ({ navigation }) =>
+        getPlayerNavigationOption(navigation),
     },
 
     [LOCAL_STACK_ROUTES.ABOUT]: {
       screen: About,
-      navigationOptions: ({ navigation, screenProps }) => getDefaultHeaderWithTitle('About', navigation, screenProps),
+      navigationOptions: ({ navigation, screenProps }) =>
+        getDefaultHeaderWithTitle('About', navigation, screenProps),
     },
   },
   {
