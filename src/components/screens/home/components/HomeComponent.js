@@ -62,11 +62,8 @@ const HomeComponent = ({
             refreshing={loading && !error}
             onRefresh={getHome}
           />
-        }
-      >
-        <ScreenTitle
-          title="Discover"
-        />
+        }>
+        <ScreenTitle title="Discover" />
         {data.newReleases && data.newReleases.length > 0 && (
           <NewReleasesDiscover
             data={data.newReleases}
