@@ -11,9 +11,7 @@ import store from './store';
 import './config/ReactotronConfig';
 
 const App = (): Object => (
-  <Provider
-    store={store}
-  >
+  <Provider store={store}>
     <ThemeContextProvider>
       <ApplicationNavigator />
       <SoundComponent />

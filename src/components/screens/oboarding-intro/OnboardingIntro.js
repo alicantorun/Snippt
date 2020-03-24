@@ -44,10 +44,11 @@ class OnboardingIntro extends Component<Props, State> {
       {
         currentPageIndex: currentPageIndex + 1,
       },
-      () => this._pagesListRef.scrollToIndex({
-        animated: true,
-        index: currentPageIndex + 1,
-      }),
+      () =>
+        this._pagesListRef.scrollToIndex({
+          animated: true,
+          index: currentPageIndex + 1,
+        }),
     );
   };
 
@@ -58,10 +59,11 @@ class OnboardingIntro extends Component<Props, State> {
       {
         currentPageIndex: currentPageIndex - 1,
       },
-      () => this._pagesListRef.scrollToIndex({
-        animated: true,
-        index: currentPageIndex - 1,
-      }),
+      () =>
+        this._pagesListRef.scrollToIndex({
+          animated: true,
+          index: currentPageIndex - 1,
+        }),
     );
   };
 
@@ -100,9 +102,7 @@ class OnboardingIntro extends Component<Props, State> {
           onMomentumScrollEnd={event => this.onFlatlistMomentumScrollEnd(event)}
           renderItem={({ item, index }) => (
             <IntroScreenWrapper>
-              <MiddleContent
-                currentIndex={index}
-              />
+              <MiddleContent currentIndex={index} />
             </IntroScreenWrapper>
           )}
           showsHorizontalScrollIndicator={false}

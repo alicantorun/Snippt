@@ -1,6 +1,8 @@
 // @flow
 
 import React, { Component, Fragment } from 'react';
+import { Text, View, Button } from 'react-native';
+import styled, { withTheme } from 'styled-components';
 
 import SplashScreen from 'react-native-splash-screen';
 import FastImage from 'react-native-fast-image';
@@ -10,6 +12,22 @@ import { connect } from 'react-redux';
 import { Creators as PlayerCreators } from '~/store/ducks/player';
 import { Creators as LocalPodcastsManagerCreators } from '~/store/ducks/localPodcastsManager';
 import { Creators as PlaylistsCreators } from '~/store/ducks/playlist';
+
+const Wrapper = styled(View)`
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.secondaryColor};
+`;
+
+const WelcomeMessage = styled(Text)`
+  font-size: ${({ theme }) => theme.metrics.largeSize}px;
+  font-family: CircularStd-Medium;
+  text-align: right;
+  color: ${({ theme }) => theme.colors.white};
+`;
 
 import CONSTANTS from '~/utils/CONSTANTS';
 
@@ -39,7 +57,7 @@ class StaterScreen extends Component<Props, {}> {
 
     SplashScreen.hide();
 
-    navigation.navigate(CONSTANTS.ROUTES.ONBOARDING_INTRO);
+    // navigation.navigate(CONSTANTS.ROUTES.ONBOARDING_INTRO);
   }
 
   loadImages = (): void => {
@@ -79,8 +97,17 @@ class StaterScreen extends Component<Props, {}> {
     ]);
   };
 
+  onPressNextButton = (): void => {
+    this.props.navigation.navigate(CONSTANTS.ROUTES.ONBOARDING_INTRO);
+  };
+
   render() {
-    return <Fragment />;
+    return (
+      <Wrapper onPress={console.log('pressed')}>
+        <WelcomeMessage>An epic App by Alican & Henno</WelcomeMessage>
+        <Button onPress={this.onPressNextButton} title="Go!" />
+      </Wrapper>
+    );
   }
 }
 
@@ -93,7 +120,4 @@ const Creators = Object.assign(
 
 const mapDispatchToProps = dispatch => bindActionCreators(Creators, dispatch);
 
-export default connect(
-  null,
-  mapDispatchToProps,
-)(StaterScreen);
+export default connect(null, mapDispatchToProps)(StaterScreen);
