@@ -7,15 +7,14 @@
  */
 
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
-import Test from './src/components/Test/Test';
+// import Test from '~/components/Test/Test';
 
 const App: () => React$Node = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Hello!</Text>
-      <Test />
     </View>
   );
 };
