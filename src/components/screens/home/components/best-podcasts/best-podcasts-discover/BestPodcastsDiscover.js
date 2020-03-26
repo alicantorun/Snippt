@@ -27,7 +27,6 @@ type Props = {
 };
 
 const BestPodcastsDiscover = ({ navigation, data }: Props): Object => {
-  console.log('PODCAST DATA', data);
   return (
     <Wrapper>
       <SectionWithButton

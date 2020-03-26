@@ -10,6 +10,7 @@ import PlaylistList from '~/components/common/playlists-list/PlaylistsListContai
 import ActionButtons from './ActionButtons';
 import BottomContent from './BottomContent';
 import PodcastInfo from './PodcastInfo';
+import Loading from '~/components/common/Loading';
 
 import CONSTANTS from '~/utils/CONSTANTS';
 
@@ -63,11 +64,10 @@ const PodcastDetailComponent = ({
   onPressPlay,
   navigation,
   podcast,
+  loading,
+  error,
 }: Props): Object => (
-  <Wrapper
-    showsVerticalScrollIndicator={false}
-    alwaysBounceVertical={false}
-  >
+  <Wrapper showsVerticalScrollIndicator={false} alwaysBounceVertical={false}>
     <PodcastInfo
       imageURL={podcast.imageURL}
       subject={podcast.category}
@@ -81,6 +81,8 @@ const PodcastDetailComponent = ({
       isPodcastDownloaded={isPodcastDownloaded}
       onPressPlay={onPressPlay}
     />
+    {loading && !error && <Loading />}
+
     <BottomContent
       shouldShowAuthorSection={shouldShowAuthorSection}
       onPressDetail={() => {

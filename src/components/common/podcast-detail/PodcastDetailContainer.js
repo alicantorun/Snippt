@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Creators as LocalPodcastsManagerCreators } from '~/store/ducks/localPodcastsManager';
+import { Creators as PodcastCreators } from '~/store/ducks/podcast';
 
 import PodcastDetailComponent from './components/PodcastDetailComponent';
 import { CustomAlert, TYPES } from '~/components/common/Alert';
@@ -25,6 +26,14 @@ class PodcastDetail extends Component<Props, State> {
   state = {
     isAddPlaylistModalOpen: false,
   };
+
+  componentDidMount() {
+    const { getPodcast } = this.props;
+    const { podcast } = this.getProps();
+    const { id } = podcast;
+
+    getPodcast(id);
+  }
 
   onPressDownloadButton = (
     isPodcastDownloaded: boolean,
@@ -68,7 +77,8 @@ class PodcastDetail extends Component<Props, State> {
     const { navigation } = this.props;
     const { params } = navigation.state;
 
-    const shouldShowAuthorSection = params[CONSTANTS.KEYS.PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION];
+    const shouldShowAuthorSection =
+      params[CONSTANTS.KEYS.PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION];
     const podcast = params[CONSTANTS.PARAMS.PODCAST_DETAIL];
 
     return {
@@ -93,9 +103,11 @@ class PodcastDetail extends Component<Props, State> {
 
     const isPodcastDownloadedByPlaylist = playlists
       .filter(playlist => playlist.isAvailableOffline)
-      .some(playlist => playlist.podcasts.some(
-        playlistPodcast => playlistPodcast.id === podcast.id,
-      ));
+      .some(playlist =>
+        playlist.podcasts.some(
+          playlistPodcast => playlistPodcast.id === podcast.id,
+        ),
+      );
 
     return isPodcastDownloadedByPlaylist;
   };
@@ -103,7 +115,7 @@ class PodcastDetail extends Component<Props, State> {
   checkPodcastDownloadStatus = (listKey: string, podcastId: string) => {
     const { localPodcastsManager } = this.props;
 
-    const isPodcastOnTheList = localPodcastsManager[listKey].some((podcast) => {
+    const isPodcastOnTheList = localPodcastsManager[listKey].some(podcast => {
       if (typeof podcast === 'object') {
         return podcast.id === podcastId;
       }
@@ -116,7 +128,8 @@ class PodcastDetail extends Component<Props, State> {
 
   render() {
     const { isAddPlaylistModalOpen } = this.state;
-    const { navigation } = this.props;
+    const { navigation, getPodcast, podcastData } = this.props;
+    const { loading, error, data } = podcastData.podcast;
 
     const { shouldShowAuthorSection, podcast } = this.getProps();
 
@@ -132,7 +145,8 @@ class PodcastDetail extends Component<Props, State> {
 
     return (
       <PodcastDetailComponent
-        onPressDownloadButton={() => this.onPressDownloadButton(isPodcastDownloaded, podcast)
+        onPressDownloadButton={() =>
+          this.onPressDownloadButton(isPodcastDownloaded, podcast)
         }
         onToggleAddPlaylistModal={this.onToggleAddPlaylistModal}
         shouldShowAuthorSection={shouldShowAuthorSection}
@@ -142,19 +156,26 @@ class PodcastDetail extends Component<Props, State> {
         onPressPlay={this.onPressPlay}
         navigation={navigation}
         podcast={podcast}
+        getPodcast={getPodcast}
+        loading={loading}
+        error={error}
+        data={data}
       />
     );
   }
 }
 
+//  TODO fix bad state management
 const mapStateToProps = state => ({
   localPodcastsManager: state.localPodcastsManager,
   playlists: state.playlist.playlists,
+  podcastData: state,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(LocalPodcastsManagerCreators, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    { ...LocalPodcastsManagerCreators, ...PodcastCreators },
+    dispatch,
+  );
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(PodcastDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(PodcastDetail);
