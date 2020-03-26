@@ -146,21 +146,23 @@ class Player extends Component<Props, State> {
       paused,
     } = this.props;
 
-    const shouldShufflePlaylist = playerParams[CONSTANTS.KEYS.SHOULD_SHUFFLE_PLAYLIST];
+    const shouldShufflePlaylist =
+      playerParams[CONSTANTS.KEYS.SHOULD_SHUFFLE_PLAYLIST];
     const playlist = playerParams[CONSTANTS.KEYS.PLAYLIST];
 
     const isCurrentPodcastDefined = !!currentPodcast;
-    const isPodcastChanged = isCurrentPodcastDefined && currentPodcast.id !== playlist[0].id;
+    const isPodcastChanged =
+      isCurrentPodcastDefined && currentPodcast.id !== playlist[0].id;
     const isPlayingSamePlaylist = this.checkIsPlayingSamePlaylist(
       playlist,
       pastPlaylist,
     );
 
     if (
-      !isCurrentPodcastDefined
-      || isPodcastChanged
-      || !isPlayingSamePlaylist
-      || shouldShufflePlaylist
+      !isCurrentPodcastDefined ||
+      isPodcastChanged ||
+      !isPlayingSamePlaylist ||
+      shouldShufflePlaylist
     ) {
       const { setupShufflePlayer, setupPlayer } = this.props;
 
@@ -215,14 +217,16 @@ class Player extends Component<Props, State> {
 
     const { isAddPlaylistModalOpen, isQueueSideMenuOpen } = this.state;
 
+    console.log('current podcast', currentPodcast);
     return (
       <Fragment>
         {!!currentPodcast && (
           <SideMenu
-            animationFunction={(prop, value) => Animated.timing(prop, {
-              toValue: value,
-              duration: 250,
-            })
+            animationFunction={(prop, value) =>
+              Animated.timing(prop, {
+                toValue: value,
+                duration: 250,
+              })
             }
             menu={
               isQueueSideMenuOpen ? (
@@ -239,8 +243,7 @@ class Player extends Component<Props, State> {
             isOpen={isQueueSideMenuOpen}
             bounceBackOnOverdraw
             menuPosition="right"
-            disableGestures
-          >
+            disableGestures>
             <PlayerComponent
               onToggleAddPlaylistModal={this.onToggleAddPlaylistModal}
               isCurrentPodcastDownloaded={isCurrentPodcastDownloaded}
@@ -282,7 +285,8 @@ class Player extends Component<Props, State> {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators(PlayerCreators, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(PlayerCreators, dispatch);
 
 const mapStateToProps = state => ({
   isCurrentPodcastDownloaded: state.player.isCurrentPodcastDownloaded,
@@ -295,7 +299,4 @@ const mapStateToProps = state => ({
   paused: state.player.paused,
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Player);
+export default connect(mapStateToProps, mapDispatchToProps)(Player);

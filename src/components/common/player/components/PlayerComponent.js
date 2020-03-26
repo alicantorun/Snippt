@@ -71,26 +71,18 @@ const PlayerComponent = ({
   play,
 }: Props): Object => (
   <Wrapper>
-    <StatusBar
-      backgroundColor="#111"
-      barStyle="light-content"
-      animated
-    />
-    <BackgroundImage
-      imageURL={currentPodcast.thumbnailImageURL}
-    />
+    <StatusBar backgroundColor="#111" barStyle="light-content" animated />
+    <BackgroundImage imageURL={currentPodcast.thumbnailImageURL} />
     <UpperSection>
       <PodcastImage
         thumbnailImageURL={currentPodcast.thumbnailImageURL}
         imageURL={currentPodcast.imageURL}
       />
       <PodcastTextContent
-        author={currentPodcast.author.name}
+        // author={currentPodcast.author.name}
         title={currentPodcast.title}
       />
-      <ProgressSlider
-        seekProgressTimer={seekProgressTimer}
-      />
+      <ProgressSlider seekProgressTimer={seekProgressTimer} />
       <PlayerControls
         playPrevious={playPrevious}
         playNext={playNext}

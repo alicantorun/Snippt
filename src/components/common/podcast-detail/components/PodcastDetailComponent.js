@@ -75,7 +75,6 @@ const PodcastDetailComponent = ({
   error,
   data,
 }: Props): Object => {
-  console.log('EPISODE LIST: ', data);
   return (
     <Wrapper showsVerticalScrollIndicator={false} alwaysBounceVertical={false}>
       <PodcastInfo
@@ -101,10 +100,10 @@ const PodcastDetailComponent = ({
           renderItem={({ item, index }) => (
             <PodcastEpisodesListItem
               onPressItem={() =>
-                navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
-                  [CONSTANTS.KEYS
-                    .PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: false,
-                  [CONSTANTS.PARAMS.PODCAST_DETAIL]: item,
+                navigation.navigate(CONSTANTS.ROUTES.PLAYER, {
+                  [CONSTANTS.PARAMS.PLAYER]: {
+                    [CONSTANTS.KEYS.PLAYLIST]: [item],
+                  },
                 })
               }
               // authorImage={item.author.thumbnailProfileImageURL}

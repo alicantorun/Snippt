@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Creators as LocalPodcastsManagerCreators } from '~/store/ducks/localPodcastsManager';
-import { Creators as PodcastCreators } from '~/store/ducks/podcast';
+import { Creators as PodcastWithEpisodesCreators } from '~/store/ducks/podcastWithEpisodes';
 
 import PodcastDetailComponent from './components/PodcastDetailComponent';
 import { CustomAlert, TYPES } from '~/components/common/Alert';
@@ -28,11 +28,11 @@ class PodcastDetail extends Component<Props, State> {
   };
 
   componentDidMount() {
-    const { getPodcast } = this.props;
+    const { getPodcastWithEpisodes } = this.props;
     const { podcast } = this.getProps();
     const { id } = podcast;
 
-    getPodcast(id);
+    getPodcastWithEpisodes(id);
   }
 
   onPressDownloadButton = (
@@ -128,8 +128,12 @@ class PodcastDetail extends Component<Props, State> {
 
   render() {
     const { isAddPlaylistModalOpen } = this.state;
-    const { navigation, getPodcast, podcastData } = this.props;
-    const { loading, error, data } = podcastData.podcast;
+    const {
+      navigation,
+      getPodcastWithEpisodes,
+      podcastWithEpisodes,
+    } = this.props;
+    const { loading, error, data } = podcastWithEpisodes;
 
     const { shouldShowAuthorSection, podcast } = this.getProps();
 
@@ -156,7 +160,7 @@ class PodcastDetail extends Component<Props, State> {
         onPressPlay={this.onPressPlay}
         navigation={navigation}
         podcast={podcast}
-        getPodcast={getPodcast}
+        getPodcastWithEpisodes={getPodcastWithEpisodes}
         loading={loading}
         error={error}
         data={data}
@@ -169,12 +173,12 @@ class PodcastDetail extends Component<Props, State> {
 const mapStateToProps = state => ({
   localPodcastsManager: state.localPodcastsManager,
   playlists: state.playlist.playlists,
-  podcastData: state,
+  podcastWithEpisodes: state.podcastWithEpisodes,
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
-    { ...LocalPodcastsManagerCreators, ...PodcastCreators },
+    { ...LocalPodcastsManagerCreators, ...PodcastWithEpisodesCreators },
     dispatch,
   );
 

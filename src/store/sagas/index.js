@@ -6,7 +6,7 @@ import { Types as SubjectTypes } from '../ducks/subject';
 import { Types as PlayerTypes } from '../ducks/player';
 import { Types as AuthorTypes } from '../ducks/author';
 import { Types as HomeTypes } from '../ducks/home';
-import { Types as PodcastTypes } from '../ducks/podcast';
+import { Types as PodcastWithEpisodesTypes } from '../ducks/podcastWithEpisodes';
 
 import {
   clearAllLocalPodcastsReferences,
@@ -38,12 +38,15 @@ import {
   editPlaylist,
 } from './playlist';
 import { getHome } from './home';
-import { getPodcast } from './podcast';
+import { getPodcastWithEpisodes } from './podcastWithEpisodes';
 
 export default function* rootSaga() {
   return yield all([
     takeLatest(HomeTypes.GET_HOME_REQUEST, getHome),
-    takeLatest(PodcastTypes.GET_PODCAST_REQUEST, getPodcast),
+    takeLatest(
+      PodcastWithEpisodesTypes.GET_PODCAST_WITH_EPISODES_REQUEST,
+      getPodcastWithEpisodes,
+    ),
     takeLatest(
       LocalPodcastsManagerCreators.SET_PODCASTS_DOWNLOADED_LIST_REQUEST,
       setPodcastsDownloadedList,

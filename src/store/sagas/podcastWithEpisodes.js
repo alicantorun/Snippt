@@ -4,11 +4,11 @@ import api from '~/services/api';
 import { SERVER_URL } from 'react-native-dotenv';
 
 import { getItemFromStorage } from '../../utils/AsyncStorageManager';
-import { Creators as PodcastCreators } from '../ducks/podcast';
+import { Creators as PodcastWithEpisodesCreators } from '../ducks/podcastWithEpisodes';
 import CONSTANTS from '../../utils/CONSTANTS';
 import parseParams from './utils/parseParams';
 
-export function* getPodcast(id) {
+export function* getPodcastWithEpisodes(id) {
   try {
     // const rawInterests = yield call(
     //   getItemFromStorage,
@@ -36,8 +36,8 @@ export function* getPodcast(id) {
 
     // console.log(data);
 
-    yield put(PodcastCreators.getPodcastSuccess(data));
+    yield put(PodcastWithEpisodesCreators.getPodcastWithEpisodesSuccess(data));
   } catch (err) {
-    yield put(PodcastCreators.getPodcastFailure());
+    yield put(PodcastWithEpisodesCreators.getPodcastWithEpisodesFailure());
   }
 }

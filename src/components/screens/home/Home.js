@@ -37,6 +37,8 @@ class HomeContainer extends Component<Props, {}> {
     const { navigation, getHome, home } = this.props;
     const { loading, error, data } = home;
 
+    console.log(this.props);
+
     return (
       <HomeComponent
         navigation={navigation}
@@ -49,13 +51,11 @@ class HomeContainer extends Component<Props, {}> {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators(HomeCreators, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(HomeCreators, dispatch);
 
 const mapStateToProps = state => ({
   home: state.home,
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(HomeContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

@@ -57,13 +57,12 @@ class SoundComponent extends Component<Props, {}> {
 
   render() {
     const { setCurrentTime, player } = this.props;
-    const {
-      shouldRepeatCurrent, currentPodcast, stopPlayer, paused,
-    } = player;
+    const { shouldRepeatCurrent, currentPodcast, stopPlayer, paused } = player;
 
-    const isPodcastDefined = !!currentPodcast
-      && !!currentPodcast.uri
-      && typeof currentPodcast.uri === 'string';
+    const isPodcastDefined =
+      !!currentPodcast &&
+      !!currentPodcast.uri &&
+      typeof currentPodcast.uri === 'string';
 
     return isPodcastDefined && !stopPlayer ? (
       <Sound
@@ -74,9 +73,9 @@ class SoundComponent extends Component<Props, {}> {
         }}
         onEnd={this.onEnd}
         source={{
-          uri: currentPodcast.uri,
+          uri: currentPodcast.audio,
         }}
-        ref={(ref) => {
+        ref={ref => {
           this._soundRef = ref;
         }}
         repeat={shouldRepeatCurrent}
@@ -89,13 +88,11 @@ class SoundComponent extends Component<Props, {}> {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators(PlayerCreators, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(PlayerCreators, dispatch);
 
 const mapStateToProps = state => ({
   player: state.player,
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(SoundComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(SoundComponent);
