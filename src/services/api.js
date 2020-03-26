@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { SERVER_URL } from 'react-native-dotenv';
+import env from 'react-native-config';
 
 const api = axios.create({
-  baseURL: SERVER_URL,
+  baseURL: env.LISTEN_NOTES_API_BASE_URL,
+  headers: { 'X-ListenAPI-Key': env.LISTEN_NOTES_API_TOKEN },
 });
 
 export default api;

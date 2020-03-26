@@ -7,6 +7,7 @@ import styled, { withTheme } from 'styled-components';
 import TrendingAuthorsDiscover from './trending-authors/trending-authors-discover/TrendingAuthorsDiscover';
 import NewReleasesDiscover from './new-releases/new-releases-discover/NewReleasesDiscover';
 import HottestPodcasts from './hottest-podcasts/HottestPodcastsDiscover';
+import BestPodcastsDiscover from './best-podcasts/best-podcasts-discover/BestPodcastsDiscover';
 
 import ErrorMessage from '~/components/common/ErrorMessage';
 import ScreenTitle from '~/components/common/ScreenTitle';
@@ -41,30 +42,35 @@ const HomeComponent = ({
   error,
   data,
   getHome,
-}: Props): Object => (
-  <Wrapper>
-    {loading && !error && <Loading />}
-    {!loading && error && (
-      <ErrorMessage
-        message="Seems like you're having some troubles when trying to connect with the server."
-        icon="server-network-off"
-        title="Oops..."
-      />
-    )}
-    {!loading && !error && (
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        refreshControl={
-          <RefreshControl
-            progressBackgroundColor={appStyles.colors.primaryColor}
-            tintColor={appStyles.colors.primaryColor}
-            colors={[appStyles.colors.white]}
-            refreshing={loading && !error}
-            onRefresh={getHome}
-          />
-        }>
-        <ScreenTitle title="Discover" />
-        {data.newReleases && data.newReleases.length > 0 && (
+}: Props): Object => {
+  // console.log(data);
+  return (
+    <Wrapper>
+      {loading && !error && <Loading />}
+      {!loading && error && (
+        <ErrorMessage
+          message="Seems like you're having some troubles when trying to connect with the server."
+          icon="server-network-off"
+          title="Oops..."
+        />
+      )}
+      {!loading && !error && (
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          refreshControl={
+            <RefreshControl
+              progressBackgroundColor={appStyles.colors.primaryColor}
+              tintColor={appStyles.colors.primaryColor}
+              colors={[appStyles.colors.white]}
+              refreshing={loading && !error}
+              onRefresh={getHome}
+            />
+          }>
+          <ScreenTitle title="Discover" />
+          {data && data.length > 0 && (
+            <BestPodcastsDiscover data={data} navigation={navigation} />
+          )}
+          {/* {data.newReleases && data.newReleases.length > 0 && (
           <NewReleasesDiscover
             data={data.newReleases}
             navigation={navigation}
@@ -81,10 +87,11 @@ const HomeComponent = ({
             data={data.hottestPodcasts}
             navigation={navigation}
           />
-        )}
-      </ScrollView>
-    )}
-  </Wrapper>
-);
+        )} */}
+        </ScrollView>
+      )}
+    </Wrapper>
+  );
+};
 
 export default HomeComponent;

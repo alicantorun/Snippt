@@ -1,6 +1,4 @@
-import {
-  call, select, delay, put,
-} from 'redux-saga/effects';
+import { call, select, delay, put } from 'redux-saga/effects';
 
 import api from '~/services/api';
 import { SERVER_URL } from 'react-native-dotenv';
@@ -18,20 +16,26 @@ export function* getHome() {
       [],
     );
 
-    const interests = typeof rawInterests === 'string'
-      ? JSON.parse(rawInterests)
-      : rawInterests;
+    const interests =
+      typeof rawInterests === 'string'
+        ? JSON.parse(rawInterests)
+        : rawInterests;
 
     const interestsSelected = interests
       .filter(interest => interest.isSelected)
       .map(interest => interest.title.toLowerCase());
 
-    const { data } = yield call(api.get, '/home', {
-      paramsSerializer: params => parseParams(params),
-      params: { categories: interestsSelected },
-    });
+    // This bring best podcasts for now
+    const { data } = yield call(
+      api.get,
+      '/best_podcasts',
+      //  {
+      //   paramsSerializer: params => parseParams(params),
+      //   params: { categories: interestsSelected },
+      // }
+    );
 
-    yield put(HomeCreators.getHomeSuccess(data));
+    yield put(HomeCreators.getHomeSuccess(data.podcasts));
   } catch (err) {
     yield put(HomeCreators.getHomeFailure());
   }
