@@ -94,9 +94,10 @@ class Interests extends Component<{}, State> {
       [],
     );
 
-    const interests = typeof rawInterests === 'string'
-      ? JSON.parse(rawInterests)
-      : rawInterests;
+    const interests =
+      typeof rawInterests === 'string'
+        ? JSON.parse(rawInterests)
+        : rawInterests;
 
     if (interests.length === 0) {
       this.setState({
@@ -142,9 +143,11 @@ class Interests extends Component<{}, State> {
 
     if (indexSelected === 0) {
       this.setState({
-        interests: interests.map(interest => (interest.title === 'ALL'
-          ? { ...interest, isSelected: true }
-          : { ...interest, isSelected: false })),
+        interests: interests.map(interest =>
+          interest.title === 'ALL'
+            ? { ...interest, isSelected: true }
+            : { ...interest, isSelected: false },
+        ),
       });
 
       return;

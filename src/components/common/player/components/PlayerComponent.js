@@ -69,6 +69,9 @@ const PlayerComponent = ({
   paused,
   pause,
   play,
+  playSnippet,
+  pauseSnippet,
+  addSnippet,
 }: Props): Object => (
   <Wrapper>
     <StatusBar backgroundColor="#111" barStyle="light-content" animated />
@@ -89,6 +92,9 @@ const PlayerComponent = ({
         paused={paused}
         pause={pause}
         play={play}
+        playSnippet={playSnippet}
+        pauseSnippet={pauseSnippet}
+        addSnippet={addSnippet}
       />
     </UpperSection>
     <BottomSection>

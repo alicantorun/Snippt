@@ -1,9 +1,7 @@
 // @flow
 
 import React from 'react';
-import {
-  TouchableOpacity, Platform, View, Text, FlatList,
-} from 'react-native';
+import { TouchableOpacity, Platform, View, Text, FlatList } from 'react-native';
 import styled from 'styled-components';
 
 import NextPodcastListItem from './NextPodcastListItem';
@@ -21,7 +19,8 @@ const Header = styled(View)`
   width: 100%;
   flex-direction: row;
   align-items: center;
-  padding-left: ${({ theme }) => (Platform.OS === 'android' ? theme.metrics.smallSize : 0)}px;
+  padding-left: ${({ theme }) =>
+    Platform.OS === 'android' ? theme.metrics.smallSize : 0}px;
 `;
 
 const NextText = styled(Text)`
@@ -29,7 +28,8 @@ const NextText = styled(Text)`
   font-size: ${({ theme }) => theme.metrics.getWidthFromDP('7%')}px;
   font-family: CircularStd-Bold;
   padding-left: ${({ theme }) => theme.metrics.largeSize}px;
-  padding-bottom: ${({ theme }) => (Platform.OS === 'ios' ? theme.metrics.extraSmallSize : 0)}px;
+  padding-bottom: ${({ theme }) =>
+    Platform.OS === 'ios' ? theme.metrics.extraSmallSize : 0}px;
 `;
 
 const Playlist = styled(FlatList)`
@@ -65,8 +65,7 @@ const renderHeader = (onBackPress: Function, iconName: string): Object => {
           right: appStyles.metrics.smallSize,
           left: appStyles.metrics.smallSize,
           top: appStyles.metrics.smallSize,
-        }}
-      >
+        }}>
         <Icon
           name={iconName}
           size={appStyles.metrics.getWidthFromDP(iconSize)}

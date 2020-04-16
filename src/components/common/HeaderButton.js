@@ -42,13 +42,8 @@ export const HeaderButton = ({
         paddingTop: appStyles.metrics.extraSmallSize,
         marginRight,
         marginLeft,
-      }}
-    >
-      <Icon
-        color={appStyles.colors.white}
-        name={iconName}
-        size={26}
-      />
+      }}>
+      <Icon color={appStyles.colors.white} name={iconName} size={26} />
     </TouchableOpacity>
   );
 };

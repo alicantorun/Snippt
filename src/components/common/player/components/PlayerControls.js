@@ -57,13 +57,29 @@ const renderCenterButton = (
 
   return (
     <PlayOutterCircle>
-      <PlayInnerCircleButton
-        onPress={onPress}
-      >
+      <PlayInnerCircleButton onPress={onPress}>
         <Icon
           size={appStyles.metrics.getWidthFromDP('9%')}
           color={appStyles.colors.white}
           name={iconName}
+        />
+      </PlayInnerCircleButton>
+    </PlayOutterCircle>
+  );
+};
+
+const renderSnippetButton = (addSnippet: Function): Object => {
+  // const { onPress, iconName } = paused
+  //   ? { onPress: playSnippet, iconName: 'tag' }
+  //   : { onPress: pauseSnippet, iconName: 'pause' };
+
+  return (
+    <PlayOutterCircle>
+      <PlayInnerCircleButton onPress={addSnippet}>
+        <Icon
+          size={appStyles.metrics.getWidthFromDP('9%')}
+          color={appStyles.colors.white}
+          name={'tag'}
         />
       </PlayInnerCircleButton>
     </PlayOutterCircle>
@@ -78,8 +94,7 @@ const renderSideButton = (iconName: string, action: Function): Object => (
       right: appStyles.metrics.smallSize,
       left: appStyles.metrics.smallSize,
       top: appStyles.metrics.smallSize,
-    }}
-  >
+    }}>
     <Icon
       size={appStyles.metrics.getWidthFromDP('9%')}
       color={appStyles.colors.white}
@@ -94,11 +109,13 @@ const PlayerControls = ({
   paused,
   pause,
   play,
+  addSnippet,
 }: Props): Object => (
   <Container>
     <Wrapper>
       {renderSideButton('skip-previous', playPrevious)}
       {renderCenterButton(paused, pause, play)}
+      {renderSnippetButton(addSnippet)}
       {renderSideButton('skip-next', playNext)}
     </Wrapper>
   </Container>

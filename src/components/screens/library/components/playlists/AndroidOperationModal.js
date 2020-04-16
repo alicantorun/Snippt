@@ -1,9 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import {
-  TouchableOpacity, TextInput, Modal, View, Text,
-} from 'react-native';
+import { TouchableOpacity, TextInput, Modal, View, Text } from 'react-native';
 import styled from 'styled-components';
 import appStyles from '~/styles';
 
@@ -88,8 +86,7 @@ const AndroidOperationModal = ({
     onRequestClose={toggleModal}
     animationType="slide"
     hardwareAccelerated
-    transparent
-  >
+    transparent>
     <AndroidAlertContainer>
       <CardContainer>
         <View>
@@ -101,17 +98,14 @@ const AndroidOperationModal = ({
           />
         </View>
         <BottomButtonsWrapper>
-          <TouchableOpacity
-            onPress={toggleModal}
-          >
+          <TouchableOpacity onPress={toggleModal}>
             <ButtonText>CANCEL</ButtonText>
           </TouchableOpacity>
           <TouchableOpacity
             style={{
               marginLeft: appStyles.metrics.extraLargeSize * 1.5,
             }}
-            onPress={() => mainAction(null)}
-          >
+            onPress={() => mainAction(null)}>
             <ButtonText>{mode.toUpperCase()}</ButtonText>
           </TouchableOpacity>
         </BottomButtonsWrapper>

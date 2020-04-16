@@ -7,6 +7,7 @@ import { Types as PlayerTypes } from '../ducks/player';
 import { Types as AuthorTypes } from '../ducks/author';
 import { Types as HomeTypes } from '../ducks/home';
 import { Types as PodcastWithEpisodesTypes } from '../ducks/podcastWithEpisodes';
+import { Types as SnippetTypes } from '../ducks/snippet';
 
 import {
   clearAllLocalPodcastsReferences,
@@ -39,6 +40,16 @@ import {
 } from './playlist';
 import { getHome } from './home';
 import { getPodcastWithEpisodes } from './podcastWithEpisodes';
+import {
+  createSnippet,
+  loadSnippets,
+  // addPodcast,
+  // removePodcast,
+  getSnippet,
+  // setOfflineAvailability,
+  removeSnippet,
+  editSnippet,
+} from './snippet';
 
 export default function* rootSaga() {
   return yield all([
@@ -95,5 +106,17 @@ export default function* rootSaga() {
       PlaylistTypes.SET_AVAILABLE_OFFLINE_REQUEST,
       setOfflineAvailability,
     ),
+
+    takeLatest(SnippetTypes.CREATE_SNIPPET_REQUEST, createSnippet),
+    takeLatest(SnippetTypes.LOAD_SNIPPETS_REQUEST, loadSnippets),
+    // takeLatest(SnippetTypes.ADD_PODCAST_REQUEST, addPodcast),
+    // takeLatest(SnippetTypes.REMOVE_PODCAST_REQUEST, removePodcast),
+    takeLatest(SnippetTypes.REMOVE_SNIPPET_REQUEST, removeSnippet),
+    takeLatest(SnippetTypes.EDIT_SNIPPET_REQUEST, editSnippet),
+    takeLatest(SnippetTypes.GET_SNIPPET_REQUEST, getSnippet),
+    // takeLatest(
+    //   SnippetTypes.SET_AVAILABLE_OFFLINE_REQUEST,
+    //   setOfflineAvailability,
+    // ),
   ]);
 }

@@ -21,6 +21,11 @@ const navigationBarItems = [
     route: CONSTANTS.ROUTES.SEARCH,
   },
   {
+    label: 'Snippets',
+    icon: 'bookmark',
+    route: CONSTANTS.ROUTES.SNIPPETS,
+  },
+  {
     label: 'Library',
     icon: 'library-music',
     route: CONSTANTS.ROUTES.LIBRARY,
@@ -37,7 +42,8 @@ type Props = {
   navigation: Object,
 };
 
-const onSelectStackRoute = (navigation: Object, route: string): void => navigation.navigate(route);
+const onSelectStackRoute = (navigation: Object, route: string): void =>
+  navigation.navigate(route);
 
 const Navigation = ({ navigationState, navigation }: Props): Object => {
   const { index, routes } = navigationState;
@@ -50,9 +56,7 @@ const Navigation = ({ navigationState, navigation }: Props): Object => {
     <Fragment>
       {!isShowingPlayerScreen && (
         <Fragment>
-          <PlayerTracker
-            navigation={navigation}
-          />
+          <PlayerTracker navigation={navigation} />
           <NavigationBar
             onSelectStackRoute={route => onSelectStackRoute(navigation, route)}
             stackRouteSelected={index}

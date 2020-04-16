@@ -10,6 +10,7 @@ import HomeRoutes from '~/components/screens/home/routes';
 import SearchRoutes from '~/components/screens/search/routes';
 import LibraryRoutes from '~/components/screens/library/routes';
 import SettingsRoutes from '~/components/screens/settings/routes';
+import SnippetRoutes from '~/components/screens/snippets/routes';
 import appStyles from '~/styles';
 
 export const ROUTE_NAMES = {
@@ -18,6 +19,7 @@ export const ROUTE_NAMES = {
   LIBRARY: 'LIBRARY',
   PROFILE: 'PROFILE',
   SETTINGS: 'SETTINGS',
+  SNIPPET: 'SNIPPET',
 };
 
 const ApplicationTabs = createMaterialTopTabNavigator(
@@ -29,6 +31,11 @@ const ApplicationTabs = createMaterialTopTabNavigator(
 
     [ROUTE_NAMES.SEARCH]: {
       screen: SearchRoutes,
+      header: null,
+    },
+
+    [ROUTE_NAMES.SNIPPETS]: {
+      screen: SnippetRoutes,
       header: null,
     },
 

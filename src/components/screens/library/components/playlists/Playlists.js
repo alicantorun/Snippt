@@ -1,9 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import {
-  TouchableOpacity, FlatList, View, Text, Platform,
-} from 'react-native';
+import { TouchableOpacity, FlatList, View, Text, Platform } from 'react-native';
 import styled from 'styled-components';
 
 import { connect } from 'react-redux';
@@ -69,7 +67,8 @@ class Playlists extends Component<Props, State> {
     const { navigation } = this.props;
 
     navigation.setParams({
-      [CONSTANTS.PARAMS.HEADER_ACTION]: () => this.onTogglePlaylistOperationModal('Create', '', 0),
+      [CONSTANTS.PARAMS.HEADER_ACTION]: () =>
+        this.onTogglePlaylistOperationModal('Create', '', 0),
     });
   }
 
@@ -223,7 +222,8 @@ class Playlists extends Component<Props, State> {
 
             return (
               <PlaylistListItem
-                onEditPlaylist={() => this.onTogglePlaylistOperationModal('Edit', item.title, index)
+                onEditPlaylist={() =>
+                  this.onTogglePlaylistOperationModal('Edit', item.title, index)
                 }
                 onRemovePlaylist={() => this.onRemovePlaylist(item)}
                 onPress={() => this.onPressPlaylistItem(item.title)}
@@ -241,9 +241,10 @@ class Playlists extends Component<Props, State> {
         {isPlaylistOperationModalOpen && (
           <PlaylistOperationModal
             onTypePlaylistTitle={this.onTypePlaylistTitle}
-            toggleModal={() => this.setState({
-              isPlaylistOperationModalOpen: false,
-            })
+            toggleModal={() =>
+              this.setState({
+                isPlaylistOperationModalOpen: false,
+              })
             }
             mainAction={
               isModalCreationMode ? this.onCreatePlaylist : this.onEditPlaylist
@@ -258,7 +259,8 @@ class Playlists extends Component<Props, State> {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators(PlaylistsCreators, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(PlaylistsCreators, dispatch);
 
 const mapStateToProps = state => ({
   playlists: state.playlist.playlists,

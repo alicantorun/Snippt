@@ -57,7 +57,7 @@ class StaterScreen extends Component<Props, {}> {
 
     SplashScreen.hide();
 
-    // navigation.navigate(CONSTANTS.ROUTES.ONBOARDING_INTRO);
+    navigation.navigate(CONSTANTS.ROUTES.ONBOARDING_INTRO);
   }
 
   loadImages = (): void => {
@@ -102,12 +102,7 @@ class StaterScreen extends Component<Props, {}> {
   };
 
   render() {
-    return (
-      <Wrapper onPress={console.log('pressed')}>
-        <WelcomeMessage>An epic App by Alican & Henno</WelcomeMessage>
-        <Button onPress={this.onPressNextButton} title="Go!" />
-      </Wrapper>
-    );
+    return <Fragment />;
   }
 }
 
@@ -120,4 +115,7 @@ const Creators = Object.assign(
 
 const mapDispatchToProps = dispatch => bindActionCreators(Creators, dispatch);
 
-export default connect(null, mapDispatchToProps)(StaterScreen);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(StaterScreen);

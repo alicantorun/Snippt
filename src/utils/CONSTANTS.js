@@ -12,6 +12,7 @@ const ROUTES = {
   SEARCH: 'SEARCH',
   LIBRARY: 'LIBRARY',
   SETTINGS: 'SETTINGS',
+  SNIPPETS: 'SNIPPETS',
 };
 
 const PARAMS = {

@@ -83,13 +83,11 @@ const NextPodcastListItem = ({
   podcast,
 }: Props): Object => (
   <Wrapper>
-    <PodcastImage
-      uri={podcast.imageURL}
-    />
+    <PodcastImage uri={podcast.imageURL} />
     <TextContentWrapper>
       <TextWrapper>
         <Title>{podcast.title}</Title>
-        <AuthorName>{podcast.author.name}</AuthorName>
+        {/* <AuthorName>{podcast.author.name}</AuthorName> */}
       </TextWrapper>
       <TouchableOpacity
         onPress={() => removeFromPlaylist(podcast.id)}
@@ -98,8 +96,7 @@ const NextPodcastListItem = ({
           right: appStyles.metrics.smallSize,
           left: appStyles.metrics.smallSize,
           top: appStyles.metrics.smallSize,
-        }}
-      >
+        }}>
         <ShowListIcon />
       </TouchableOpacity>
     </TextContentWrapper>

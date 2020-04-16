@@ -27,12 +27,14 @@ const PodcastImage = styled(FastImage).attrs(({ uri }) => ({
   width: ${({ theme }) => theme.metrics.getWidthFromDP('16%')}px;
   height: ${({ theme }) => theme.metrics.getWidthFromDP('16%')}px;
   margin-horizontal: ${({ theme }) => theme.metrics.smallSize}px;
-  border-radius: ${({ roundedImage, theme }) => (roundedImage ? theme.metrics.getWidthFromDP('8%') : 4)}px;
+  border-radius: ${({ roundedImage, theme }) =>
+    roundedImage ? theme.metrics.getWidthFromDP('8%') : 4}px;
 `;
 
 const ContentContainer = styled(View)`
   width: ${({ theme }) => theme.metrics.getWidthFromDP('55%')}px;
-  padding-top: ${({ shouldShowDownloadStatus, theme }) => (shouldShowDownloadStatus ? theme.metrics.smallSize : 0)}px;
+  padding-top: ${({ shouldShowDownloadStatus, theme }) =>
+    shouldShowDownloadStatus ? theme.metrics.smallSize : 0}px;
   justify-content: center;
 `;
 
@@ -50,7 +52,8 @@ const PodcastTitle = styled(Text).attrs({
 const AuthorName = styled(Text).attrs({
   numberOfLines: 1,
 })`
-  margin-left: ${({ shouldShowDownloadStatus, theme }) => (shouldShowDownloadStatus ? theme.metrics.smallSize : 0)}px;
+  margin-left: ${({ shouldShowDownloadStatus, theme }) =>
+    shouldShowDownloadStatus ? theme.metrics.smallSize : 0}px;
   font-size: ${({ theme }) => theme.metrics.mediumSize * 1.2}px;
   font-family: CircularStd-Medium;
   color: ${({ theme }) => theme.colors.subTextColor};
@@ -89,26 +92,20 @@ const getDonwloadStatusIconConfig = (
   theme,
 ): Object => {
   if (isDownloading) {
-    return <ActivityIndicator
-      color={theme.colors.primaryColor}
-      size="small"
-    />;
+    return <ActivityIndicator color={theme.colors.primaryColor} size="small" />;
   }
 
   const iconConfig = isDownloaded
     ? {
-      name: 'cloud-check',
-      color: theme.colors.primaryColor,
-    }
+        name: 'cloud-check',
+        color: theme.colors.primaryColor,
+      }
     : {
-      name: 'cloud-download-outline',
-      color: theme.colors.subTextColor,
-    };
+        name: 'cloud-download-outline',
+        color: theme.colors.subTextColor,
+      };
 
-  return <Icon
-    {...iconConfig}
-    size={20}
-  />;
+  return <Icon {...iconConfig} size={20} />;
 };
 
 type Props = {
@@ -130,21 +127,10 @@ const RecentlyPlayedListItem = ({
   index,
   theme,
 }: Props): Object => (
-  <Wrapper
-    onPress={() => onPressItem(podcast)}
-  >
-    <Index
-      isFirstIndex={index === 1}
-    >
-      {index}
-    </Index>
-    <PodcastImage
-      roundedImage={roundedImage}
-      uri={podcast.imageURL}
-    />
-    <ContentContainer
-      shouldShowDownloadStatus={shouldShowDownloadStatus}
-    >
+  <Wrapper onPress={() => onPressItem(podcast)}>
+    <Index isFirstIndex={index === 1}>{index}</Index>
+    <PodcastImage roundedImage={roundedImage} uri={podcast.imageURL} />
+    <ContentContainer shouldShowDownloadStatus={shouldShowDownloadStatus}>
       <PodcastTitle>{podcast.title}</PodcastTitle>
       <BottomContent>
         {shouldShowDownloadStatus && (
@@ -156,10 +142,8 @@ const RecentlyPlayedListItem = ({
             )}
           </IconWrapper>
         )}
-        <AuthorName
-          shouldShowDownloadStatus={shouldShowDownloadStatus}
-        >
-          {podcast.author.name}
+        <AuthorName shouldShowDownloadStatus={shouldShowDownloadStatus}>
+          {/* {podcast.author.name} */}
         </AuthorName>
       </BottomContent>
     </ContentContainer>

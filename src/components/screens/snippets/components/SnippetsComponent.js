@@ -5,7 +5,7 @@ import { View } from 'react-native';
 import styled from 'styled-components';
 
 import ScreenTitle from '~/components/common/ScreenTitle';
-import SearchAuthorTextInput from './SearchAuthorTextInput';
+import SearchSnippetsInput from './SearchSnippetsInput';
 import SubjectsList from './subjects-list/SubjectList';
 
 const Container = styled(View)`
@@ -47,20 +47,22 @@ const SearchComponent = ({
   isTextInputFocused,
   onTypeAuthorName,
   navigation,
+  snippets,
 }: Props): Object => (
   <Container>
-    <ScreenTitle title="Search" />
-    <SearchAuthorTextInputWrapper>
+    <ScreenTitle title="Snippets" />
+    {/* <SearchAuthorTextInputWrapper>
       <SearchAuthorTextInput
         onSearchForAuthor={onSearchForAuthor}
         onToggleDarkLayer={onToggleDarkLayer}
         onTypeAuthorName={onTypeAuthorName}
       />
-    </SearchAuthorTextInputWrapper>
+    </SearchAuthorTextInputWrapper> */}
     <SubjectsListWrapper isTextInputFocused={isTextInputFocused}>
       <SubjectsList
         isTextInputFocused={isTextInputFocused}
         navigation={navigation}
+        snippets={snippets}
       />
     </SubjectsListWrapper>
   </Container>

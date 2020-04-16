@@ -24,6 +24,8 @@ export const Types = {
   REPEAT_CURRENT_PODCAST_SUCCESS: 'REPEAT_CURRENT_PODCAST_SUCCESS',
   PLAY: 'player/PLAY',
   STOP: 'player/STOP',
+  PLAY_SNIPPET: 'PLAY_SNIPPET',
+  PAUSE_SNIPPET: 'PAUSE_SNIPPET',
 };
 
 const INITIAL_STATE = {
@@ -154,9 +156,18 @@ export const Creators = {
   pause: () => ({
     type: Types.STOP,
   }),
+
+  playSnippet: currentTime => ({
+    type: Types.PLAY_SNIPPET,
+    payload: { currentTime },
+  }),
+
+  pauseSnippet: () => ({
+    type: Types.PAUSE_SNIPPET,
+  }),
 };
 
-const parseCurrentPodcastTime = (rawTime) => {
+const parseCurrentPodcastTime = rawTime => {
   const currentTime = Math.ceil(rawTime);
 
   const currentTimeInMinutes = Math.floor(currentTime / 60);
@@ -292,8 +303,9 @@ const player = (state = INITIAL_STATE, { type, payload }) => {
     case Types.REMOVE_FROM_PLAYLIST:
       return {
         ...state,
-        playlist: state.playlist.filter((podcast) => {
-          const isRemovingCurrentPodcast = podcast.id === state.currentPodcast.id;
+        playlist: state.playlist.filter(podcast => {
+          const isRemovingCurrentPodcast =
+            podcast.id === state.currentPodcast.id;
           const isLookingToOtherPodcast = podcast.id !== payload.id;
 
           return isLookingToOtherPodcast;
@@ -304,6 +316,7 @@ const player = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         currentTime: parseCurrentPodcastTime(payload.currentTime),
+        currentTimeRaw: payload.currentTime,
       };
 
     case Types.RESTART_PLAYER:
@@ -367,12 +380,40 @@ const player = (state = INITIAL_STATE, { type, payload }) => {
         ...state,
         stopPlayer: false,
         paused: false,
+        setSnippet: true,
       };
 
     case Types.STOP:
       return {
         ...state,
         paused: true,
+      };
+
+    case Types.PLAY_SNIPPET:
+      return {
+        ...state,
+        setSnippet: true, // paused: true,
+        paused: false,
+        // snippetTime: parseCurrentPodcastTime(payload.currentTime),
+
+        // currentPodcast: {
+        //   ...state.currentPodcast,
+        //   uri: null,
+        // },
+        // seekValue: 0,
+      };
+
+    case Types.PAUSE_SNIPPET:
+      return {
+        ...state,
+        // paused: true,
+
+        // snippetTime: 100,
+        // currentPodcast: {
+        //   ...state.currentPodcast,
+        //   uri: null,
+        // },
+        // seekValue: 0,
       };
 
     default:

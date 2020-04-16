@@ -107,19 +107,19 @@ const PlayerTracker = ({
       <ProgressTimeLine />
       <Wrapper>
         <ContentWrapper
-          onPress={() => navigation.navigate(CONSTANTS.ROUTES.PLAYER, {
-            [CONSTANTS.PARAMS.PLAYER]: {
-              [CONSTANTS.KEYS.LOOKUP_PLAYER]: true,
-            },
-          })
-          }
-        >
-          <PodcastImage
-            uri={currentPodcast.imageURL}
-          />
+          onPress={
+            () => console.log('hey')
+
+            // navigation.navigate(CONSTANTS.ROUTES.PLAYER, {
+            //   [CONSTANTS.PARAMS.PLAYER]: {
+            //     [CONSTANTS.KEYS.LOOKUP_PLAYER]: true,
+            //   },
+            // })
+          }>
+          <PodcastImage uri={currentPodcast.imageURL} />
           <TextContentWrapper>
             <PodcastTitle>{currentPodcast.title}</PodcastTitle>
-            <AuthorName>{currentPodcast.author.name}</AuthorName>
+            {/* <AuthorName>{currentPodcast.author.name}</AuthorName> */}
           </TextContentWrapper>
         </ContentWrapper>
         <PlayerButtonsWrapper>
@@ -127,20 +127,14 @@ const PlayerTracker = ({
             onPress={() => (paused ? play() : pause())}
             style={{
               marginHorizontal: 4,
-            }}
-          >
+            }}>
             <PlayerIcon
               name={paused ? 'play-circle' : 'pause-circle'}
               size={36}
             />
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={playNext}
-          >
-            <PlayerIcon
-              name="skip-next"
-              size={28}
-            />
+          <TouchableOpacity onPress={playNext}>
+            <PlayerIcon name="skip-next" size={28} />
           </TouchableOpacity>
         </PlayerButtonsWrapper>
       </Wrapper>
@@ -154,7 +148,8 @@ const mapStateToProps = state => ({
   paused: state.player.paused,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(PlayerCreators, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(PlayerCreators, dispatch);
 
 export default connect(
   mapStateToProps,

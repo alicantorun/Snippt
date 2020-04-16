@@ -28,16 +28,28 @@ type Props = {
   playNext: Function,
 };
 
+let switchOn = true;
+
 class SoundComponent extends Component<Props, {}> {
   _soundRef: Object = null;
 
   componentWillReceiveProps(nextProps) {
     const { seekProgressTimerSuccess, player } = nextProps;
-    const { shouldSeekProgressSlider, seekValue } = player;
+    const {
+      shouldSeekProgressSlider,
+      seekValue,
+      setSnippet,
+      currentTime,
+      currentTimeRaw,
+    } = player;
 
     if (shouldSeekProgressSlider) {
       this._soundRef.seek(seekValue, 50);
       seekProgressTimerSuccess(seekValue);
+    }
+
+    if (setSnippet) {
+      this.playSnippet(currentTimeRaw);
     }
   }
 
@@ -55,9 +67,52 @@ class SoundComponent extends Component<Props, {}> {
     }
   };
 
+  playSnippet = currentTimeRaw => {
+    let currentTimeRawOnMemory = currentTimeRaw;
+    // if (currentTime < 15 && switchOn) {
+
+    if (switchOn) {
+      this._soundRef.seek(currentTimeRaw - 5);
+      // switchOn = true;
+      console.log('switched to', currentTimeRaw);
+      // }
+    }
+    switchOn = false;
+
+    // if (!switchOn) {
+    //   this._soundRef.seek(currentTimeRaw + 10);
+    //   switchOn = true;
+    // }
+  };
+
+  // playSnippet = currentTime => {
+  //   if (currentTime < 15 && switchOn) {
+  //     if (currentTime > 5) {
+  //       this._soundRef.seek(0);
+  //       switchOn = false;
+  //       console.log('Snippet Begins');
+  //     }
+  //   }
+
+  //   if (currentTime > 15) {
+  //     this._soundRef.seek(0);
+  //     switchOn = true;
+  //     console.log('Snippet Ends');
+  //   }
+  // };
+
   render() {
     const { setCurrentTime, player } = this.props;
-    const { shouldRepeatCurrent, currentPodcast, stopPlayer, paused } = player;
+    const {
+      shouldRepeatCurrent,
+      currentPodcast,
+      stopPlayer,
+      paused,
+      setSnippet,
+      currentTime,
+    } = player;
+
+    // console.log(this.props.player.setSnippet, this.props.player.currentTimeRaw);
 
     const isPodcastDefined =
       !!currentPodcast &&
@@ -69,6 +124,10 @@ class SoundComponent extends Component<Props, {}> {
         onProgress={({ currentTime }) => {
           if (!paused) {
             setCurrentTime(currentTime);
+            // console.log(currentTime);
+            if (setSnippet) {
+              setCurrentTime(currentTime);
+            }
           }
         }}
         onEnd={this.onEnd}
@@ -83,6 +142,8 @@ class SoundComponent extends Component<Props, {}> {
         paused={paused}
         rate={1.0}
         audioOnly
+        // onLoad={({ duration }) => console.log('MEDİA LOADED', duration)}
+        // onProgress={({ currentTime }) => this.playSnippet(currentTime)}
       />
     ) : null;
   }

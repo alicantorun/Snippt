@@ -1,6 +1,4 @@
-import {
-  select, delay, call, all, put,
-} from 'redux-saga/effects';
+import { select, delay, call, all, put } from 'redux-saga/effects';
 import { SERVER_URL } from 'react-native-dotenv';
 
 import { Creators as LocalPodcastsManagerCreators } from '../ducks/localPodcastsManager';
@@ -33,9 +31,10 @@ function* _getPodcastFromStorage(id) {
 function* _definePodcastURI(podcast) {
   const podcastStored = yield _getPodcastFromStorage(podcast.id);
 
-  const isPodcastStored = !!podcastStored
-    && !!podcastStored.path
-    && typeof podcastStored.path === 'string';
+  const isPodcastStored =
+    !!podcastStored &&
+    !!podcastStored.path &&
+    typeof podcastStored.path === 'string';
 
   const uri = isPodcastStored
     ? podcastStored.path
@@ -92,7 +91,7 @@ function* _rewindToPreviousPodcast(newPlaylistIndex) {
   }
 }
 
-const _shufflePlaylistItems = (playlist) => {
+const _shufflePlaylistItems = playlist => {
   const shuffledPlaylist = Object.create(playlist);
 
   let currentIndex = shuffledPlaylist.length;
@@ -233,7 +232,8 @@ function* _handleRestartPlayer(firstPodcast) {
 
   let firstPodcastPlaylist = firstPodcast;
 
-  const hasURIDefined = !!firstPodcastPlaylist.uri && typeof firstPodcastPlaylist.uri === 'string';
+  const hasURIDefined =
+    !!firstPodcastPlaylist.uri && typeof firstPodcastPlaylist.uri === 'string';
 
   if (!hasURIDefined) {
     firstPodcastPlaylist = yield _definePodcastURI(firstPodcastPlaylist);
@@ -279,8 +279,10 @@ export function* playNext() {
     }
 
     const isLastPodcastOfPlaylist = playlistIndex === playlist.length - 1;
-    const isLastPodcastShouldRepeatPlaylist = isLastPodcastOfPlaylist && shouldRepeatPlaylist;
-    const isLastPodcastNotRepeatPlaylist = isLastPodcastOfPlaylist && !shouldRepeatPlaylist;
+    const isLastPodcastShouldRepeatPlaylist =
+      isLastPodcastOfPlaylist && shouldRepeatPlaylist;
+    const isLastPodcastNotRepeatPlaylist =
+      isLastPodcastOfPlaylist && !shouldRepeatPlaylist;
     const isPlaylistEmpty = playlist.length === 0;
 
     if (isLastPodcastNotRepeatPlaylist || isPlaylistEmpty) {

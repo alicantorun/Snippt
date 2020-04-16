@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Creators as PlayerCreators } from '~/store/ducks/player';
+import { Creators as SnippetCreators } from '~/store/ducks/snippet';
 
 import PlaylistList from '~/components/common/playlists-list/PlaylistsListContainer';
 import NextPodcastsList from './components/next-podcasts-list/NextPodcastsList';
@@ -67,6 +68,8 @@ class Player extends Component<Props, State> {
     const { navigation, playlist, playlistIndex } = this.props;
     const { params } = navigation.state;
 
+    console.log('playlist: ', playlist);
+
     const playerParams = params[CONSTANTS.PARAMS.PLAYER];
     const isLookingUpPlayer = playerParams[CONSTANTS.KEYS.LOOKUP_PLAYER];
 
@@ -101,6 +104,7 @@ class Player extends Component<Props, State> {
   onToggleQueueSideMenu = (): void => {
     const { isQueueSideMenuOpen } = this.state;
     const { navigation } = this.props;
+    console.log('PRESSED BACK');
 
     navigation.setParams({
       [CONSTANTS.KEYS.IS_PLAYER_RIGHT_MENU_OPEN]: !isQueueSideMenuOpen,
@@ -193,6 +197,15 @@ class Player extends Component<Props, State> {
     return true;
   };
 
+  addSnippet = () => {
+    console.log('snippet added');
+    this.props.createSnippet({
+      podcastTitle: 'Alican 111',
+      episodeTitle: 'Alican ep2111',
+      snippetText: 'test test 14:%3 11111',
+    });
+  };
+
   render() {
     const {
       isCurrentPodcastDownloaded,
@@ -213,11 +226,13 @@ class Player extends Component<Props, State> {
       paused,
       pause,
       play,
+      playSnippet,
+      pauseSnippet,
+      addSnippet,
     } = this.props;
 
     const { isAddPlaylistModalOpen, isQueueSideMenuOpen } = this.state;
 
-    console.log('current podcast', currentPodcast);
     return (
       <Fragment>
         {!!currentPodcast && (
@@ -264,6 +279,9 @@ class Player extends Component<Props, State> {
               paused={paused}
               pause={pause}
               play={play}
+              playSnippet={playSnippet}
+              pauseSnippet={pauseSnippet}
+              addSnippet={this.addSnippet}
             />
           </SideMenu>
         )}
@@ -286,7 +304,7 @@ class Player extends Component<Props, State> {
 }
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(PlayerCreators, dispatch);
+  bindActionCreators({ ...PlayerCreators, ...SnippetCreators }, dispatch);
 
 const mapStateToProps = state => ({
   isCurrentPodcastDownloaded: state.player.isCurrentPodcastDownloaded,
@@ -299,4 +317,7 @@ const mapStateToProps = state => ({
   paused: state.player.paused,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Player);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Player);
