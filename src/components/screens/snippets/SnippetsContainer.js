@@ -120,7 +120,7 @@ class SnippetsContainer extends Component<Props, State> {
     const { isTextInputFocused } = this.state;
     const { onToggleModal, snippets, createSnippet } = this.props;
 
-    console.log('snippets array: ', snippets);
+    // console.log('snippets array: ', snippets);
 
     return (
       <SnippetsComponent

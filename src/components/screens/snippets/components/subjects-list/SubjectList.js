@@ -139,7 +139,7 @@ const SubjectsList = ({
   navigation,
   snippets,
 }: Props): Object => {
-  console.log('SNIPPETS: ', snippets);
+  // console.log('SNIPPETS: ', snippets);
   return (
     <FlatList
       renderItem={({ item, index }) => {
@@ -147,8 +147,10 @@ const SubjectsList = ({
         return (
           <SubjectsListItem
             onPress={() => {
-              navigation.navigate(CONSTANTS.ROUTES.SUBJECT_DETAIL, {
-                [CONSTANTS.PARAMS.SUBJECT_DETAIL]: item,
+              navigation.navigate(CONSTANTS.ROUTES.PLAYER, {
+                [CONSTANTS.PARAMS.PLAYER]: {
+                  [CONSTANTS.KEYS.PLAYLIST]: [item],
+                },
               });
             }}
             isTextInputFocused={isTextInputFocused}
@@ -156,6 +158,7 @@ const SubjectsList = ({
             podcastTitle={item.podcastTitle}
             episodeTitle={item.episodeTitle}
             snippetText={item.snippetText}
+            thumbnail={item.thumbnail}
             title={item.title}
             index={index}
           />

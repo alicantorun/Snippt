@@ -68,7 +68,7 @@ class Player extends Component<Props, State> {
     const { navigation, playlist, playlistIndex } = this.props;
     const { params } = navigation.state;
 
-    console.log('playlist: ', playlist);
+    // console.log('playlist: ', playlist);
 
     const playerParams = params[CONSTANTS.PARAMS.PLAYER];
     const isLookingUpPlayer = playerParams[CONSTANTS.KEYS.LOOKUP_PLAYER];
@@ -104,7 +104,7 @@ class Player extends Component<Props, State> {
   onToggleQueueSideMenu = (): void => {
     const { isQueueSideMenuOpen } = this.state;
     const { navigation } = this.props;
-    console.log('PRESSED BACK');
+    // console.log('PRESSED BACK');
 
     navigation.setParams({
       [CONSTANTS.KEYS.IS_PLAYER_RIGHT_MENU_OPEN]: !isQueueSideMenuOpen,
@@ -198,11 +198,13 @@ class Player extends Component<Props, State> {
   };
 
   addSnippet = () => {
-    console.log('snippet added');
+    console.log('snippet added', this.props.currentPodcast.thumbnail);
     this.props.createSnippet({
-      podcastTitle: 'Alican 111',
+      podcastTitle: this.props.currentPodcast.title,
       episodeTitle: 'Alican ep2111',
-      snippetText: 'test test 14:%3 11111',
+      snippetText: this.props.currentPodcast.description,
+      thumbnail: this.props.currentPodcast.thumbnail,
+      podcast: this.props.currentPodcast,
     });
   };
 
@@ -230,6 +232,8 @@ class Player extends Component<Props, State> {
       pauseSnippet,
       addSnippet,
     } = this.props;
+
+    // console.log(this.props.currentPodcast);
 
     const { isAddPlaylistModalOpen, isQueueSideMenuOpen } = this.state;
 

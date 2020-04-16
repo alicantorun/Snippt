@@ -59,10 +59,11 @@ const SubjectListItem = ({
   podcastTitle,
   episodeTitle,
   snippetText,
+  thumbnail,
   title,
   index,
 }: Props): Object => {
-  console.log('title OBJECT:', title);
+  console.log('SNIPPET THUMBNAIL:', thumbnail);
   return (
     <Container disabled={isTextInputFocused} onPress={onPress} index={index}>
       {/* <View>
@@ -79,7 +80,7 @@ const SubjectListItem = ({
             height: 64,
             marginRight: 12,
           }}>
-          <SubjectImage uri={imageURL} />
+          <SubjectImage uri={thumbnail} />
         </View>
         <View
           style={{
@@ -88,14 +89,14 @@ const SubjectListItem = ({
             // alignContent: 'stretch',
             // alignItems: 'stretch',
           }}>
-          <Text
+          <Title
             style={{
               fontWeight: 'bold',
             }}>
             {podcastTitle}
-          </Text>
-          <Text>{episodeTitle}</Text>
-          <Text>{snippetText}</Text>
+          </Title>
+          <Title>{episodeTitle}</Title>
+          <Title>{snippetText}</Title>
         </View>
       </View>
     </Container>

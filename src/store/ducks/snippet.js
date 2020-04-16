@@ -34,14 +34,22 @@ const INITIAL_STATE = {
     podcastTitle: '',
     episodeTitle: '',
     snippetText: '',
+    thumbnail: '',
+    podcast: [],
   },
   error: false,
 };
 
 export const Creators = {
-  createSnippet: ({ podcastTitle, episodeTitle, snippetText }) => ({
+  createSnippet: ({
+    podcastTitle,
+    episodeTitle,
+    snippetText,
+    thumbnail,
+    podcast,
+  }) => ({
     type: Types.CREATE_SNIPPET_REQUEST,
-    payload: { podcastTitle, episodeTitle, snippetText },
+    payload: { podcastTitle, episodeTitle, snippetText, thumbnail, podcast },
   }),
 
   createSnippetSuccess: snippets => ({

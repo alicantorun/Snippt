@@ -74,7 +74,7 @@ class SoundComponent extends Component<Props, {}> {
     if (switchOn) {
       this._soundRef.seek(currentTimeRaw - 5);
       // switchOn = true;
-      console.log('switched to', currentTimeRaw);
+      // console.log('switched to', currentTimeRaw);
       // }
     }
     switchOn = false;
@@ -156,4 +156,7 @@ const mapStateToProps = state => ({
   player: state.player,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SoundComponent);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SoundComponent);

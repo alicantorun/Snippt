@@ -56,7 +56,7 @@ const Navigation = ({ navigationState, navigation }: Props): Object => {
     <Fragment>
       {!isShowingPlayerScreen && (
         <Fragment>
-          <PlayerTracker navigation={navigation} />
+          {/* <PlayerTracker navigation={navigation} /> */}
           <NavigationBar
             onSelectStackRoute={route => onSelectStackRoute(navigation, route)}
             stackRouteSelected={index}
