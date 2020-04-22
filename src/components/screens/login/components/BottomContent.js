@@ -4,6 +4,9 @@ import React, { Fragment } from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
 import styled from 'styled-components';
 
+import facebookLogin from '~utils/facebookLogin';
+import googleLogin from '~utils/googleLogin';
+
 import Icon from '~/components/common/Icon';
 import DefaultText from './DefaultText';
 import appStyles from '~/styles';
@@ -18,7 +21,8 @@ const ButtonWrapper = styled(TouchableOpacity)`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-bottom: ${({ withMarginBottom, theme }) => (withMarginBottom ? theme.metrics.largeSize : 0)}px;
+  margin-bottom: ${({ withMarginBottom, theme }) =>
+    withMarginBottom ? theme.metrics.largeSize : 0}px;
   padding-vertical: ${({ theme }) => theme.metrics.mediumSize}px;
   padding-horizontal: ${({ theme }) => theme.metrics.extraLargeSize}px;
   border-radius: 5px;
@@ -70,18 +74,13 @@ const renderButton = ({
   <ButtonWrapper
     withMarginBottom={withMarginBottom}
     backgroundColor={backgroundColor}
-    onPress={onPress}
-  >
+    onPress={onPress}>
     <DefaultText
       text={`${actionSelected} with`}
       color={appStyles.colors.white}
       withMarginRight
     />
-    <Icon
-      color={appStyles.colors.white}
-      name={iconName}
-      size={size}
-    />
+    <Icon color={appStyles.colors.white} name={iconName} size={size} />
   </ButtonWrapper>
 );
 
@@ -103,7 +102,7 @@ const BottomContent = ({
     <ButtonsWrapper>
       {renderButton({
         backgroundColor: appStyles.colors.facebook,
-        onPress: onNavigateToMainStack,
+        onPress: () => facebookLogin().then(() => onNavigateToMainStack()),
         withMarginBottom: true,
         iconName: 'facebook-box',
         actionSelected,
@@ -111,7 +110,7 @@ const BottomContent = ({
       })}
       {renderButton({
         backgroundColor: appStyles.colors.googlePlus,
-        onPress: onNavigateToMainStack,
+        onPress: () => googleLogin().then(() => onNavigateToMainStack()),
         withMarginBottom: true,
         iconName: 'google-plus-box',
         actionSelected,
