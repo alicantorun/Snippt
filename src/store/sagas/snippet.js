@@ -1,6 +1,7 @@
 import { call, select, delay, put, all } from 'redux-saga/effects';
 
 import { Creators as SnippetCreators } from '../ducks/snippet';
+import { apiFirebase } from '~/services/api';
 
 import {
   removeItemFromStorage,
@@ -46,26 +47,45 @@ export function* createSnippet({ payload }) {
       podcast,
     } = payload;
 
-    const snippetsUpdated = [
-      {
-        isAvailableOffline: false,
-        downloads: [],
-        podcasts: [],
+    console.log('startingn fetch');
+
+    try {
+      const response = yield call(apiFirebase.post, '/snippets.json', {
         podcastTitle,
         episodeTitle,
         snippetText,
         thumbnail,
         podcast,
-      },
-      ...snippets,
-    ];
+      });
 
-    yield persistItemInStorage(
-      CONSTANTS.KEYS.SNIPPET_STORAGE_KEY,
-      snippetsUpdated,
-    );
+      console.log('response: Success');
+      console.log('response: ', response);
+    } catch (error) {
+      console.log('error', error);
+    }
 
-    yield put(SnippetCreators.createSnippetSuccess(snippetsUpdated));
+    // TODO
+
+    // const snippetsUpdated = [
+    //   {
+    //     isAvailableOffline: false,
+    //     downloads: [],
+    //     podcasts: [],
+    //     podcastTitle,
+    //     episodeTitle,
+    //     snippetText,
+    //     thumbnail,
+    //     podcast,
+    //   },
+    //   ...snippets,
+    // ];
+
+    // yield persistItemInStorage(
+    //   CONSTANTS.KEYS.SNIPPET_STORAGE_KEY,
+    //   snippetsUpdated,
+    // );
+
+    // yield put(SnippetCreators.createSnippetSuccess(snippetsUpdated));
   } catch (err) {
     yield put(
       SnippetCreators.createSnippetFailure(

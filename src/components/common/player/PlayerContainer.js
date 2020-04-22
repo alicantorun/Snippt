@@ -198,7 +198,7 @@ class Player extends Component<Props, State> {
   };
 
   addSnippet = () => {
-    console.log('snippet added', this.props.currentPodcast.thumbnail);
+    // console.log('snippet added', this.props.currentPodcast.thumbnail);
     this.props.createSnippet({
       podcastTitle: this.props.currentPodcast.title,
       episodeTitle: 'Alican ep2111',

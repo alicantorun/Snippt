@@ -52,6 +52,11 @@ class BestPodcastsSeeAll extends Component<Props, {}> {
           keyExtractor={podcast => `${podcast.id}`}
           showsVerticalScrollIndicator={false}
           data={bestPodcasts}
+          // TODO
+          onEndReached={() => {
+            console.log('add more best podcasts');
+          }}
+          onEndReachedThreshold={0.3}
           renderItem={({ item, index }) => (
             <BestPodcastsSeeAllListItem
               onPressItem={() =>

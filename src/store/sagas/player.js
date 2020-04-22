@@ -3,7 +3,7 @@ import { SERVER_URL } from 'react-native-dotenv';
 
 import { Creators as LocalPodcastsManagerCreators } from '../ducks/localPodcastsManager';
 import { Creators as PlayerCreators } from '../ducks/player';
-import api from '~/services/api';
+import { api } from '~/services/api';
 
 const _findIndexInsideOriginalPlaylist = (
   originalPlaylist,

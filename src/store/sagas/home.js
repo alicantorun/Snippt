@@ -1,6 +1,6 @@
 import { call, select, delay, put } from 'redux-saga/effects';
 
-import api from '~/services/api';
+import { api } from '~/services/api';
 import { SERVER_URL } from 'react-native-dotenv';
 
 import { getItemFromStorage } from '../../utils/AsyncStorageManager';
