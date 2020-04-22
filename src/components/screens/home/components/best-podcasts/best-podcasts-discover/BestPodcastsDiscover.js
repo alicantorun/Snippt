@@ -32,8 +32,8 @@ const BestPodcastsDiscover = ({ navigation, data }: Props): Object => {
       <SectionWithButton
         onPress={() => {
           const { params } = navigation.state;
-          navigation.navigate(params.LOCAL_STACK_ROUTES.NEW_RELEASES_SEE_ALL, {
-            [CONSTANTS.PARAMS.PODCASTS_NEW_RELEASES]: data,
+          navigation.navigate(params.LOCAL_STACK_ROUTES.BEST_PODCASTS_SEE_ALL, {
+            [CONSTANTS.PARAMS.PODCASTS_BEST]: data,
           });
         }}
         sectionTitle="Best Podcasts"

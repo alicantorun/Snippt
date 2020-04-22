@@ -6,6 +6,7 @@ import AuthorDetailContainer from '~/components/common/author-detail/AuthorDetai
 import TrendingAuthorsSeeAll from './components/trending-authors/TrendingAuthorsSeeAll';
 import HottestPodcastsSeeAll from './components/hottest-podcasts/HottestPodcastsSeeAll';
 import NewReleasesSeeAll from './components/new-releases/NewReleasesSeeAll';
+import BestPodcastsSeeAll from './components/best-podcasts/BestPodcastsSeeAll';
 
 import PodcastDetailContainer from '~/components/common/podcast-detail/PodcastDetailContainer';
 import Player from '~/components/common/player/PlayerContainer';
@@ -23,7 +24,8 @@ import appStyles from '~/styles';
 const LOCAL_STACK_ROUTES = {
   TRENDING_AUTHORS_SEE_ALL: 'TRENDING_AUTHORS_SEE_ALL',
   HOTTEST_PODCASTS_SEE_ALL: 'HOTTEST_PODCASTS_SEE_ALL',
-  NEW_RELEASES_SEE_ALL: 'NEW_RELEASES_SEE_ALL',
+  // NEW_RELEASES_SEE_ALL: 'NEW_RELEASES_SEE_ALL',
+  BEST_PODCASTS_SEE_ALL: 'BEST_PODCASTS_SEE_ALL',
 };
 
 const RootStack = createStackNavigator(
@@ -61,16 +63,27 @@ const RootStack = createStackNavigator(
         ),
     },
 
-    [LOCAL_STACK_ROUTES.NEW_RELEASES_SEE_ALL]: {
-      screen: NewReleasesSeeAll,
+    [LOCAL_STACK_ROUTES.BEST_PODCASTS_SEE_ALL]: {
+      screen: BestPodcastsSeeAll,
       navigationOptions: ({ navigation, screenProps }) =>
         getDefaultHeaderWithButton(
           navigation,
           screenProps,
-          'New Releases',
+          'Best Podcasts',
           'play-circle-outline',
         ),
     },
+
+    // [LOCAL_STACK_ROUTES.NEW_RELEASES_SEE_ALL]: {
+    //   screen: NewReleasesSeeAll,
+    //   navigationOptions: ({ navigation, screenProps }) =>
+    //     getDefaultHeaderWithButton(
+    //       navigation,
+    //       screenProps,
+    //       'New Releases',
+    //       'play-circle-outline',
+    //     ),
+    // },
 
     [CONSTANTS.ROUTES.AUTHOR_DETAIL]: {
       screen: AuthorDetailContainer,

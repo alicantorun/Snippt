@@ -38,7 +38,7 @@ class BestPodcastsSeeAll extends Component<Props, {}> {
     const { navigation } = this.props;
     const { params } = navigation.state;
 
-    return params[CONSTANTS.PARAMS.PODCASTS_NEW_RELEASES];
+    return params[CONSTANTS.PARAMS.PODCASTS_BEST];
   };
 
   render() {
