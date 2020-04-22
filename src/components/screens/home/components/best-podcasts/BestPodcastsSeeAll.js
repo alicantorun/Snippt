@@ -56,8 +56,9 @@ class BestPodcastsSeeAll extends Component<Props, {}> {
             <BestPodcastsSeeAllListItem
               onPressItem={() =>
                 navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
+                  // TODO
                   [CONSTANTS.KEYS
-                    .PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: true,
+                    .PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: false,
                   [CONSTANTS.PARAMS.PODCAST_DETAIL]: item,
                 })
               }
