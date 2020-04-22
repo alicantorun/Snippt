@@ -59,42 +59,36 @@ type Props = {
   title: string,
 };
 
-const PlaylistListItem = ({
-  numberOfPodcasts,
-  isDownloaded,
-  onPress,
-  images,
-  title,
-}: Props): Object => (
-  <Wrapper
-    onPress={onPress}
-  >
-    <ContentWrapper>
-      <PlaylistCompositionImages
-        images={images}
-        size="large"
-      />
-      <TextWrapper>
-        <PlaylistTitle>{title}</PlaylistTitle>
-        <BottomContentWrapper>
-          <NumberPodcasts>
-            {`${numberOfPodcasts} ${
-              numberOfPodcasts === 1 ? 'Podcast' : 'Podcasts'
-            }`}
-          </NumberPodcasts>
-          <Icon
-            color={
-              isDownloaded
-                ? appStyles.colors.primaryColor
-                : appStyles.colors.subTextWhite
-            }
-            name={isDownloaded ? 'cloud-check' : 'cloud-download-outline'}
-            size={22}
-          />
-        </BottomContentWrapper>
-      </TextWrapper>
-    </ContentWrapper>
-  </Wrapper>
-);
+const PlaylistListItem = (
+  { numberOfPodcasts, isDownloaded, onPress, images, title },
+  props: Props,
+): Object => {
+  return (
+    <Wrapper onPress={onPress}>
+      <ContentWrapper>
+        <PlaylistCompositionImages images={images} size="large" />
+        <TextWrapper>
+          <PlaylistTitle>{title}</PlaylistTitle>
+          <BottomContentWrapper>
+            <NumberPodcasts>
+              {`${numberOfPodcasts} ${
+                numberOfPodcasts === 1 ? 'Podcast' : 'Podcasts'
+              }`}
+            </NumberPodcasts>
+            <Icon
+              color={
+                isDownloaded
+                  ? appStyles.colors.primaryColor
+                  : appStyles.colors.subTextWhite
+              }
+              name={isDownloaded ? 'cloud-check' : 'cloud-download-outline'}
+              size={22}
+            />
+          </BottomContentWrapper>
+        </TextWrapper>
+      </ContentWrapper>
+    </Wrapper>
+  );
+};
 
 export default PlaylistListItem;

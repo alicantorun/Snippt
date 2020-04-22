@@ -13,8 +13,6 @@ export default async function onGoogleButtonPress() {
   // Create a Google credential with the token
   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
 
-  console.log(googleCredential);
-
   // Sign-in the user with the credential
   return auth().signInWithCredential(googleCredential);
 }

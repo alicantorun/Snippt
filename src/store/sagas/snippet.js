@@ -38,7 +38,6 @@ export function* createSnippet({ payload }) {
   try {
     const { snippets } = yield select(state => state.snippet);
 
-    console.log('create snippet saga payload: ', payload);
     const {
       podcastTitle,
       episodeTitle,
