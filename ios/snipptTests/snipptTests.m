@@ -14,11 +14,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface mindCastV3Tests : XCTestCase
+@interface snipptTests : XCTestCase
 
 @end
 
-@implementation mindCastV3Tests
+@implementation snipptTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00BB7D7CED834D559E3D0E12 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC785A80A0504ADA98108B18 /* AntDesign.ttf */; };
-		00E356F31AD99517003FC87E /* mindCastV3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* mindCastV3Tests.m */; };
+		00E356F31AD99517003FC87E /* snipptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* snipptTests.m */; };
 		016ACA77BBAB4BB984B7B9FF /* Modesta-Script.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 22CA023A38E14F26B667C025 /* Modesta-Script.ttf */; };
 		03B4400747D349549DAEF898 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB85EC9703BA48B2809960D2 /* Entypo.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -20,27 +20,27 @@
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* mindCastV3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* mindCastV3Tests.m */; };
+		2DCD954D1E0B4F2C00145EB5 /* snipptTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* snipptTests.m */; };
 		313D2819ABAD4B6384146857 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B7A14A46A574B0FA0DF6E76 /* FontAwesome5_Brands.ttf */; };
 		55E7D87DFA694C5B96105339 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E766501EBE00456C834D36E5 /* Foundation.ttf */; };
-		5720DF85759EB6E16E5B4BC0 /* libPods-mindCastV3-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 660A75A2AB48A36AFA83344D /* libPods-mindCastV3-tvOSTests.a */; };
+		5720DF85759EB6E16E5B4BC0 /* libPods-snippt-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 660A75A2AB48A36AFA83344D /* libPods-snippt-tvOSTests.a */; };
 		5756346540844B86966E37D5 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7F165843F4045DAB3CAFE0D /* EvilIcons.ttf */; };
 		6190FB9135824288A9746237 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA8A520DB72E4C51B9EBA78B /* Feather.ttf */; };
 		6CE596B44B4A4F88ABBB5815 /* CircularStd-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6CA2D0647F14A9B9EADEF40 /* CircularStd-Medium.otf */; };
 		72E2DF9BF07B4070AD91B7FD /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD6264F190434E81BD1C3F20 /* MaterialCommunityIcons.ttf */; };
-		7B71E80801A63C2275742384 /* libPods-mindCastV3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B10BF1C8CBE248F60A8F6C /* libPods-mindCastV3.a */; };
+		7B71E80801A63C2275742384 /* libPods-snippt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B10BF1C8CBE248F60A8F6C /* libPods-snippt.a */; };
 		7D8EB57450E247A2AF418F0D /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62482ED834A54166A8919C1A /* MaterialIcons.ttf */; };
 		8312CB041D6942CCA565ED91 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CB7F0D8AA85452783026167 /* SimpleLineIcons.ttf */; };
 		89415D6A09F24D04B23BCEEA /* CircularStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70F51944D8D24165BDBDBF73 /* CircularStd-Book.otf */; };
 		8B27A742EF3E4D9CBBEAB8BE /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F58927C22E7461185011C1E /* Ionicons.ttf */; };
 		90BF25D1FF14475F98ADC454 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCC3CD04661D4DA38581F546 /* Zocial.ttf */; };
-		A156FAED50C15784F4837127 /* libPods-mindCastV3Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD676EF0C88620E3D2DC497A /* libPods-mindCastV3Tests.a */; };
+		A156FAED50C15784F4837127 /* libPods-snipptTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD676EF0C88620E3D2DC497A /* libPods-snipptTests.a */; };
 		AA87E37C7CEA43EC900EF508 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8E112C69F8C45A1BBA61769 /* FontAwesome5_Solid.ttf */; };
 		AE9D4572A77E4BB0A968DC27 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF74E330F8D34908926431AF /* Octicons.ttf */; };
 		C0AC5F00C6F847E6A863045F /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B434325BB62414EA14CF258 /* FontAwesome5_Regular.ttf */; };
 		E256CABA82A94F0E83C4C195 /* CircularStd-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 21207BFEB3B34101BEA296BB /* CircularStd-Black.otf */; };
 		FA7C7D734AFB4340BFC946CA /* CircularStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 20645F6F733B419A8616A295 /* CircularStd-Bold.otf */; };
-		FB54CB9757EC672CBAA123FB /* libPods-mindCastV3-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 840417E947EF4DB0859C70F2 /* libPods-mindCastV3-tvOS.a */; };
+		FB54CB9757EC672CBAA123FB /* libPods-snippt-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 840417E947EF4DB0859C70F2 /* libPods-snippt-tvOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,53 +49,53 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = mindCastV3;
+			remoteInfo = snippt;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "mindCastV3-tvOS";
+			remoteInfo = "snippt-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00B10BF1C8CBE248F60A8F6C /* libPods-mindCastV3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mindCastV3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		00E356EE1AD99517003FC87E /* mindCastV3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mindCastV3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00B10BF1C8CBE248F60A8F6C /* libPods-snippt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-snippt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* snipptTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snipptTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* mindCastV3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mindCastV3Tests.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* snipptTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = snipptTests.m; sourceTree = "<group>"; };
 		01540541D75C42989D91FAD8 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		0B2FCC156684434AB2C227A3 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		0B7A14A46A574B0FA0DF6E76 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* mindCastV3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mindCastV3.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = mindCastV3/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = mindCastV3/AppDelegate.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* snippt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snippt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = snippt/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = snippt/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = mindCastV3/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = mindCastV3/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = mindCastV3/main.m; sourceTree = "<group>"; };
-		1D3DE6072B0EE5290535EFAA /* Pods-mindCastV3-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mindCastV3-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-mindCastV3-tvOS/Pods-mindCastV3-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = snippt/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = snippt/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = snippt/main.m; sourceTree = "<group>"; };
+		1D3DE6072B0EE5290535EFAA /* Pods-snippt-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-snippt-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-snippt-tvOS/Pods-snippt-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		20645F6F733B419A8616A295 /* CircularStd-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CircularStd-Bold.otf"; path = "../assets/fonts/CircularStd-Bold.otf"; sourceTree = "<group>"; };
 		21207BFEB3B34101BEA296BB /* CircularStd-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CircularStd-Black.otf"; path = "../assets/fonts/CircularStd-Black.otf"; sourceTree = "<group>"; };
 		22CA023A38E14F26B667C025 /* Modesta-Script.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Modesta-Script.ttf"; path = "../assets/fonts/Modesta-Script.ttf"; sourceTree = "<group>"; };
-		2AD4B50935C59461A766A22D /* Pods-mindCastV3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mindCastV3.release.xcconfig"; path = "Target Support Files/Pods-mindCastV3/Pods-mindCastV3.release.xcconfig"; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* mindCastV3-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mindCastV3-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* mindCastV3-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mindCastV3-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D369040A5CC24E23F8C9E53 /* Pods-mindCastV3Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mindCastV3Tests.release.xcconfig"; path = "Target Support Files/Pods-mindCastV3Tests/Pods-mindCastV3Tests.release.xcconfig"; sourceTree = "<group>"; };
+		2AD4B50935C59461A766A22D /* Pods-snippt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-snippt.release.xcconfig"; path = "Target Support Files/Pods-snippt/Pods-snippt.release.xcconfig"; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* snippt-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "snippt-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* snippt-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "snippt-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D369040A5CC24E23F8C9E53 /* Pods-snipptTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-snipptTests.release.xcconfig"; path = "Target Support Files/Pods-snipptTests/Pods-snipptTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F58927C22E7461185011C1E /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		62482ED834A54166A8919C1A /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		660A75A2AB48A36AFA83344D /* libPods-mindCastV3-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mindCastV3-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7091F312F1E844E5431F5BFB /* Pods-mindCastV3-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mindCastV3-tvOS.release.xcconfig"; path = "Target Support Files/Pods-mindCastV3-tvOS/Pods-mindCastV3-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		660A75A2AB48A36AFA83344D /* libPods-snippt-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-snippt-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7091F312F1E844E5431F5BFB /* Pods-snippt-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-snippt-tvOS.release.xcconfig"; path = "Target Support Files/Pods-snippt-tvOS/Pods-snippt-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		70F51944D8D24165BDBDBF73 /* CircularStd-Book.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CircularStd-Book.otf"; path = "../assets/fonts/CircularStd-Book.otf"; sourceTree = "<group>"; };
-		7C19D7CDEA346673698C3019 /* Pods-mindCastV3Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mindCastV3Tests.debug.xcconfig"; path = "Target Support Files/Pods-mindCastV3Tests/Pods-mindCastV3Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		840417E947EF4DB0859C70F2 /* libPods-mindCastV3-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mindCastV3-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C19D7CDEA346673698C3019 /* Pods-snipptTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-snipptTests.debug.xcconfig"; path = "Target Support Files/Pods-snipptTests/Pods-snipptTests.debug.xcconfig"; sourceTree = "<group>"; };
+		840417E947EF4DB0859C70F2 /* libPods-snippt-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-snippt-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B434325BB62414EA14CF258 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		9CB7F0D8AA85452783026167 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		AA8A520DB72E4C51B9EBA78B /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		C51B7C8353BCA54E2C15A58B /* Pods-mindCastV3-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mindCastV3-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-mindCastV3-tvOSTests/Pods-mindCastV3-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		CD676EF0C88620E3D2DC497A /* libPods-mindCastV3Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mindCastV3Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C51B7C8353BCA54E2C15A58B /* Pods-snippt-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-snippt-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-snippt-tvOSTests/Pods-snippt-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD676EF0C88620E3D2DC497A /* libPods-snipptTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-snipptTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6CA2D0647F14A9B9EADEF40 /* CircularStd-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "CircularStd-Medium.otf"; path = "../assets/fonts/CircularStd-Medium.otf"; sourceTree = "<group>"; };
 		DB85EC9703BA48B2809960D2 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		DF74E330F8D34908926431AF /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -103,12 +103,12 @@
 		EC785A80A0504ADA98108B18 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F74799D30091223B40471CE5 /* Pods-mindCastV3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mindCastV3.debug.xcconfig"; path = "Target Support Files/Pods-mindCastV3/Pods-mindCastV3.debug.xcconfig"; sourceTree = "<group>"; };
+		F74799D30091223B40471CE5 /* Pods-snippt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-snippt.debug.xcconfig"; path = "Target Support Files/Pods-snippt/Pods-snippt.debug.xcconfig"; sourceTree = "<group>"; };
 		F7F165843F4045DAB3CAFE0D /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		F8E112C69F8C45A1BBA61769 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		FCC3CD04661D4DA38581F546 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		FD6264F190434E81BD1C3F20 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
-		FF8543F422596B3EE608EF34 /* Pods-mindCastV3-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mindCastV3-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-mindCastV3-tvOSTests/Pods-mindCastV3-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		FF8543F422596B3EE608EF34 /* Pods-snippt-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-snippt-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-snippt-tvOSTests/Pods-snippt-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A156FAED50C15784F4837127 /* libPods-mindCastV3Tests.a in Frameworks */,
+				A156FAED50C15784F4837127 /* libPods-snipptTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B71E80801A63C2275742384 /* libPods-mindCastV3.a in Frameworks */,
+				7B71E80801A63C2275742384 /* libPods-snippt.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB54CB9757EC672CBAA123FB /* libPods-mindCastV3-tvOS.a in Frameworks */,
+				FB54CB9757EC672CBAA123FB /* libPods-snippt-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,20 +140,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5720DF85759EB6E16E5B4BC0 /* libPods-mindCastV3-tvOSTests.a in Frameworks */,
+				5720DF85759EB6E16E5B4BC0 /* libPods-snippt-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* mindCastV3Tests */ = {
+		00E356EF1AD99517003FC87E /* snipptTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* mindCastV3Tests.m */,
+				00E356F21AD99517003FC87E /* snipptTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = mindCastV3Tests;
+			path = snipptTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -164,7 +164,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* mindCastV3 */ = {
+		13B07FAE1A68108700A75B9A /* snippt */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -175,7 +175,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = mindCastV3;
+			name = snippt;
 			sourceTree = "<group>";
 		};
 		2612CD77C16D4B2FBEC347FD /* Resources */ = {
@@ -211,10 +211,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				00B10BF1C8CBE248F60A8F6C /* libPods-mindCastV3.a */,
-				840417E947EF4DB0859C70F2 /* libPods-mindCastV3-tvOS.a */,
-				660A75A2AB48A36AFA83344D /* libPods-mindCastV3-tvOSTests.a */,
-				CD676EF0C88620E3D2DC497A /* libPods-mindCastV3Tests.a */,
+				00B10BF1C8CBE248F60A8F6C /* libPods-snippt.a */,
+				840417E947EF4DB0859C70F2 /* libPods-snippt-tvOS.a */,
+				660A75A2AB48A36AFA83344D /* libPods-snippt-tvOSTests.a */,
+				CD676EF0C88620E3D2DC497A /* libPods-snipptTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -229,9 +229,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* mindCastV3 */,
+				13B07FAE1A68108700A75B9A /* snippt */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* mindCastV3Tests */,
+				00E356EF1AD99517003FC87E /* snipptTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				9253D665A0D384094E9641BF /* Pods */,
@@ -245,10 +245,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* mindCastV3.app */,
-				00E356EE1AD99517003FC87E /* mindCastV3Tests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* mindCastV3-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* mindCastV3-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* snippt.app */,
+				00E356EE1AD99517003FC87E /* snipptTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* snippt-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* snippt-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -256,14 +256,14 @@
 		9253D665A0D384094E9641BF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F74799D30091223B40471CE5 /* Pods-mindCastV3.debug.xcconfig */,
-				2AD4B50935C59461A766A22D /* Pods-mindCastV3.release.xcconfig */,
-				1D3DE6072B0EE5290535EFAA /* Pods-mindCastV3-tvOS.debug.xcconfig */,
-				7091F312F1E844E5431F5BFB /* Pods-mindCastV3-tvOS.release.xcconfig */,
-				C51B7C8353BCA54E2C15A58B /* Pods-mindCastV3-tvOSTests.debug.xcconfig */,
-				FF8543F422596B3EE608EF34 /* Pods-mindCastV3-tvOSTests.release.xcconfig */,
-				7C19D7CDEA346673698C3019 /* Pods-mindCastV3Tests.debug.xcconfig */,
-				4D369040A5CC24E23F8C9E53 /* Pods-mindCastV3Tests.release.xcconfig */,
+				F74799D30091223B40471CE5 /* Pods-snippt.debug.xcconfig */,
+				2AD4B50935C59461A766A22D /* Pods-snippt.release.xcconfig */,
+				1D3DE6072B0EE5290535EFAA /* Pods-snippt-tvOS.debug.xcconfig */,
+				7091F312F1E844E5431F5BFB /* Pods-snippt-tvOS.release.xcconfig */,
+				C51B7C8353BCA54E2C15A58B /* Pods-snippt-tvOSTests.debug.xcconfig */,
+				FF8543F422596B3EE608EF34 /* Pods-snippt-tvOSTests.release.xcconfig */,
+				7C19D7CDEA346673698C3019 /* Pods-snipptTests.debug.xcconfig */,
+				4D369040A5CC24E23F8C9E53 /* Pods-snipptTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -271,9 +271,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* mindCastV3Tests */ = {
+		00E356ED1AD99517003FC87E /* snipptTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "mindCastV3Tests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "snipptTests" */;
 			buildPhases = (
 				D09677820F3B0E6352FA041E /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -285,14 +285,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = mindCastV3Tests;
-			productName = mindCastV3Tests;
-			productReference = 00E356EE1AD99517003FC87E /* mindCastV3Tests.xctest */;
+			name = snipptTests;
+			productName = snipptTests;
+			productReference = 00E356EE1AD99517003FC87E /* snipptTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* mindCastV3 */ = {
+		13B07F861A680F5B00A75B9A /* snippt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "mindCastV3" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "snippt" */;
 			buildPhases = (
 				A9167247741378838263092A /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -306,14 +306,14 @@
 			);
 			dependencies = (
 			);
-			name = mindCastV3;
-			productName = mindCastV3;
-			productReference = 13B07F961A680F5B00A75B9A /* mindCastV3.app */;
+			name = snippt;
+			productName = snippt;
+			productReference = 13B07F961A680F5B00A75B9A /* snippt.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* mindCastV3-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* snippt-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "mindCastV3-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "snippt-tvOS" */;
 			buildPhases = (
 				EAD6BF84A4E8DAF139B098F5 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -326,14 +326,14 @@
 			);
 			dependencies = (
 			);
-			name = "mindCastV3-tvOS";
-			productName = "mindCastV3-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* mindCastV3-tvOS.app */;
+			name = "snippt-tvOS";
+			productName = "snippt-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* snippt-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* mindCastV3-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* snippt-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "mindCastV3-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "snippt-tvOSTests" */;
 			buildPhases = (
 				0CC42702C24A6D18B5D93220 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -345,9 +345,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "mindCastV3-tvOSTests";
-			productName = "mindCastV3-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* mindCastV3-tvOSTests.xctest */;
+			name = "snippt-tvOSTests";
+			productName = "snippt-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* snippt-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -374,7 +374,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "mindCastV3" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "snippt" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -388,10 +388,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* mindCastV3 */,
-				00E356ED1AD99517003FC87E /* mindCastV3Tests */,
-				2D02E47A1E0B4A5D006451C7 /* mindCastV3-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* mindCastV3-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* snippt */,
+				00E356ED1AD99517003FC87E /* snipptTests */,
+				2D02E47A1E0B4A5D006451C7 /* snippt-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* snippt-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -481,7 +481,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-mindCastV3-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-snippt-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -517,7 +517,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-mindCastV3-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-snippt-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -539,7 +539,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-mindCastV3Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-snipptTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -552,7 +552,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-mindCastV3/Pods-mindCastV3-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-snippt/Pods-snippt-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -591,7 +591,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mindCastV3/Pods-mindCastV3-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-snippt/Pods-snippt-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EAD6BF84A4E8DAF139B098F5 /* [CP] Check Pods Manifest.lock */ = {
@@ -609,7 +609,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-mindCastV3-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-snippt-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -661,7 +661,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* mindCastV3Tests.m in Sources */,
+				00E356F31AD99517003FC87E /* snipptTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,7 +687,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* mindCastV3Tests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* snipptTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,12 +696,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* mindCastV3 */;
+			target = 13B07F861A680F5B00A75B9A /* snippt */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* mindCastV3-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* snippt-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -713,7 +713,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = mindCastV3;
+			path = snippt;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -721,14 +721,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C19D7CDEA346673698C3019 /* Pods-mindCastV3Tests.debug.xcconfig */;
+			baseConfigurationReference = 7C19D7CDEA346673698C3019 /* Pods-snipptTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = mindCastV3Tests/Info.plist;
+				INFOPLIST_FILE = snipptTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -738,17 +738,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mindCastV3.app/mindCastV3";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/snippt.app/snippt";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D369040A5CC24E23F8C9E53 /* Pods-mindCastV3Tests.release.xcconfig */;
+			baseConfigurationReference = 4D369040A5CC24E23F8C9E53 /* Pods-snipptTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = mindCastV3Tests/Info.plist;
+				INFOPLIST_FILE = snipptTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -758,18 +758,18 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mindCastV3.app/mindCastV3";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/snippt.app/snippt";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F74799D30091223B40471CE5 /* Pods-mindCastV3.debug.xcconfig */;
+			baseConfigurationReference = F74799D30091223B40471CE5 /* Pods-snippt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				INFOPLIST_FILE = mindCastV3/Info.plist;
+				INFOPLIST_FILE = snippt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -777,18 +777,18 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = mindCastV3;
+				PRODUCT_NAME = snippt;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AD4B50935C59461A766A22D /* Pods-mindCastV3.release.xcconfig */;
+			baseConfigurationReference = 2AD4B50935C59461A766A22D /* Pods-snippt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = mindCastV3/Info.plist;
+				INFOPLIST_FILE = snippt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -796,14 +796,14 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = mindCastV3;
+				PRODUCT_NAME = snippt;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D3DE6072B0EE5290535EFAA /* Pods-mindCastV3-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 1D3DE6072B0EE5290535EFAA /* Pods-snippt-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -814,14 +814,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "mindCastV3-tvOS/Info.plist";
+				INFOPLIST_FILE = "snippt-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.mindCastV3-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.snippt-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -831,7 +831,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7091F312F1E844E5431F5BFB /* Pods-mindCastV3-tvOS.release.xcconfig */;
+			baseConfigurationReference = 7091F312F1E844E5431F5BFB /* Pods-snippt-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -842,14 +842,14 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "mindCastV3-tvOS/Info.plist";
+				INFOPLIST_FILE = "snippt-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.mindCastV3-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.snippt-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -859,7 +859,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C51B7C8353BCA54E2C15A58B /* Pods-mindCastV3-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = C51B7C8353BCA54E2C15A58B /* Pods-snippt-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -869,24 +869,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "mindCastV3-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "snippt-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.mindCastV3-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.snippt-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mindCastV3-tvOS.app/mindCastV3-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/snippt-tvOS.app/snippt-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF8543F422596B3EE608EF34 /* Pods-mindCastV3-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = FF8543F422596B3EE608EF34 /* Pods-snippt-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -896,17 +896,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "mindCastV3-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "snippt-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.mindCastV3-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.snippt-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mindCastV3-tvOS.app/mindCastV3-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/snippt-tvOS.app/snippt-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -1015,7 +1015,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "mindCastV3Tests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "snipptTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -1024,7 +1024,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "mindCastV3" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "snippt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1033,7 +1033,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "mindCastV3-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "snippt-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1042,7 +1042,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "mindCastV3-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "snippt-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1051,7 +1051,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "mindCastV3" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "snippt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
