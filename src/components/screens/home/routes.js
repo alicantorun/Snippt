@@ -40,9 +40,8 @@ const RootStack = createStackNavigator(
 
     [CONSTANTS.ROUTES.PODCAST_DETAIL]: {
       screen: PodcastDetailContainer,
-      navigationOptions: ({ navigation, screenProps }) => {
-        getDefaultHeaderWithTitle('Podcast Detail', navigation, screenProps);
-      },
+      navigationOptions: ({ navigation, screenProps }) =>
+        getDefaultHeaderWithTitle('Podcast Detail', navigation, screenProps),
     },
 
     [LOCAL_STACK_ROUTES.TRENDING_AUTHORS_SEE_ALL]: {
