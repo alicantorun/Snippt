@@ -1,4 +1,4 @@
-package com.mindcastv3;
+package com.snippt;
 
 import android.app.Application;
 import android.content.Context;

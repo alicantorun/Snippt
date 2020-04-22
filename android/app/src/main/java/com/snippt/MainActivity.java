@@ -1,4 +1,4 @@
-package com.mindcastv3;
+package com.snippt;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "mindCastV3";
+    return "snippt";
   }
 }
