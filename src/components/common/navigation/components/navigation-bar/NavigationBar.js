@@ -7,14 +7,34 @@ import styled from 'styled-components';
 import isEqualsOrLargestThanIphoneX from '~/utils/isEqualsOrLargestThanIphoneX';
 import NavigationBarItem from './NavigationBarItem';
 
+import ExcludeRight from '~/components/common/ExcludeRight';
+import ExcludeLeft from '~/components/common/ExcludeLeft';
+import { ThemeConsumer } from 'styled-components';
+
+const WrapperExclude = styled(View)`
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 104px;
+  margin-left: 17px;
+  border-bottom-color: ${({ theme }) => theme.colors.backgroundColor};
+`;
+
+const ExcludeBar = styled(View)`
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom-color: ${({ theme }) => theme.colors.backgroundColor};
+`;
+
 const Wrapper = styled(View).attrs(({ theme }) => ({
   borderTopColor: theme.colors.secondaryColor,
-  borderTopRightRadius: 1,
-  borderTopWidth: 1,
 }))`
   width: 100%;
-  height: ${({ theme }) => theme.metrics.getWidthFromDP('18%')
-    + (isEqualsOrLargestThanIphoneX() ? 30 : 0)}px;
+  height: ${({ theme }) =>
+    theme.metrics.getWidthFromDP('18%') +
+    (isEqualsOrLargestThanIphoneX() ? 30 : 0)}px;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
@@ -42,6 +62,16 @@ const NavigationBar = ({
         key={item.label}
       />
     ))}
+    <ThemeConsumer>
+      {theme => (
+        <WrapperExclude>
+          <ExcludeBar>
+            <ExcludeLeft fill={theme.colors.backgroundColor} />
+            <ExcludeRight fill={theme.colors.backgroundColor} />
+          </ExcludeBar>
+        </WrapperExclude>
+      )}
+    </ThemeConsumer>
   </Wrapper>
 );
 export default NavigationBar;

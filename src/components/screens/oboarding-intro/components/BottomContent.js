@@ -14,7 +14,7 @@ const DotsWrapper = styled(View)`
 `;
 
 const PaginationDot = styled(Text)`
-  font-size: ${({ theme }) => theme.metrics.getWidthFromDP('7%')}px;
+  font-size: ${({ theme }) => theme.metrics.getWidthFromDP('8%')}px;
   padding-horizontal: ${({ theme }) => theme.metrics.getWidthFromDP('0.5%')}px;
   color: ${({ theme, isSelected }) =>
     isSelected ? theme.colors.primaryColor : theme.colors.subTextWhite};
@@ -33,7 +33,7 @@ const ButtonsWrapper = styled(View)`
 
 const GetStartedButton = styled(TouchableOpacity)`
   width: 100%;
-  height: ${({ theme }) => theme.metrics.getHeightFromDP('8%')}px;
+  height: ${({ theme }) => theme.metrics.getHeightFromDP('6%')}px;
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.primaryColor};

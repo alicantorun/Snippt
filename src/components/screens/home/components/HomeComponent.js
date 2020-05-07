@@ -14,8 +14,8 @@ import ScreenTitle from '~/components/common/ScreenTitle';
 import Loading from '~/components/common/Loading';
 import CONSTANTS from '~/utils/CONSTANTS';
 import appStyles from '~/styles';
-import ExcludeRight from '~/components/common/ExcludeRight';
-import ExcludeLeft from '~/components/common/ExcludeLeft';
+// import ExcludeRight from '~/components/common/ExcludeRight';
+// import ExcludeLeft from '~/components/common/ExcludeLeft';
 
 const Wrapper = styled(View)`
   width: 100%;
@@ -24,22 +24,20 @@ const Wrapper = styled(View)`
   background-color: ${({ theme }) => theme.colors.secondaryColor};
 `;
 
-const WrapperExclude = styled(View)`
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  border-bottom-width: 1px;
-  border-bottom-color: ${({ theme }) => theme.colors.backgroundColor};
-`;
+// const WrapperExclude = styled(View)`
+//   width: 100%;
+//   position: absolute;
+//   bottom: 0;
+//   border-bottom-color: ${({ theme }) => theme.colors.backgroundColor};
+// `;
 
-const ExcludeBar = styled(View)`
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  justify-content: space-between;
-  border-bottom-width: 1px;
-  border-bottom-color: ${({ theme }) => theme.colors.backgroundColor};
-`;
+// const ExcludeBar = styled(View)`
+//   display: flex;
+//   flex: 1;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   border-bottom-color: ${({ theme }) => theme.colors.backgroundColor};
+// `;
 
 const Icon = styled(View)`
   width: 20px;
@@ -117,12 +115,12 @@ const HomeComponent = ({
         )} */}
         </ScrollView>
       )}
-      <WrapperExclude>
+      {/* <WrapperExclude>
         <ExcludeBar>
           <ExcludeLeft />
           <ExcludeRight />
         </ExcludeBar>
-      </WrapperExclude>
+      </WrapperExclude> */}
     </Wrapper>
   );
 };

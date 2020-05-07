@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import Icon from '~/components/common/Icon';
 import SNIPPTLeft from '../../../common/logos/SNIPPTLeft';
 import SNIPTTRight from '../../../common/logos/SNIPTTRight';
+import Onboarding from '../../../common/logos/Onboarding';
+import { ThemeConsumer } from 'styled-components';
 
 import appStyles from '~/styles';
 
@@ -21,9 +23,9 @@ const LogoWrapper = styled(View)`
     alignment === 'left' ? 'flex-end' : 'flex-start'};
 `;
 
-const IconWrapper = styled(View)`
+const OnboardingLogoWrapper = styled(View)`
   flex: 1;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 `;
 
@@ -48,8 +50,9 @@ const DescriptionWrapper = styled(View)`
   flex: 1;
   align-items: flex-start;
   justify-content: ${({ stylesTemp }) => stylesTemp.descriptionAlignment};
-  margin-bottom: 60px;
+  margin-bottom: 200px;
   margin-left: 30px;
+  margin-right: 30px;
   margin-top: 100px;
 `;
 
@@ -87,15 +90,23 @@ const MiddleContent = ({ currentIndex }: Props): Object => {
   const getLogo = () => {
     if (logo === 'SNIPPTLeft') {
       return (
-        <LogoWrapper alignment="left">
-          <SNIPPTLeft />
-        </LogoWrapper>
+        <ThemeConsumer>
+          {theme => (
+            <LogoWrapper alignment="left">
+              <SNIPPTLeft fill={theme.colors.textColor} />
+            </LogoWrapper>
+          )}
+        </ThemeConsumer>
       );
     } else {
       return (
-        <LogoWrapper alignment="right">
-          <SNIPTTRight />
-        </LogoWrapper>
+        <ThemeConsumer>
+          {theme => (
+            <LogoWrapper alignment="right">
+              <SNIPTTRight fill={theme.colors.textColor} />
+            </LogoWrapper>
+          )}
+        </ThemeConsumer>
       );
     }
   };
@@ -108,6 +119,13 @@ const MiddleContent = ({ currentIndex }: Props): Object => {
           <CentralLogo />
         </IconWrapper>
       )} */}
+      {!icon && (
+        <OnboardingLogoWrapper>
+          <ThemeConsumer>
+            {theme => <Onboarding fill={theme.colors.textColor} />}
+          </ThemeConsumer>
+        </OnboardingLogoWrapper>
+      )}
       <DescriptionWrapper stylesTemp={stylesTemp}>
         <Description stylesTemp={stylesTemp}>
           {icon && (

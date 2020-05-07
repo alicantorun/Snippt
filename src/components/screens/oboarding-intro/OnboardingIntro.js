@@ -94,7 +94,7 @@ class OnboardingIntro extends Component<Props, State> {
       <Wrapper>
         <StatusBar
           backgroundColor="transparent"
-          barStyle="dark-content"
+          // barStyle="dark-content"
           translucent
           animated
         />
