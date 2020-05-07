@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { ScrollView, RefreshControl, View } from 'react-native';
+import { ScrollView, RefreshControl, View, Text } from 'react-native';
 import styled, { withTheme } from 'styled-components';
 
 import TrendingAuthorsDiscover from './trending-authors/trending-authors-discover/TrendingAuthorsDiscover';
@@ -14,6 +14,8 @@ import ScreenTitle from '~/components/common/ScreenTitle';
 import Loading from '~/components/common/Loading';
 import CONSTANTS from '~/utils/CONSTANTS';
 import appStyles from '~/styles';
+import ExcludeRight from '~/components/common/ExcludeRight';
+import ExcludeLeft from '~/components/common/ExcludeLeft';
 
 const Wrapper = styled(View)`
   width: 100%;
@@ -22,6 +24,31 @@ const Wrapper = styled(View)`
   background-color: ${({ theme }) => theme.colors.secondaryColor};
 `;
 
+const WrapperExclude = styled(View)`
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-bottom-width: 1px;
+  border-bottom-color: ${({ theme }) => theme.colors.backgroundColor};
+`;
+
+const ExcludeBar = styled(View)`
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom-width: 1px;
+  border-bottom-color: ${({ theme }) => theme.colors.backgroundColor};
+`;
+
+const Icon = styled(View)`
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  width: 0;
+  height: 0;
+  border: 100px solid red;
+`;
 type Data = {
   trendingAuthors: Array<Object>,
   hottestPodcasts: Array<Object>,
@@ -90,6 +117,12 @@ const HomeComponent = ({
         )} */}
         </ScrollView>
       )}
+      <WrapperExclude>
+        <ExcludeBar>
+          <ExcludeLeft />
+          <ExcludeRight />
+        </ExcludeBar>
+      </WrapperExclude>
     </Wrapper>
   );
 };

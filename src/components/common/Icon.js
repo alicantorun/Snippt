@@ -12,9 +12,7 @@ type Props = {
   size: number,
 };
 
-const Icon = ({
-  theme, color, name, size,
-}: Props) => (
+const Icon = ({ theme, color, name, size }: Props) => (
   <MaterialCommunityIcons
     color={color || theme.colors.textColor}
     name={name}

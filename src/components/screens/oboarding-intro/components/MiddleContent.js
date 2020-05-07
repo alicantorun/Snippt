@@ -21,6 +21,20 @@ const LogoWrapper = styled(View)`
     alignment === 'left' ? 'flex-end' : 'flex-start'};
 `;
 
+const IconWrapper = styled(View)`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+const CentralLogo = styled(View)`
+  width: ${({ theme }) => theme.metrics.getWidthFromDP('50%')}px;
+  height: ${({ theme }) => theme.metrics.getWidthFromDP('50%')}px;
+
+  border-radius: ${({ theme }) => theme.metrics.getWidthFromDP('25%')}px;
+  background-color: ${({ theme }) => theme.colors.primaryColor};
+`;
+
 const Description = styled(Text)`
   font-size: ${({ theme }) => 1.2 * theme.metrics.largeSize}px;
   color: ${({ stylesTemp, theme }) =>
@@ -57,6 +71,7 @@ const ITEMS = [
       descriptionAlignment: 'flex-start',
       color: 'textColor',
     },
+    centralLogo: true,
   },
 ];
 
@@ -65,7 +80,9 @@ type Props = {
 };
 
 const MiddleContent = ({ currentIndex }: Props): Object => {
-  const { title, description, logo, icon, stylesTemp } = ITEMS[currentIndex];
+  const { title, description, logo, icon, stylesTemp, centralLogo } = ITEMS[
+    currentIndex
+  ];
 
   const getLogo = () => {
     if (logo === 'SNIPPTLeft') {
@@ -86,6 +103,11 @@ const MiddleContent = ({ currentIndex }: Props): Object => {
   return (
     <Wrapper>
       {getLogo()}
+      {/* {centralLogo && (
+        <IconWrapper>
+          <CentralLogo />
+        </IconWrapper>
+      )} */}
       <DescriptionWrapper stylesTemp={stylesTemp}>
         <Description stylesTemp={stylesTemp}>
           {icon && (

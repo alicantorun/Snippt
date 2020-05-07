@@ -14,6 +14,8 @@ const Wrapper = styled(TouchableOpacity)`
   margin-right: ${({ theme, isLastIndex }) =>
     isLastIndex ? theme.metrics.largeSize : 0}px;
   border-radius: 4px;
+  border-top-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 `;
 
 const AuthorInfoWrapper = styled(View)`
@@ -27,6 +29,8 @@ const PodcastImage = styled(FastImage).attrs(({ uri }) => ({
   height: 100%;
   border-radius: 4px;
   position: absolute;
+  border-top-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 `;
 
 const DarkLayer = styled(View)`
@@ -35,6 +39,8 @@ const DarkLayer = styled(View)`
   justify-content: space-between;
   padding: ${({ theme }) => theme.metrics.mediumSize}px;
   border-radius: 4px;
+  border-top-left-radius: 16px;
+  border-bottom-right-radius: 16px;
   background-color: ${({ theme }) => theme.colors.lightDark};
 `;
 
