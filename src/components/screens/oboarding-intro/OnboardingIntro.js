@@ -14,7 +14,7 @@ const Wrapper = styled(View)`
   flex: 1;
   justify-content: space-between;
   padding-top: ${({ theme }) => theme.metrics.getHeightFromDP('15%')}px;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.backgroundColor};
 `;
 
 const IntroScreenWrapper = styled(View)`
@@ -87,7 +87,7 @@ class OnboardingIntro extends Component<Props, State> {
   };
 
   render() {
-    const PAGES = ['discover', 'learn', 'listen'];
+    const PAGES = ['intro', 'info'];
     const { currentPageIndex } = this.state;
 
     return (

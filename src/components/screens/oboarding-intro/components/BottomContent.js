@@ -9,30 +9,36 @@ import appStyles from '~/styles';
 
 const DotsWrapper = styled(View)`
   justify-content: space-between;
+  align-items: center;
   flex-direction: row;
 `;
 
 const PaginationDot = styled(Text)`
   font-size: ${({ theme }) => theme.metrics.getWidthFromDP('7%')}px;
   padding-horizontal: ${({ theme }) => theme.metrics.getWidthFromDP('0.5%')}px;
-  color: ${({ theme, isSelected }) => (isSelected ? theme.colors.primaryColor : theme.colors.subTextWhite)};
+  color: ${({ theme, isSelected }) =>
+    isSelected ? theme.colors.primaryColor : theme.colors.subTextWhite};
 `;
 
 const ButtonsWrapper = styled(View)`
   width: 100%;
+  padding-left: 32px;
+  padding-right: 32px;
   height: ${({ theme }) => theme.metrics.getHeightFromDP('10%')}px;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  background-color: #eaedf2;
+  background-color: ${({ theme }) => theme.colors.backgroundColor};
 `;
 
 const GetStartedButton = styled(TouchableOpacity)`
   width: 100%;
-  height: ${({ theme }) => theme.metrics.getHeightFromDP('10%')}px;
+  height: ${({ theme }) => theme.metrics.getHeightFromDP('8%')}px;
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.primaryColor};
+  border-radius: 12px;
+  border-top-right-radius: 4px;
 `;
 
 const Button = styled(TouchableOpacity)`
@@ -49,53 +55,29 @@ const renderControlButtons = ({
   onPressSkip,
   pagesLength,
 }): Object => {
-  const { leftButtonTitle, leftButtonAction } = currentIndex === 0
-    ? { leftButtonTitle: 'SKIP', leftButtonAction: onPressSkip }
-    : { leftButtonTitle: 'PREV', leftButtonAction: onPressPrevious };
-
   return (
     <ButtonsWrapper>
-      <Button
-        onPress={leftButtonAction}
-      >
-        <DefaultText
-          text={leftButtonTitle}
-          color={appStyles.colors.darkText}
-        />
-      </Button>
       <DotsWrapper>
         {Array(pagesLength)
           .fill({})
           .map((_, index) => (
             <PaginationDot
               isSelected={index === currentIndex}
-              key={`DOT${index - 1}`}
-            >
+              key={`DOT${index - 1}`}>
               {'\u2022'}
             </PaginationDot>
           ))}
       </DotsWrapper>
-      <Button
-        onPress={onPressNext}
-      >
-        <DefaultText
-          text="NEXT"
-          color={appStyles.colors.darkText}
-        />
-      </Button>
     </ButtonsWrapper>
   );
 };
 
 const renderGetStartedButton = (onPressSkip: Function): Object => (
-  <GetStartedButton
-    onPress={onPressSkip}
-  >
-    <DefaultText
-      color={appStyles.colors.white}
-      text="GET STARTED"
-    />
-  </GetStartedButton>
+  <ButtonsWrapper>
+    <GetStartedButton onPress={onPressSkip}>
+      <DefaultText color={appStyles.colors.white} text="GET STARTED" />
+    </GetStartedButton>
+  </ButtonsWrapper>
 );
 
 type Props = {
@@ -111,9 +93,14 @@ const BottomContent = (props: Props): Object => {
 
   return (
     <Fragment>
-      {currentIndex === pagesLength - 1
-        ? renderGetStartedButton(onPressSkip)
-        : renderControlButtons({ ...props })}
+      {currentIndex === pagesLength - 1 ? (
+        <>
+          {renderGetStartedButton(onPressSkip)}
+          {renderControlButtons({ ...props })}
+        </>
+      ) : (
+        renderControlButtons({ ...props })
+      )}
     </Fragment>
   );
 };

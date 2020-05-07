@@ -5,7 +5,7 @@ export default {
   darkLayer: 'rgba(0, 0, 0, 0.6)',
   lighDarkLayer: 'rgba(0, 0, 0, 0.45)',
   progressiveImageForeground: 'rgba(242, 242, 242, 0.5)',
-  primaryColor: '#EF010B',
+  primaryColor: '#FF6D00', // Zayn
   primaryColorAlpha: 'rgba(239, 1, 11, 0.2)',
   interestSelectedColor: 'rgba(239, 1, 11, 0.6)',
   yellow: '#F8C330',

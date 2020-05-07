@@ -5,7 +5,7 @@ export default { metrics, colors };
 
 export const darkTheme = {
   secondaryColor: '#111',
-  backgroundColor: '#222',
+  backgroundColor: '#22282D', // Zayn
   textColor: '#FFF',
   subTextColor: 'rgba(255, 255, 255, 0.5)',
   androidToolbarColor: '#222',
