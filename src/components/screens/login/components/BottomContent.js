@@ -11,6 +11,17 @@ import Icon from '~/components/common/Icon';
 import DefaultText from './DefaultText';
 import appStyles from '~/styles';
 
+import CONSTANTS from '~/utils/CONSTANTS';
+
+import {
+  getItemFromStorage,
+  persistItemInStorage,
+} from '~/utils/AsyncStorageManager';
+
+import firestore from '@react-native-firebase/firestore';
+
+const ref = firestore().collection('users');
+
 const Wrapper = styled(View)`
   width: 100%;
   align-self: flex-end;
@@ -89,6 +100,26 @@ type Props = {
   actionSelected: string,
 };
 
+const handleFacebookLogin = async onNavigateToMainStack => {
+  try {
+    await facebookLogin();
+
+    onNavigateToMainStack();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const handleGoogleLogin = async onNavigateToMainStack => {
+  try {
+    await googleLogin();
+
+    onNavigateToMainStack();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const BottomContent = ({
   actionSelected,
   onNavigateToMainStack,
@@ -102,7 +133,7 @@ const BottomContent = ({
     <ButtonsWrapper>
       {renderButton({
         backgroundColor: appStyles.colors.facebook,
-        onPress: () => facebookLogin().then(() => onNavigateToMainStack()),
+        onPress: () => handleFacebookLogin(onNavigateToMainStack),
         withMarginBottom: true,
         iconName: 'facebook-box',
         actionSelected,
@@ -110,7 +141,7 @@ const BottomContent = ({
       })}
       {renderButton({
         backgroundColor: appStyles.colors.googlePlus,
-        onPress: () => googleLogin().then(() => onNavigateToMainStack()),
+        onPress: () => handleGoogleLogin(onNavigateToMainStack),
         withMarginBottom: true,
         iconName: 'google-plus-box',
         actionSelected,

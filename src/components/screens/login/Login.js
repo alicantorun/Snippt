@@ -10,6 +10,11 @@ import LoginComponent from './components/LoginComponent';
 import CONSTANTS from '~/utils/CONSTANTS';
 import Header from './components/Header';
 
+import {
+  getItemFromStorage,
+  persistItemInStorage,
+} from '~/utils/AsyncStorageManager';
+
 const Wrapper = styled(View)`
   flex: 1;
   width: 100%;
@@ -48,7 +53,33 @@ class Login extends Component<Props, {}> {
         toValue: 1,
       }),
     ]).start();
+
+    this.getUserCredentials();
   }
+
+  getUserCredentials = async () => {
+    let userID;
+
+    const checkIfUserLoggedInByFacebook = await getItemFromStorage(
+      CONSTANTS.KEYS.FACEBOOK_LOGIN_CREDENTIALS,
+    );
+
+    if (checkIfUserLoggedInByFacebook) {
+      userID = JSON.parse(checkIfUserLoggedInByFacebook).user.uid;
+    }
+
+    const checkIfUserLoggedInByGoogle = await getItemFromStorage(
+      CONSTANTS.KEYS.GOOGLE_LOGIN_CREDENTIALS,
+    );
+
+    if (checkIfUserLoggedInByGoogle) {
+      userID = JSON.parse(checkIfUserLoggedInByGoogle).user.uid;
+    }
+
+    if (userID) {
+      this.onNavigateToMainStack();
+    }
+  };
 
   onChangeListIndex = (index: number): void => {
     this._flatListRef.scrollToIndex({ animated: true, index });
@@ -109,7 +140,7 @@ class Login extends Component<Props, {}> {
               );
             }}
             showsHorizontalScrollIndicator={false}
-            keyExtractor={(item) => item.id}
+            keyExtractor={item => item.id}
             ref={(ref: any): void => {
               this._flatListRef = ref;
             }}

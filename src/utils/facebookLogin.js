@@ -1,6 +1,14 @@
 import auth from '@react-native-firebase/auth';
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
+import { persistItemInStorage } from '~/utils/AsyncStorageManager';
+
+import CONSTANTS from '~/utils/CONSTANTS';
+
+import firestore from '@react-native-firebase/firestore';
+
+const ref = firestore().collection('users');
+
 export default async function onFacebookButtonPress() {
   // Attempt login with permissions
   const result = await LoginManager.logInWithPermissions([
@@ -24,6 +32,24 @@ export default async function onFacebookButtonPress() {
     data.accessToken,
   );
 
+  const accessToken = data.accessToken;
+
   // Sign-in the user with the credential
-  return auth().signInWithCredential(facebookCredential);
+  const response = await auth().signInWithCredential(facebookCredential);
+
+  await ref.doc(response.user.uid).set({
+    email: response.user.email,
+    displayName: response.user.displayName,
+    photoUrl: response.user.photoURL,
+    phoneNumber: response.user.phoneNumber,
+  });
+
+  await persistItemInStorage(
+    CONSTANTS.KEYS.FACEBOOK_CREDENTIAL_ACCESS_TOKEN,
+    accessToken,
+  );
+
+  const userId = response.user.uid;
+
+  await persistItemInStorage(CONSTANTS.KEYS.USER_ID, userId);
 }
