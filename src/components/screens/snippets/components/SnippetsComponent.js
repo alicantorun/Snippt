@@ -59,11 +59,11 @@ const SearchComponent = ({
       />
     </SearchAuthorTextInputWrapper> */}
     <SubjectsListWrapper isTextInputFocused={isTextInputFocused}>
-      <SubjectsList
+      {/* <SubjectsList
         isTextInputFocused={isTextInputFocused}
         navigation={navigation}
         snippets={snippets}
-      />
+      /> */}
     </SubjectsListWrapper>
   </Container>
 );

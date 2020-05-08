@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import { FlatList, View, Text } from 'react-native';
+import { FlatList, View, Text, TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
 
 import CONSTANTS from '~/utils/CONSTANTS';
@@ -10,7 +10,13 @@ import {
   persistItemInStorage,
 } from '~/utils/AsyncStorageManager';
 
+import appStyles from '~/styles';
+
 import InterestsListItem from './InterestsListItem';
+import DefaultText from '~/components/screens/login/components/DefaultText';
+
+import firestore from '@react-native-firebase/firestore';
+const ref = firestore().collection('interests');
 
 const DEFAULT_INTERESTS = [
   {
@@ -77,6 +83,26 @@ const ListText = styled(Text)`
   font-family: CircularStd-Medium;
   color: ${({ theme }) => theme.colors.textColor};
   text-align: center;
+`;
+
+const ButtonsWrapper = styled(View)`
+  width: 100%;
+  padding-horizontal: ${({ theme }) => theme.metrics.extraLargeSize}px;
+  height: ${({ theme }) => theme.metrics.getHeightFromDP('10%')}px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.backgroundColor};
+`;
+
+const GetStartedButton = styled(TouchableOpacity)`
+  width: 100%;
+  height: ${({ theme }) => theme.metrics.getHeightFromDP('6%')}px;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.primaryColor};
+  border-radius: 12px;
+  border-top-right-radius: 4px;
 `;
 
 type State = {
@@ -191,27 +217,48 @@ class Interests extends Component<{}, State> {
     });
   };
 
+  addInterestsToFirestore = async () => {
+    try {
+      const response = await ref.add({ interests: this.state.interests });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   render() {
     const { interests } = this.state;
+    // console.log('INTEREST: ', interests);
 
     return (
-      <Wrapper>
-        <ListText>Choose the topics that you're interested in.</ListText>
-        <FlatList
-          renderItem={({ item, index }) => (
-            <InterestsListItem
-              onPressItem={() => this.onSelectItem(index)}
-              isSelected={item.isSelected}
-              imageURL={item.imageURL}
-              title={item.title}
-              index={index}
-            />
-          )}
-          showsVerticalScrollIndicator={false}
-          keyExtractor={interest => `${interest.title}`}
-          data={interests}
-        />
-      </Wrapper>
+      <>
+        <Wrapper>
+          <ListText>Choose the topics that you're interested in.</ListText>
+          <FlatList
+            renderItem={({ item, index }) => (
+              <InterestsListItem
+                onPressItem={() => {
+                  this.onSelectItem(index);
+                  // this.props.onHandleInterestSelect &&
+                  //   this.props.onHandleInterestSelect(this.state.interests);
+                }}
+                isSelected={item.isSelected}
+                imageURL={item.imageURL}
+                title={item.title}
+                index={index}
+              />
+            )}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={interest => `${interest.title}`}
+            data={interests}
+          />
+        </Wrapper>
+        <ButtonsWrapper>
+          <GetStartedButton onPress={this.addInterestsToFirestore}>
+            <DefaultText color={appStyles.colors.white} text="CHOOSE!" />
+          </GetStartedButton>
+        </ButtonsWrapper>
+      </>
     );
   }
 }

@@ -28,7 +28,8 @@ const DarkLayer = styled(View)`
   height: 100%;
   justify-content: center;
   align-items: center;
-  background-color: ${({ isSelected, theme }) => (isSelected ? theme.colors.interestSelectedColor : theme.colors.darkLayer)};
+  background-color: ${({ isSelected, theme }) =>
+    isSelected ? theme.colors.interestSelectedColor : theme.colors.darkLayer};
   border-radius: 4px;
 `;
 
@@ -51,15 +52,9 @@ const InterestsListItem = ({
   imageURL,
   title,
 }: Props): Object => (
-  <Wrapper
-    onPress={onPressItem}
-  >
-    <PodcastImage
-      uri={imageURL}
-    />
-    <DarkLayer
-      isSelected={isSelected}
-    >
+  <Wrapper onPress={onPressItem}>
+    <PodcastImage uri={imageURL} />
+    <DarkLayer isSelected={isSelected}>
       <InterestTitle>{title}</InterestTitle>
     </DarkLayer>
   </Wrapper>

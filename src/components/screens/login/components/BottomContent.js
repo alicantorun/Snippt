@@ -11,6 +11,17 @@ import Icon from '~/components/common/Icon';
 import DefaultText from './DefaultText';
 import appStyles from '~/styles';
 
+import CONSTANTS from '~/utils/CONSTANTS';
+
+import {
+  getItemFromStorage,
+  persistItemInStorage,
+} from '~/utils/AsyncStorageManager';
+
+import firestore from '@react-native-firebase/firestore';
+import { resolvePlugin } from '@babel/core';
+const ref = firestore().collection('users');
+
 const Wrapper = styled(View)`
   width: 100%;
   align-self: flex-end;
@@ -89,6 +100,41 @@ type Props = {
   actionSelected: string,
 };
 
+const handleFacebookLogin = async onNavigateToMainStack => {
+  try {
+    const response = await facebookLogin();
+
+    // console.log(response);
+
+    await ref.doc(response.user.uid).set({
+      firstName: response.profile.first_name,
+      lastName: response.profile.last_name,
+      email: response.profile.email,
+      photoUrl: response.user.photoURL,
+      phonoNumber: response.user.phoneNumber,
+    });
+
+    await persistItemInStorage(
+      CONSTANTS.KEYS.FACEBOOK_LOGIN_CREDENTIALS,
+      response,
+    );
+    onNavigateToMainStack();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const handleGoogleLogin = async onNavigateToMainStack => {
+  try {
+    const response = await googleLogin();
+    await persistItemInStorage(
+      CONSTANTS.KEYS.GOOGLE_LOGIN_CREDENTIALS,
+      response,
+    );
+    onNavigateToMainStack();
+  } catch (error) {}
+};
+
 const BottomContent = ({
   actionSelected,
   onNavigateToMainStack,
@@ -102,7 +148,7 @@ const BottomContent = ({
     <ButtonsWrapper>
       {renderButton({
         backgroundColor: appStyles.colors.facebook,
-        onPress: () => facebookLogin().then(() => onNavigateToMainStack()),
+        onPress: () => handleFacebookLogin(onNavigateToMainStack),
         withMarginBottom: true,
         iconName: 'facebook-box',
         actionSelected,
@@ -110,7 +156,7 @@ const BottomContent = ({
       })}
       {renderButton({
         backgroundColor: appStyles.colors.googlePlus,
-        onPress: () => googleLogin().then(() => onNavigateToMainStack()),
+        onPress: () => handleGoogleLogin(onNavigateToMainStack),
         withMarginBottom: true,
         iconName: 'google-plus-box',
         actionSelected,

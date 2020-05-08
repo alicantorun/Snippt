@@ -3,7 +3,7 @@
 import { AsyncStorage } from 'react-native';
 import CONSTANTS from '~/utils/CONSTANTS';
 
-// AsyncStorage.clear();
+AsyncStorage.clear();
 
 export const getItemFromStorage = async (
   key: string,

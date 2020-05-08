@@ -10,6 +10,13 @@ import store from './store';
 
 import './config/ReactotronConfig';
 
+// if (__DEV__) {
+console.log('DEV MODE ');
+import('./config/ReactotronConfig').then(() =>
+  console.log('Reactotron Configured'),
+);
+// }
+
 const App = (): Object => (
   <Provider store={store}>
     <ThemeContextProvider>
