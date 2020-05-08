@@ -142,16 +142,13 @@ const PlayerTracker = ({
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   currentPodcast: state.player.currentPodcast,
   playlist: state.player.playlist,
   paused: state.player.paused,
 });
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch) =>
   bindActionCreators(PlayerCreators, dispatch);
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(PlayerTracker);
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerTracker);

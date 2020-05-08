@@ -37,12 +37,12 @@ const INITIAL_STATE = {
 };
 
 export const Creators = {
-  createPlaylist: title => ({
+  createPlaylist: (title) => ({
     type: Types.CREATE_PLAYLIST_REQUEST,
     payload: { title },
   }),
 
-  createPlaylistSuccess: playlists => ({
+  createPlaylistSuccess: (playlists) => ({
     type: Types.CREATE_PLAYLIST_SUCCESS,
     payload: { playlists },
   }),
@@ -55,7 +55,7 @@ export const Creators = {
     type: Types.LOAD_PLAYLISTS_REQUEST,
   }),
 
-  loadPlaylistsSuccess: playlists => ({
+  loadPlaylistsSuccess: (playlists) => ({
     type: Types.LOAD_PLAYLISTS_SUCCESS,
     payload: { playlists },
   }),
@@ -69,7 +69,7 @@ export const Creators = {
     payload: { playlist, podcast },
   }),
 
-  addPodcastSuccess: playlists => ({
+  addPodcastSuccess: (playlists) => ({
     type: Types.ADD_PODCAST_SUCCESS,
     payload: { playlists },
   }),
@@ -92,17 +92,17 @@ export const Creators = {
     type: Types.REMOVE_PODCAST_ERROR,
   }),
 
-  getPlaylist: title => ({
+  getPlaylist: (title) => ({
     type: Types.GET_PLAYLIST_REQUEST,
     payload: { title },
   }),
 
-  getPlaylistSuccess: playlist => ({
+  getPlaylistSuccess: (playlist) => ({
     type: Types.GET_PLAYLIST_SUCCESS,
     payload: { playlist },
   }),
 
-  getPlaylistFailure: title => ({
+  getPlaylistFailure: (title) => ({
     type: Types.GET_PLAYLIST_ERROR,
   }),
 
@@ -120,12 +120,12 @@ export const Creators = {
     type: Types.SET_AVAILABLE_OFFLINE_ERROR,
   }),
 
-  removePlaylist: playlistToRemove => ({
+  removePlaylist: (playlistToRemove) => ({
     type: Types.REMOVE_PLAYLIST_REQUEST,
     payload: { playlistToRemove },
   }),
 
-  removePlaylistSuccess: playlists => ({
+  removePlaylistSuccess: (playlists) => ({
     type: Types.REMOVE_PLAYLIST_SUCCESS,
     payload: { playlists },
   }),
@@ -139,7 +139,7 @@ export const Creators = {
     payload: { playlistTitle, index },
   }),
 
-  editPlaylistSuccess: playlists => ({
+  editPlaylistSuccess: (playlists) => ({
     type: Types.EDIT_PLAYLIST_SUCCESS,
     payload: { playlists },
   }),

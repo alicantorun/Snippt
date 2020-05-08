@@ -1,9 +1,7 @@
 // @flow
 
 import React from 'react';
-import {
-  TouchableWithoutFeedback, Platform, View, Text,
-} from 'react-native';
+import { TouchableWithoutFeedback, Platform, View, Text } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import styled from 'styled-components';
 
@@ -77,15 +75,9 @@ const TrendingListItem = ({
   title,
   side,
 }: Props): Object => (
-  <TouchableWithoutFeedback
-    onPress={onPress}
-  >
+  <TouchableWithoutFeedback onPress={onPress}>
     <ButtonWrapper>
-      <PodcastImage
-        uri={podcastImage}
-        index={index}
-        side={side}
-      />
+      <PodcastImage uri={podcastImage} index={index} side={side} />
       <BottomContent
         style={{
           shadowColor: '#000',
@@ -96,8 +88,7 @@ const TrendingListItem = ({
           shadowOpacity: 0.22,
           shadowRadius: 2.22,
           elevation: 3,
-        }}
-      >
+        }}>
         <PodcastTitle>{title}</PodcastTitle>
         <AuthorInfoWrapper>
           <AuthorInfo

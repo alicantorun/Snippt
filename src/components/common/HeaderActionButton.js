@@ -29,13 +29,8 @@ const HeaderActionButton = ({ onPress, color, icon }: Props): Object => (
         right: appStyles.metrics.smallSize,
         left: appStyles.metrics.smallSize,
         top: appStyles.metrics.smallSize,
-      }}
-    >
-      <Icon
-        color={color}
-        name={icon}
-        size={26}
-      />
+      }}>
+      <Icon color={color} name={icon} size={26} />
     </TouchableOpacity>
   </Wrapper>
 );

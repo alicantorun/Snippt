@@ -78,7 +78,7 @@ const SubjectsList = ({ isTextInputFocused, navigation }: Props): Object => (
       />
     )}
     showsVerticalScrollIndicator={false}
-    keyExtractor={item => `${item.id}`}
+    keyExtractor={(item) => `${item.id}`}
     numColumns={2}
     data={items}
   />

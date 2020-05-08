@@ -16,12 +16,12 @@ const INITIAL_STATE = {
 };
 
 export const Creators = {
-  searchAuthorByName: name => ({
+  searchAuthorByName: (name) => ({
     type: Types.SEARCH_AUTHOR_BY_NAME_REQUEST,
     payload: { name },
   }),
 
-  searchAuthorByNameSuccess: data => ({
+  searchAuthorByNameSuccess: (data) => ({
     type: Types.SEARCH_AUTHOR_BY_NAME_SUCCESS,
     payload: { data },
   }),
@@ -30,12 +30,12 @@ export const Creators = {
     type: Types.SEARCH_AUTHOR_BY_NAME_ERROR,
   }),
 
-  getAuthorById: id => ({
+  getAuthorById: (id) => ({
     type: Types.GET_AUTHOR_BY_ID_REQUEST,
     payload: { id },
   }),
 
-  getAuthorByIdSuccess: data => ({
+  getAuthorByIdSuccess: (data) => ({
     type: Types.GET_AUTHOR_BY_ID_SUCCESS,
     payload: { data },
   }),

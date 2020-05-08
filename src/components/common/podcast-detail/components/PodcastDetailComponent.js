@@ -93,7 +93,7 @@ const PodcastDetailComponent = ({
       {loading && !error && <Loading />}
       {data && data.episodes && data.episodes.length > 0 && (
         <PodcastEpisodesList
-          keyExtractor={podcast => `${podcast.id}`}
+          keyExtractor={(podcast) => `${podcast.id}`}
           showsHorizontalScrollIndicator={false}
           horizontal
           data={data.episodes}

@@ -52,23 +52,16 @@ const BottomContent = ({
 }: Props): Object => (
   <Wrapper>
     <Section>
-      <SectionTitle
-        title="Description"
-      />
+      <SectionTitle title="Description" />
       <SectionContentWrapper>
         <PodcastDescriptionText>{description}</PodcastDescriptionText>
       </SectionContentWrapper>
     </Section>
     {shouldShowAuthorSection && (
       <Section>
-        <SectionTitle
-          title="Author"
-        />
+        <SectionTitle title="Author" />
         <AuthorDetailWrapper>
-          <AuthorsListItem
-            onPressItem={onPressDetail}
-            author={author}
-          />
+          <AuthorsListItem onPressItem={onPressDetail} author={author} />
         </AuthorDetailWrapper>
       </Section>
     )}

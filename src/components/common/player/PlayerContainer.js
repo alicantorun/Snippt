@@ -307,10 +307,10 @@ class Player extends Component<Props, State> {
   }
 }
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ ...PlayerCreators, ...SnippetCreators }, dispatch);
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isCurrentPodcastDownloaded: state.player.isCurrentPodcastDownloaded,
   shouldShufflePlaylist: state.player.shouldShufflePlaylist,
   shouldRepeatPlaylist: state.player.shouldRepeatPlaylist,
@@ -321,7 +321,4 @@ const mapStateToProps = state => ({
   paused: state.player.paused,
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Player);
+export default connect(mapStateToProps, mapDispatchToProps)(Player);

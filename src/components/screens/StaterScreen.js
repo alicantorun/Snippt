@@ -113,9 +113,6 @@ const Creators = Object.assign(
   PlayerCreators,
 );
 
-const mapDispatchToProps = dispatch => bindActionCreators(Creators, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators(Creators, dispatch);
 
-export default connect(
-  null,
-  mapDispatchToProps,
-)(StaterScreen);
+export default connect(null, mapDispatchToProps)(StaterScreen);

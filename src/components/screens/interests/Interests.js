@@ -14,7 +14,8 @@ class Interests extends Component<Props, {}> {
     const { navigation } = this.props;
 
     navigation.setParams({
-      [CONSTANTS.PARAMS.HEADER_ACTION]: () => navigation.navigate(CONSTANTS.ROUTES.MAIN_STACK),
+      [CONSTANTS.PARAMS.HEADER_ACTION]: () =>
+        navigation.navigate(CONSTANTS.ROUTES.MAIN_STACK),
     });
   }
 

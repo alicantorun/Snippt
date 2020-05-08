@@ -49,14 +49,11 @@ class HomeContainer extends Component<Props, {}> {
   }
 }
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch) =>
   bindActionCreators(HomeCreators, dispatch);
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   home: state.home,
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(HomeContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

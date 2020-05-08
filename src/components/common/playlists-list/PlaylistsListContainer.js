@@ -50,9 +50,9 @@ class PlaylistListContainer extends Component<Props, {}> {
     );
 
     if (
-      playlist.isAvailableOffline
-      && !isPodcastAlreadyInPlaylist
-      && !isPodcastAlreadyDownloaded
+      playlist.isAvailableOffline &&
+      !isPodcastAlreadyInPlaylist &&
+      !isPodcastAlreadyDownloaded
     ) {
       CustomAlert(
         TYPES.ADD_UNDOWNLOADED_PODCAST_PLAYLIST_AVAILABLE_OFFLINE,
@@ -63,7 +63,9 @@ class PlaylistListContainer extends Component<Props, {}> {
     }
 
     if (isPodcastAlreadyInPlaylist) {
-      CustomAlert(TYPES.ADD_REPEATED_PODCAS_PLAYLIST, () => this.onAddPodcast(playlist));
+      CustomAlert(TYPES.ADD_REPEATED_PODCAS_PLAYLIST, () =>
+        this.onAddPodcast(playlist),
+      );
 
       return;
     }
@@ -75,7 +77,7 @@ class PlaylistListContainer extends Component<Props, {}> {
     const { podcastsDownloaded, podcast } = this.props;
 
     const isPodcastAlreadyDownloaded = podcastsDownloaded.some(
-      podcastDownloaded => podcastDownloaded.id === podcast.id,
+      (podcastDownloaded) => podcastDownloaded.id === podcast.id,
     );
 
     return isPodcastAlreadyDownloaded;
@@ -85,7 +87,7 @@ class PlaylistListContainer extends Component<Props, {}> {
     const { podcast } = this.props;
 
     const isPodcastAlreadyInPlaylist = playlist.podcasts.some(
-      podcastInPlaylist => podcastInPlaylist.id === podcast.id,
+      (podcastInPlaylist) => podcastInPlaylist.id === podcast.id,
     );
 
     return isPodcastAlreadyInPlaylist;
@@ -105,12 +107,13 @@ class PlaylistListContainer extends Component<Props, {}> {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   podcastsDownloaded: state.localPodcastsManager.podcastsDownloaded,
   playlists: state.playlist.playlists,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(PlaylistCreators, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(PlaylistCreators, dispatch);
 
 export default connect(
   mapStateToProps,

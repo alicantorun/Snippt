@@ -24,7 +24,7 @@ const LOCAL_STACK_ROUTES = {
 const RootStack = createStackNavigator(
   {
     [CONSTANTS.ROUTES.SNIPPETS]: {
-      screen: props => (
+      screen: (props) => (
         <Snippets {...props} LOCAL_STACK_ROUTES={LOCAL_STACK_ROUTES} />
       ),
       navigationOptions: () => ({

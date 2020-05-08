@@ -15,9 +15,7 @@ const ShufflePlaylist = ({
   shouldShufflePlaylist,
   shufflePlaylist,
 }: Props): Object => (
-  <Button
-    onPress={shufflePlaylist}
-  >
+  <Button onPress={shufflePlaylist}>
     <Icon
       size={appStyles.metrics.getWidthFromDP('6%')}
       color={

@@ -52,7 +52,7 @@ export const Creators = {
     payload: { podcastTitle, episodeTitle, snippetText, thumbnail, podcast },
   }),
 
-  createSnippetSuccess: snippets => ({
+  createSnippetSuccess: (snippets) => ({
     type: Types.CREATE_SNIPPET_SUCCESS,
     payload: { snippets },
   }),
@@ -65,7 +65,7 @@ export const Creators = {
     type: Types.LOAD_SNIPPETS_REQUEST,
   }),
 
-  loadSnippetsSuccess: snippets => ({
+  loadSnippetsSuccess: (snippets) => ({
     type: Types.LOAD_SNIPPETS_SUCCESS,
     payload: { snippets },
   }),
@@ -79,7 +79,7 @@ export const Creators = {
     payload: { snippet, podcast },
   }),
 
-  addPodcastSuccess: snippets => ({
+  addPodcastSuccess: (snippets) => ({
     type: Types.ADD_PODCAST_SUCCESS,
     payload: { snippets },
   }),
@@ -102,17 +102,17 @@ export const Creators = {
     type: Types.REMOVE_PODCAST_ERROR,
   }),
 
-  getSnippet: title => ({
+  getSnippet: (title) => ({
     type: Types.GET_SNIPPET_REQUEST,
     payload: { title },
   }),
 
-  getSnippetSuccess: snippet => ({
+  getSnippetSuccess: (snippet) => ({
     type: Types.GET_SNIPPET_SUCCESS,
     payload: { snippet },
   }),
 
-  getSnippetFailure: title => ({
+  getSnippetFailure: (title) => ({
     type: Types.GET_SNIPPET_ERROR,
   }),
 
@@ -130,12 +130,12 @@ export const Creators = {
     type: Types.SET_AVAILABLE_OFFLINE_ERROR,
   }),
 
-  removeSnippet: snippetToRemove => ({
+  removeSnippet: (snippetToRemove) => ({
     type: Types.REMOVE_SNIPPET_REQUEST,
     payload: { snippetToRemove },
   }),
 
-  removeSnippetSuccess: snippets => ({
+  removeSnippetSuccess: (snippets) => ({
     type: Types.REMOVE_SNIPPET_SUCCESS,
     payload: { snippets },
   }),
@@ -149,7 +149,7 @@ export const Creators = {
     payload: { snippetTitle, index },
   }),
 
-  editSnippetSuccess: snippets => ({
+  editSnippetSuccess: (snippets) => ({
     type: Types.EDIT_SNIPPET_SUCCESS,
     payload: { snippets },
   }),

@@ -72,10 +72,7 @@ const Header = ({
 }: Props): Object => (
   <Wrapper>
     <UpperContent>
-      <PlaylistCompositionImages
-        images={images}
-        size="large"
-      />
+      <PlaylistCompositionImages images={images} size="large" />
       <ContentWrapper>
         <PlaylistTitle>{title}</PlaylistTitle>
         <Row>

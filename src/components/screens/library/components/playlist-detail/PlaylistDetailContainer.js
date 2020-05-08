@@ -92,14 +92,16 @@ class PlaylistDetailContainer extends Component<Props, State> {
   onRemovePodcastFromPlaylist = (podcastIndex: number): void => {
     const { removePodcast, playlist } = this.props;
 
-    CustomAlert(TYPES.REMOVE_PODCAST_FROM_PLAYLIST, () => removePodcast(playlist, podcastIndex));
+    CustomAlert(TYPES.REMOVE_PODCAST_FROM_PLAYLIST, () =>
+      removePodcast(playlist, podcastIndex),
+    );
   };
 
   getPodcastsImages = (podcasts: Array<Object>): Array<string> => {
     let images = [];
 
     if (podcasts) {
-      images = podcasts.slice(0, 4).map(podcast => podcast.imageURL);
+      images = podcasts.slice(0, 4).map((podcast) => podcast.imageURL);
     }
 
     return images;
@@ -112,11 +114,11 @@ class PlaylistDetailContainer extends Component<Props, State> {
   ): Array<Object> => {
     const podcastsWithDownloadStatus = podcasts.map((podcast) => {
       const isPodcastBeenDownloaded = downloadingList.some(
-        downloadInfo => downloadInfo.id === podcast.id,
+        (downloadInfo) => downloadInfo.id === podcast.id,
       );
 
       const isPodcastAlreadyDownloaded = podcastsDownloaded.some(
-        podcastDownloaded => podcastDownloaded.id === podcast.id,
+        (podcastDownloaded) => podcastDownloaded.id === podcast.id,
       );
 
       return {
@@ -168,12 +170,13 @@ class PlaylistDetailContainer extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   localPodcastsManager: state.localPodcastsManager,
   playlist: state.playlist.playlist,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(PlaylistCreators, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(PlaylistCreators, dispatch);
 
 export default connect(
   mapStateToProps,

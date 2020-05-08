@@ -47,11 +47,12 @@ class TabContent extends Component<Props, {}> {
           <FlatList
             renderItem={({ item, index }) => (
               <FeaturedListItem
-                onPress={() => navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
-                  [CONSTANTS.KEYS
-                    .PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: true,
-                  [CONSTANTS.PARAMS.PODCAST_DETAIL]: item,
-                })
+                onPress={() =>
+                  navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
+                    [CONSTANTS.KEYS
+                      .PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: true,
+                    [CONSTANTS.PARAMS.PODCAST_DETAIL]: item,
+                  })
                 }
                 podcast={item}
               />
@@ -61,7 +62,7 @@ class TabContent extends Component<Props, {}> {
               width: appStyles.metrics.width,
             }}
             showsVerticalScrollIndicator={false}
-            keyExtractor={item => `${item.id}`}
+            keyExtractor={(item) => `${item.id}`}
             data={featuredPodcasts}
           />
         ),
@@ -71,11 +72,12 @@ class TabContent extends Component<Props, {}> {
         UI: (
           <TrendingList
             podcasts={trendingPodcasts}
-            onPress={podcast => navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
-              [CONSTANTS.KEYS
-                .PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: true,
-              [CONSTANTS.PARAMS.PODCAST_DETAIL]: podcast,
-            })
+            onPress={(podcast) =>
+              navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
+                [CONSTANTS.KEYS
+                  .PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: true,
+                [CONSTANTS.PARAMS.PODCAST_DETAIL]: podcast,
+              })
             }
           />
         ),
@@ -86,11 +88,12 @@ class TabContent extends Component<Props, {}> {
           <FlatList
             renderItem={({ item, index }) => (
               <AuthorsListItem
-                onPressItem={() => navigation.navigate(CONSTANTS.ROUTES.AUTHOR_DETAIL, {
-                  [CONSTANTS.PARAMS.AUTHOR_DETAIL]: {
-                    id: item.id,
-                  },
-                })
+                onPressItem={() =>
+                  navigation.navigate(CONSTANTS.ROUTES.AUTHOR_DETAIL, {
+                    [CONSTANTS.PARAMS.AUTHOR_DETAIL]: {
+                      id: item.id,
+                    },
+                  })
                 }
                 author={item}
               />
@@ -99,12 +102,10 @@ class TabContent extends Component<Props, {}> {
               paddingHorizontal: appStyles.metrics.mediumSize,
             }}
             ItemSeparatorComponent={() => (
-              <View
-                style={{ marginVertical: 5 }}
-              />
+              <View style={{ marginVertical: 5 }} />
             )}
             showsVerticalScrollIndicator={false}
-            keyExtractor={item => `${item.id}`}
+            keyExtractor={(item) => `${item.id}`}
             data={authors}
           />
         ),
@@ -115,8 +116,8 @@ class TabContent extends Component<Props, {}> {
       <FlatList
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => item.UI}
-        ref={ref => this.handleRef(ref)}
-        keyExtractor={item => item.id}
+        ref={(ref) => this.handleRef(ref)}
+        keyExtractor={(item) => item.id}
         style={{
           paddingTop: appStyles.metrics.mediumSize,
         }}

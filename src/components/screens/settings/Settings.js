@@ -149,9 +149,7 @@ class Settings extends Component<Props, State> {
 
     return (
       <Wrapper>
-        <ScreenTitle
-          title="Settings"
-        />
+        <ScreenTitle title="Settings" />
         <ThemeContextConsumer>
           {(context) => {
             const { onToggleDarkTheme, isDarkThemeActivated } = context;
@@ -159,14 +157,13 @@ class Settings extends Component<Props, State> {
             return (
               <OptionsWrapper>
                 {items.map((item) => {
-                  const value = item.stateReference !== DARK_THEME_STATE_REF
-                    ? this.state[item.stateReference]
-                    : isDarkThemeActivated;
+                  const value =
+                    item.stateReference !== DARK_THEME_STATE_REF
+                      ? this.state[item.stateReference]
+                      : isDarkThemeActivated;
 
                   return (
-                    <Row
-                      key={item.title}
-                    >
+                    <Row key={item.title}>
                       <TextWrapper>
                         <OptiontTitle>{item.title}</OptiontTitle>
                         <OptionDescription>
@@ -175,12 +172,14 @@ class Settings extends Component<Props, State> {
                       </TextWrapper>
                       <Switch
                         onToggle={() => {
-                          const onToggle = item.stateReference === DARK_THEME_STATE_REF
-                            ? onToggleDarkTheme
-                            : () => this.onToggleSwitch(
-                              item.stateReference,
-                              item.storageKey,
-                            );
+                          const onToggle =
+                            item.stateReference === DARK_THEME_STATE_REF
+                              ? onToggleDarkTheme
+                              : () =>
+                                  this.onToggleSwitch(
+                                    item.stateReference,
+                                    item.storageKey,
+                                  );
 
                           onToggle();
                         }}
@@ -199,8 +198,7 @@ class Settings extends Component<Props, State> {
                     right: appStyles.metrics.smallSize,
                     left: appStyles.metrics.smallSize,
                     top: appStyles.metrics.smallSize,
-                  }}
-                >
+                  }}>
                   <Row>
                     <TextWrapper>
                       <OptiontTitle>About</OptiontTitle>

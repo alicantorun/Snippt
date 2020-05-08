@@ -47,15 +47,16 @@ const TrendingAuthorsDiscover = ({ navigation, data }: Props): Object => (
           isLastIndex={index === data.length - 1}
           isFirst={index === 0}
           author={item}
-          onPress={() => navigation.navigate(CONSTANTS.ROUTES.AUTHOR_DETAIL, {
-            [CONSTANTS.PARAMS.AUTHOR_DETAIL]: {
-              id: item.id,
-            },
-          })
+          onPress={() =>
+            navigation.navigate(CONSTANTS.ROUTES.AUTHOR_DETAIL, {
+              [CONSTANTS.PARAMS.AUTHOR_DETAIL]: {
+                id: item.id,
+              },
+            })
           }
         />
       )}
-      keyExtractor={podcast => `${podcast.id}`}
+      keyExtractor={(podcast) => `${podcast.id}`}
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{
         alignItems: 'center',

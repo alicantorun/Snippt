@@ -18,9 +18,10 @@ import Icon from '~/components/common/Icon';
 const Container = styled(View)`
   width: 100%;
   height: 100%;
-  padding-top: ${({ theme }) => (Platform.OS === 'android'
-    ? theme.metrics.mediumSize
-    : theme.metrics.extraLargeSize)}px;
+  padding-top: ${({ theme }) =>
+    Platform.OS === 'android'
+      ? theme.metrics.mediumSize
+      : theme.metrics.extraLargeSize}px;
   padding-horizontal: ${({ theme }) => theme.metrics.largeSize}px;
   background-color: ${({ theme }) => theme.colors.secondaryColor};
 `;
@@ -56,7 +57,9 @@ type Props = {
 };
 
 const getPodcastImages = (podcasts: Array<Object>): Array<string> => {
-  const images = podcasts.slice(0, 4).map(podcast => podcast.thumbnailImageURL);
+  const images = podcasts
+    .slice(0, 4)
+    .map((podcast) => podcast.thumbnailImageURL);
 
   return images;
 };
@@ -72,13 +75,10 @@ const PlaylistListComponent = ({
     onRequestClose={onToggleModal}
     animationType="slide"
     hardwareAccelerated
-    transparent={false}
-  >
+    transparent={false}>
     <Container>
       <HeaderWrapper>
-        <TouchableOpacity
-          onPress={onToggleModal}
-        >
+        <TouchableOpacity onPress={onToggleModal}>
           <Icon
             name={Platform.OS === 'android' ? 'arrow-down' : 'chevron-down'}
             size={Platform.OS === 'ios' ? 34 : 28}
@@ -103,14 +103,12 @@ const PlaylistListComponent = ({
             );
           }}
           showsVerticalScrollIndicator={false}
-          keyExtractor={item => `${item.title}`}
+          keyExtractor={(item) => `${item.title}`}
           data={playlists}
         />
       )}
       {playlists.length === 0 && (
-        <CreatePlaylistButton
-          createPlaylist={createPlaylist}
-        />
+        <CreatePlaylistButton createPlaylist={createPlaylist} />
       )}
     </Container>
   </Modal>

@@ -1,4 +1,4 @@
-export default (SOCIAL_BUTTONS = [
+export default SOCIAL_BUTTONS = [
   {
     color: '#0077B5',
     url: 'https://www.linkedin.com/in/steniowagner',
@@ -17,4 +17,4 @@ export default (SOCIAL_BUTTONS = [
     iconName: 'dribbble',
     withPadingTop: true,
   },
-]);
+];

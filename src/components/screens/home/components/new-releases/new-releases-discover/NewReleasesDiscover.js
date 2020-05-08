@@ -40,16 +40,17 @@ const NewReleasesDiscover = ({ navigation, data }: Props): Object => (
       buttonSize="small"
     />
     <NewReleasesDiscoverList
-      keyExtractor={podcast => `${podcast.id}`}
+      keyExtractor={(podcast) => `${podcast.id}`}
       showsHorizontalScrollIndicator={false}
       horizontal
       data={data.slice(0, 9)}
       renderItem={({ item, index }) => (
         <NewReleasesDiscoverListItem
-          onPressItem={() => navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
-            [CONSTANTS.KEYS.PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: true,
-            [CONSTANTS.PARAMS.PODCAST_DETAIL]: item,
-          })
+          onPressItem={() =>
+            navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
+              [CONSTANTS.KEYS.PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: true,
+              [CONSTANTS.PARAMS.PODCAST_DETAIL]: item,
+            })
           }
           authorImage={item.author.thumbnailProfileImageURL}
           authorName={item.author.name}

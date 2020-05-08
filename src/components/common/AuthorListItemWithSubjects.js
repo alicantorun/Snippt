@@ -1,9 +1,7 @@
 // @flow
 
 import React from 'react';
-import {
-  TouchableOpacity, Platform, View, Text,
-} from 'react-native';
+import { TouchableOpacity, Platform, View, Text } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import styled from 'styled-components';
 
@@ -22,7 +20,8 @@ const CardWrapper = styled(View)`
   width: 80%;
   padding: ${({ theme }) => theme.metrics.mediumSize}px;
   margin-left: ${({ theme }) => theme.metrics.getWidthFromDP('12%')}px;
-  padding-left: ${({ theme }) => theme.metrics.mediumSize + theme.metrics.getWidthFromDP('12%')}px;
+  padding-left: ${({ theme }) =>
+    theme.metrics.mediumSize + theme.metrics.getWidthFromDP('12%')}px;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 5px;
 `;
@@ -110,29 +109,20 @@ const SearchAuthorListItem = ({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-      }}
-    >
+      }}>
       <AuthorName>{name}</AuthorName>
       <NumberPodcasts>
         {`${numberPodcasts} ${numberPodcasts === 1 ? 'Podcast' : 'Podcasts'}`}
       </NumberPodcasts>
       <SubjectsWrapper>
-        {subjects.map(subject => (
-          <SubjectItemWrapper
-            key={subject}
-          >
+        {subjects.map((subject) => (
+          <SubjectItemWrapper key={subject}>
             <SubjectItemText>{`#${subject}`}</SubjectItemText>
           </SubjectItemWrapper>
         ))}
       </SubjectsWrapper>
-      <DetailButton
-        onPress={onPress}
-      >
-        <Icon
-          color={appStyles.colors.white}
-          name="magnify"
-          size={24}
-        />
+      <DetailButton onPress={onPress}>
+        <Icon color={appStyles.colors.white} name="magnify" size={24} />
       </DetailButton>
     </CardWrapper>
     <ProfileImage

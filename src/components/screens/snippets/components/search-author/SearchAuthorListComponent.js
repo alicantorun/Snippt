@@ -76,11 +76,12 @@ class SearchAuthorListComponent extends PureComponent<Props, {}> {
         ]}
         renderItem={({ item }) => (
           <SearchAuthorListItem
-            onPress={() => navigation.navigate(CONSTANTS.ROUTES.AUTHOR_DETAIL, {
-              [CONSTANTS.PARAMS.AUTHOR_DETAIL]: {
-                id: item.id,
-              },
-            })
+            onPress={() =>
+              navigation.navigate(CONSTANTS.ROUTES.AUTHOR_DETAIL, {
+                [CONSTANTS.PARAMS.AUTHOR_DETAIL]: {
+                  id: item.id,
+                },
+              })
             }
             numberPodcasts={item.podcasts.length}
             profileImage={item.profileImageURL}
@@ -90,7 +91,7 @@ class SearchAuthorListComponent extends PureComponent<Props, {}> {
           />
         )}
         showsVerticalScrollIndicator={false}
-        keyExtractor={item => `${item.id}`}
+        keyExtractor={(item) => `${item.id}`}
         data={authors}
       />
     );

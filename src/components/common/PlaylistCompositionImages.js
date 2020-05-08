@@ -13,7 +13,8 @@ const SMALL_SIZE = appStyles.metrics.getWidthFromDP('18.05%');
 
 const Wrapper = styled(View)`
   width: ${({ theme, size }) => (size === 'large' ? LARGE_SIZE : SMALL_SIZE)}px;
-  height: ${({ theme, size }) => (size === 'large' ? LARGE_SIZE : SMALL_SIZE)}px;
+  height: ${({ theme, size }) =>
+    size === 'large' ? LARGE_SIZE : SMALL_SIZE}px;
   background-color: ${({ theme }) => theme.colors.textColor};
   border-radius: 5px;
   flex-wrap: wrap;
@@ -22,8 +23,10 @@ const Wrapper = styled(View)`
 const PodcastImage = styled(FastImage).attrs(({ uri }) => ({
   source: { uri },
 }))`
-  width: ${({ theme, size }) => (size === 'large' ? LARGE_SIZE / 2 : SMALL_SIZE / 2)}px;
-  height: ${({ theme, size }) => (size === 'large' ? LARGE_SIZE / 2 : SMALL_SIZE / 2)}px;
+  width: ${({ theme, size }) =>
+    size === 'large' ? LARGE_SIZE / 2 : SMALL_SIZE / 2}px;
+  height: ${({ theme, size }) =>
+    size === 'large' ? LARGE_SIZE / 2 : SMALL_SIZE / 2}px;
   border-top-left-radius: ${({ index, theme }) => (index === 0 ? 5 : 0)}px;
   border-top-right-radius: ${({ index, theme }) => (index === 2 ? 5 : 0)}px;
   border-bottom-left-radius: ${({ index, theme }) => (index === 1 ? 5 : 0)}px;
@@ -43,9 +46,7 @@ type Props = {
 };
 
 const PlaylistCompositionImages = ({ images, size }: Props): Object => (
-  <Wrapper
-    size={size}
-  >
+  <Wrapper size={size}>
     {images.length === 0 && (
       <PodcastIconWrapper>
         <Icon
@@ -55,8 +56,8 @@ const PlaylistCompositionImages = ({ images, size }: Props): Object => (
         />
       </PodcastIconWrapper>
     )}
-    {images.length > 0
-      && images.map((url, index) => (
+    {images.length > 0 &&
+      images.map((url, index) => (
         <PodcastImage
           index={index}
           size={size}

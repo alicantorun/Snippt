@@ -139,7 +139,8 @@ class CustomTab extends Component<Props, State> {
   getCellWidth = (): number => {
     const { data, contentWidth } = this.props;
     const datasetLength = data.length;
-    const cellWidth = datasetLength >= 3 ? contentWidth / 3 : contentWidth / datasetLength;
+    const cellWidth =
+      datasetLength >= 3 ? contentWidth / 3 : contentWidth / datasetLength;
 
     return cellWidth;
   };
@@ -148,9 +149,11 @@ class CustomTab extends Component<Props, State> {
     const { itemSelectedIndex, cellWidth } = this.state;
     const { data } = this.props;
 
-    const shouldNotRenderMarker = itemSelectedIndex > 0
-      && itemSelectedIndex < data.length - 1
-      && (newIndexSelected > 0 && newIndexSelected < data.length - 1);
+    const shouldNotRenderMarker =
+      itemSelectedIndex > 0 &&
+      itemSelectedIndex < data.length - 1 &&
+      newIndexSelected > 0 &&
+      newIndexSelected < data.length - 1;
 
     if (shouldNotRenderMarker) {
       return;
@@ -225,7 +228,7 @@ class CustomTab extends Component<Props, State> {
           }}
           alwaysBounceHorizontal={data.length > 3}
           showsHorizontalScrollIndicator={false}
-          keyExtractor={item => `${item.id}`}
+          keyExtractor={(item) => `${item.id}`}
           extraData={this.state}
           data={data}
           horizontal
@@ -235,15 +238,13 @@ class CustomTab extends Component<Props, State> {
                 this.onCellPress(index);
               }}
               color={cellColor}
-              width={cellWidth}
-            >
+              width={cellWidth}>
               <OptionText
                 color={
                   itemSelectedIndex === index
                     ? activeTextColor
                     : inactiveTextoColor
-                }
-              >
+                }>
                 {item.title}
               </OptionText>
             </Cell>
@@ -270,8 +271,7 @@ class CustomTab extends Component<Props, State> {
               }),
             },
           ],
-        }}
-      >
+        }}>
         <Marker
           currentIndex={itemSelectedIndex}
           color={markerColor}
@@ -292,9 +292,7 @@ class CustomTab extends Component<Props, State> {
     } = this.getThemeColors(theme);
 
     return (
-      <Container
-        color={cellColor}
-      >
+      <Container color={cellColor}>
         {this.renderList(cellColor, activeTextColor, inactiveTextoColor)}
         {this.renderMarker(markerColor)}
       </Container>

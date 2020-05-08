@@ -29,9 +29,7 @@ const SectionWithButton = ({
   onPress,
 }: Props): Object => (
   <ContentWrapper>
-    <SectionTitle
-      title={sectionTitle}
-    />
+    <SectionTitle title={sectionTitle} />
     <DefaultButton
       translucent={false}
       onPress={onPress}

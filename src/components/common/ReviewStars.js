@@ -35,27 +35,15 @@ const getStars = (stars: number, isSmall: boolean): Array<Object> => {
   const iconSize = isSmall ? 12 : 16;
 
   const FullStar = (
-    <Icon
-      color={appStyle.colors.yellow}
-      size={iconSize}
-      name="star"
-    />
+    <Icon color={appStyle.colors.yellow} size={iconSize} name="star" />
   );
 
   const HalfStar = (
-    <Icon
-      color={appStyle.colors.yellow}
-      name="star-half"
-      size={iconSize}
-    />
+    <Icon color={appStyle.colors.yellow} name="star-half" size={iconSize} />
   );
 
   const EmptyStar = (
-    <Icon
-      color={appStyle.colors.yellow}
-      name="star-outline"
-      size={iconSize}
-    />
+    <Icon color={appStyle.colors.yellow} name="star-outline" size={iconSize} />
   );
 
   let currentStars = stars;
@@ -89,12 +77,8 @@ const renderStars = (grade: number, isSmall: boolean): Object => {
 
   return (
     <WrapperStars>
-      {starsFromGrade.map(star => (
-        <Fragment
-          key={Math.random()}
-        >
-          {star}
-        </Fragment>
+      {starsFromGrade.map((star) => (
+        <Fragment key={Math.random()}>{star}</Fragment>
       ))}
     </WrapperStars>
   );
@@ -118,10 +102,7 @@ const ReviewStars = ({
   <Wrapper>
     {renderStars(stars, isSmall)}
     {shouldShowReviewsText && !!reviews && (
-      <Reviews
-        textColor={textColor}
-        isSmall={isSmall}
-      >
+      <Reviews textColor={textColor} isSmall={isSmall}>
         {`${reviews} ${reviews > 1 ? 'Reviews' : 'Review'}`}
       </Reviews>
     )}

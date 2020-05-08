@@ -44,19 +44,13 @@ const RelatedAuthorsListItem = ({
   name,
   id,
 }: Props): Object => (
-  <Wrapper
-    onPress={() => getAuthorById(id)}
-  >
-    <Image
-      uri={profileImage}
-    />
+  <Wrapper onPress={() => getAuthorById(id)}>
+    <Image uri={profileImage} />
     <Name>{name}</Name>
   </Wrapper>
 );
 
-const mapDispatchToProps = dispatch => bindActionCreators(AuthorCreators, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(AuthorCreators, dispatch);
 
-export default connect(
-  null,
-  mapDispatchToProps,
-)(RelatedAuthorsListItem);
+export default connect(null, mapDispatchToProps)(RelatedAuthorsListItem);

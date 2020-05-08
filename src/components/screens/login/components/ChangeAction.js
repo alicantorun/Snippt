@@ -36,13 +36,8 @@ const ChangeAction = ({
 }: Props): Object => (
   <Wrapper>
     <Row>
-      <DefaultText
-        color={appStyles.colors.white}
-        text={questionText}
-      />
-      <TouchableOpacity
-        onPress={onPressActionButton}
-      >
+      <DefaultText color={appStyles.colors.white} text={questionText} />
+      <TouchableOpacity onPress={onPressActionButton}>
         <DefaultText
           color={appStyles.colors.primaryColor}
           text={` ${changeActionText}!`}

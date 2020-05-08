@@ -55,8 +55,7 @@ const PodcastListItem = ({
           onPress: onRemovePodcastFromPlaylist,
           type: 'delete',
         },
-      ]}
-    >
+      ]}>
       <PodcastsDownloadedListItem
         onPressItem={onPressPodcastsListItem}
         isDownloading={isDownloading}

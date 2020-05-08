@@ -39,7 +39,7 @@ const LOCAL_STACK_ROUTES = {
 const RootStack = createStackNavigator(
   {
     [CONSTANTS.ROUTES.LIBRARY]: {
-      screen: props => (
+      screen: (props) => (
         <Library {...props} LOCAL_STACK_ROUTES={LOCAL_STACK_ROUTES} />
       ),
       navigationOptions: () => ({

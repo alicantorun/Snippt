@@ -18,8 +18,7 @@ const Button = ({ onPress, children }: Props): Object => (
       right: appStyles.metrics.smallSize,
       left: appStyles.metrics.smallSize,
       top: appStyles.metrics.smallSize,
-    }}
-  >
+    }}>
     {children}
   </TouchableOpacity>
 );

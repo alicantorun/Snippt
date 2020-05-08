@@ -76,7 +76,7 @@ class SnippetsContainer extends Component<Props, State> {
     const { podcastsDownloaded, podcast } = this.props;
 
     const isPodcastAlreadyDownloaded = podcastsDownloaded.some(
-      podcastDownloaded => podcastDownloaded.id === podcast.id,
+      (podcastDownloaded) => podcastDownloaded.id === podcast.id,
     );
 
     return isPodcastAlreadyDownloaded;
@@ -86,7 +86,7 @@ class SnippetsContainer extends Component<Props, State> {
     const { podcast } = this.props;
 
     const isPodcastAlreadyInSnippet = snippet.podcasts.some(
-      podcastInSnippet => podcastInSnippet.id === podcast.id,
+      (podcastInSnippet) => podcastInSnippet.id === podcast.id,
     );
 
     return isPodcastAlreadyInSnippet;
@@ -143,15 +143,12 @@ class SnippetsContainer extends Component<Props, State> {
 //   mapDispatchToProps,
 // )(SnippetsContainer);
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   podcastsDownloaded: state.localPodcastsManager.podcastsDownloaded,
   snippets: state.snippet.snippets,
 });
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch) =>
   bindActionCreators(SnippetCreators, dispatch);
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(SnippetsContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SnippetsContainer);

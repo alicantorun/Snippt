@@ -64,9 +64,7 @@ class SearchContainer extends Component<Props, State> {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators(AuthorCreators, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(AuthorCreators, dispatch);
 
-export default connect(
-  null,
-  mapDispatchToProps,
-)(SearchContainer);
+export default connect(null, mapDispatchToProps)(SearchContainer);

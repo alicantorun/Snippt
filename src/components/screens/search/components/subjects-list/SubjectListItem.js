@@ -9,8 +9,10 @@ const Container = styled(TouchableOpacity)`
   width: ${({ theme }) => theme.metrics.getWidthFromDP('44%')}px;
   height: ${({ theme }) => theme.metrics.getWidthFromDP('44%')}px;
   margin-bottom: ${({ theme }) => theme.metrics.mediumSize}px;
-  margin-right: ${({ theme, index }) => (index % 2 !== 0 ? theme.metrics.largeSize : 0)}px;
-  margin-left: ${({ theme, index }) => (index % 2 === 0 ? 0 : theme.metrics.largeSize)}px;
+  margin-right: ${({ theme, index }) =>
+    index % 2 !== 0 ? theme.metrics.largeSize : 0}px;
+  margin-left: ${({ theme, index }) =>
+    index % 2 === 0 ? 0 : theme.metrics.largeSize}px;
   border-radius: 4px;
 `;
 
@@ -53,14 +55,8 @@ const SubjectListItem = ({
   title,
   index,
 }: Props): Object => (
-  <Container
-    disabled={isTextInputFocused}
-    onPress={onPress}
-    index={index}
-  >
-    <SubjectImage
-      uri={imageURL}
-    />
+  <Container disabled={isTextInputFocused} onPress={onPress} index={index}>
+    <SubjectImage uri={imageURL} />
     <DarkLayer>
       <Title>{title}</Title>
     </DarkLayer>

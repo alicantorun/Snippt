@@ -1,9 +1,7 @@
 // @flow
 
 import React from 'react';
-import {
-  TouchableOpacity, Platform, View, Text,
-} from 'react-native';
+import { TouchableOpacity, Platform, View, Text } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import styled from 'styled-components';
 
@@ -109,11 +107,8 @@ const TrendingAuthorsListItem = ({
       shadowOpacity: 0.25,
       shadowRadius: 3.84,
       elevation: 5,
-    }}
-  >
-    <AuthorImage
-      uri={author.profileImageURL}
-    />
+    }}>
+    <AuthorImage uri={author.profileImageURL} />
     <TextContent>
       <AuthorName>{author.name}</AuthorName>
       <NumberOfPodcasts>
@@ -123,11 +118,7 @@ const TrendingAuthorsListItem = ({
       </NumberOfPodcasts>
     </TextContent>
     <ButtonWrapper>
-      <DefaultButton
-        onPress={onPress}
-        text="LEARN MORE"
-        size="small"
-      />
+      <DefaultButton onPress={onPress} text="LEARN MORE" size="small" />
     </ButtonWrapper>
   </Wrapper>
 );

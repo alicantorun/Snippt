@@ -1,9 +1,7 @@
 // @flow
 
 import React from 'react';
-import {
-  TouchableOpacity, Platform, Linking, View, Text,
-} from 'react-native';
+import { TouchableOpacity, Platform, Linking, View, Text } from 'react-native';
 import styled from 'styled-components';
 import FastImage from 'react-native-fast-image';
 
@@ -98,7 +96,8 @@ const SocialButtonsWrapper = styled(View)`
 const SocialButton = styled(TouchableOpacity)`
   width: ${({ theme }) => theme.metrics.getWidthFromDP('11%')}px;
   height: ${({ theme }) => theme.metrics.getWidthFromDP('11%')}px;
-  padding-top: ${({ withPadingTop, theme }) => (Platform.OS === 'ios' && withPadingTop ? 2 : 0)}px;
+  padding-top: ${({ withPadingTop, theme }) =>
+    Platform.OS === 'ios' && withPadingTop ? 2 : 0}px;
   justify-content: center;
   align-items: center;
   background-color: ${({ color }) => color};
@@ -136,12 +135,8 @@ const shadowStyle = {
 
 const About = (): Object => (
   <Wrapper>
-    <BeautifulImageBack
-      style={shadowStyle}
-    />
-    <CardWrapper
-      style={shadowStyle}
-    >
+    <BeautifulImageBack style={shadowStyle} />
+    <CardWrapper style={shadowStyle}>
       <BeautifulImage />
       <ContentWrapper>
         <BeautifulName>Stenio Wagner</BeautifulName>
@@ -150,13 +145,12 @@ const About = (): Object => (
           <HeartBeating />
         </BeautifulRoleWrapper>
         <SocialButtonsWrapper>
-          {SOCIAL_BUTTONS.map(button => (
+          {SOCIAL_BUTTONS.map((button) => (
             <SocialButton
               onPress={() => onPressSocialButton(button.url)}
               withPadingTop={button.withPadingTop}
               key={button.iconName}
-              color={button.color}
-            >
+              color={button.color}>
               <Icon
                 color={appStyles.colors.white}
                 name={button.iconName}

@@ -77,7 +77,9 @@ class ProgressSlider extends Component<Props, State> {
   onSlidingComplete = (slideValue: number): void => {
     const { seekProgressTimer } = this.props;
 
-    this.setState({ isSliding: false, slideValue }, () => seekProgressTimer(slideValue));
+    this.setState({ isSliding: false, slideValue }, () =>
+      seekProgressTimer(slideValue),
+    );
   };
 
   onValueChange = (slideValue: number): void => {
@@ -97,10 +99,10 @@ class ProgressSlider extends Component<Props, State> {
     return (
       <Wrapper>
         <Slider
-          onSlidingComplete={value => this.onSlidingComplete(value)}
+          onSlidingComplete={(value) => this.onSlidingComplete(value)}
           minimumTrackTintColor={appStyles.colors.primaryColor}
           maximumTrackTintColor={appStyles.colors.subTextWhite}
-          onValueChange={value => this.onValueChange(value)}
+          onValueChange={(value) => this.onValueChange(value)}
           thumbTintColor={appStyles.colors.primaryColor}
           maximumValue={durationInSeconds}
           value={slideValue}
@@ -116,7 +118,7 @@ class ProgressSlider extends Component<Props, State> {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   player: state.player,
 });
 

@@ -1,9 +1,7 @@
 // @flow
 
 import React from 'react';
-import {
-  TouchableOpacity, Platform, View, Text,
-} from 'react-native';
+import { TouchableOpacity, Platform, View, Text } from 'react-native';
 import styled from 'styled-components';
 import FastImage from 'react-native-fast-image';
 
@@ -14,7 +12,8 @@ const Container = styled(TouchableOpacity)`
   height: ${({ theme }) => theme.metrics.getWidthFromDP('55%')};
   border-radius: 3px;
   margin-left: ${({ theme }) => theme.metrics.largeSize}px;
-  margin-right: ${({ theme, isLastIndex }) => (isLastIndex ? theme.metrics.largeSize : 0)}px;
+  margin-right: ${({ theme, isLastIndex }) =>
+    isLastIndex ? theme.metrics.largeSize : 0}px;
 `;
 
 const DarkLayer = styled(View)`
@@ -82,14 +81,9 @@ const NewReleasesSectionItemList = ({
   title,
   stars,
 }: Props): Object => (
-  <Container
-    isLastIndex={isLastIndex}
-    onPress={onPress}
-  >
+  <Container isLastIndex={isLastIndex} onPress={onPress}>
     <BackgroundImage>
-      <PodcastImage
-        uri={imageURL}
-      />
+      <PodcastImage uri={imageURL} />
       <DarkLayer />
     </BackgroundImage>
     <ContentWrapper>

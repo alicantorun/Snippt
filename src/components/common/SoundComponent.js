@@ -67,7 +67,7 @@ class SoundComponent extends Component<Props, {}> {
     }
   };
 
-  playSnippet = currentTimeRaw => {
+  playSnippet = (currentTimeRaw) => {
     let currentTimeRawOnMemory = currentTimeRaw;
     // if (currentTime < 15 && switchOn) {
 
@@ -134,7 +134,7 @@ class SoundComponent extends Component<Props, {}> {
         source={{
           uri: currentPodcast.audio,
         }}
-        ref={ref => {
+        ref={(ref) => {
           this._soundRef = ref;
         }}
         repeat={shouldRepeatCurrent}
@@ -149,14 +149,11 @@ class SoundComponent extends Component<Props, {}> {
   }
 }
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch) =>
   bindActionCreators(PlayerCreators, dispatch);
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   player: state.player,
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(SoundComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(SoundComponent);

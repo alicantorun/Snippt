@@ -60,17 +60,12 @@ const SearchAuthorTextInput = ({
       shadowOpacity: 0.23,
       shadowRadius: 2.62,
       elevation: 4,
-    }}
-  >
+    }}>
     <IconWrapper>
-      <Icon
-        name="magnify"
-        color={appStyles.colors.darkText}
-        size={20}
-      />
+      <Icon name="magnify" color={appStyles.colors.darkText} size={20} />
     </IconWrapper>
     <Input
-      onChangeText={text => onTypeAuthorName(text)}
+      onChangeText={(text) => onTypeAuthorName(text)}
       onFocus={() => onToggleDarkLayer(true)}
       onBlur={() => onToggleDarkLayer(false)}
       onSubmitEditing={onSearchForAuthor}

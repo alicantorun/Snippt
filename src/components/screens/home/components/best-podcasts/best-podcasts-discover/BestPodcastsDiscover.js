@@ -41,7 +41,7 @@ const BestPodcastsDiscover = ({ navigation, data }: Props): Object => {
         buttonSize="small"
       />
       <BestPodcastsDiscoverList
-        keyExtractor={podcast => `${podcast.id}`}
+        keyExtractor={(podcast) => `${podcast.id}`}
         showsHorizontalScrollIndicator={false}
         horizontal
         data={data.slice(0, 9)}

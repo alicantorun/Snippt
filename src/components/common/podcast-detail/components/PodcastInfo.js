@@ -61,18 +61,12 @@ type Props = {
   stars: number,
 };
 
-const PodcastInfo = ({
-  imageURL, subject, title, stars,
-}: Props): Object => (
+const PodcastInfo = ({ imageURL, subject, title, stars }: Props): Object => (
   <Wrapper>
-    <PodcastImage
-      uri={imageURL}
-    />
+    <PodcastImage uri={imageURL} />
     <TextContentWrapper>
       <PodcastTitleText>{title}</PodcastTitleText>
-      <ReviewStars
-        stars={stars}
-      />
+      <ReviewStars stars={stars} />
       <SubjectWrapper>
         <SubjectTextWrapper>
           <PodcastSubjectText>{`#${subject}`}</PodcastSubjectText>

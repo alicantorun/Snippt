@@ -50,16 +50,17 @@ class HottestPodcastsSeeAll extends Component<Props, {}> {
     return (
       <Wrapper>
         <HottestPodcastsSeeAllList
-          keyExtractor={podcast => `${podcast.id}`}
+          keyExtractor={(podcast) => `${podcast.id}`}
           showsVerticalScrollIndicator={false}
           data={hottestPodcasts}
           renderItem={({ item, index }) => (
             <HottestPodcastsSeeAllListItem
-              onPressItem={() => navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
-                [CONSTANTS.KEYS
-                  .PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: true,
-                [CONSTANTS.PARAMS.PODCAST_DETAIL]: item,
-              })
+              onPressItem={() =>
+                navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
+                  [CONSTANTS.KEYS
+                    .PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: true,
+                  [CONSTANTS.PARAMS.PODCAST_DETAIL]: item,
+                })
               }
               shouldShowDownloadStatus={false}
               roundedImage={false}

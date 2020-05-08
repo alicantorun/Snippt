@@ -51,19 +51,10 @@ type InputProps = {
 };
 
 const Input = ({ placeholder, iconName, type }: InputProps): Object => (
-  <ContentContainer
-    color={appStyles.colors.white}
-  >
+  <ContentContainer color={appStyles.colors.white}>
     <InputWrapper>
-      <Icon
-        name={iconName}
-        color={appStyles.colors.darkText}
-        size={22}
-      />
-      <CustomInput
-        placeholder={placeholder}
-        type={type}
-      />
+      <Icon name={iconName} color={appStyles.colors.darkText} size={22} />
+      <CustomInput placeholder={placeholder} type={type} />
     </InputWrapper>
   </ContentContainer>
 );

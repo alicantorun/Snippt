@@ -55,11 +55,12 @@ class SearchAuthorListContainer extends Component<Props, {}> {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   author: state.author,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(AuthorCreators, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(AuthorCreators, dispatch);
 
 export default connect(
   mapStateToProps,

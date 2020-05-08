@@ -91,7 +91,7 @@ const MiddleContent = ({ currentIndex }: Props): Object => {
     if (logo === 'SNIPPTLeft') {
       return (
         <ThemeConsumer>
-          {theme => (
+          {(theme) => (
             <LogoWrapper alignment="left">
               <SNIPPTLeft fill={theme.colors.textColor} />
             </LogoWrapper>
@@ -101,7 +101,7 @@ const MiddleContent = ({ currentIndex }: Props): Object => {
     } else {
       return (
         <ThemeConsumer>
-          {theme => (
+          {(theme) => (
             <LogoWrapper alignment="right">
               <SNIPTTRight fill={theme.colors.textColor} />
             </LogoWrapper>
@@ -122,7 +122,7 @@ const MiddleContent = ({ currentIndex }: Props): Object => {
       {!icon && (
         <OnboardingLogoWrapper>
           <ThemeConsumer>
-            {theme => <Onboarding fill={theme.colors.textColor} />}
+            {(theme) => <Onboarding fill={theme.colors.textColor} />}
           </ThemeConsumer>
         </OnboardingLogoWrapper>
       )}

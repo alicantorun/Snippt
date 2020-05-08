@@ -46,7 +46,7 @@ const mapStateToProps = ({ author }) => ({
   error: author.error,
 });
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch) =>
   bindActionCreators(AuthorCreators, dispatch);
 
 export default connect(

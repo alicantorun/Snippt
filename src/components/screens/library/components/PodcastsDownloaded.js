@@ -45,18 +45,19 @@ class PodcastsDownloaded extends PureComponent<Props, {}> {
         <PodcastsDownloadedList
           renderItem={({ item, index }) => (
             <PodcastsDownloadedListItem
-              onPressItem={() => navigation.navigate(CONSTANTS.ROUTES.PLAYER, {
-                [CONSTANTS.PARAMS.PLAYER]: {
-                  [CONSTANTS.KEYS.PLAYLIST]: [item],
-                },
-              })
+              onPressItem={() =>
+                navigation.navigate(CONSTANTS.ROUTES.PLAYER, {
+                  [CONSTANTS.PARAMS.PLAYER]: {
+                    [CONSTANTS.KEYS.PLAYLIST]: [item],
+                  },
+                })
               }
               index={index + 1}
               podcast={item}
             />
           )}
           showsVerticalScrollIndicator={false}
-          keyExtractor={item => `${item.id}`}
+          keyExtractor={(item) => `${item.id}`}
           data={podcastsDownloaded}
         />
       </Wrapper>
@@ -64,7 +65,7 @@ class PodcastsDownloaded extends PureComponent<Props, {}> {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   podcastsDownloaded: state.localPodcastsManager.podcastsDownloaded,
 });
 

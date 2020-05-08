@@ -15,7 +15,7 @@ export const Creators = {
     type: Types.GET_HOME_REQUEST,
   }),
 
-  getHomeSuccess: data => ({
+  getHomeSuccess: (data) => ({
     type: Types.GET_HOME_SUCCESS,
     payload: { data },
   }),

@@ -120,8 +120,7 @@ class SubjectDetail extends Component<Props, {}> {
                 },
               ],
             },
-          ]}
-        >
+          ]}>
           <ContentWrapper>
             <CustomTab
               onChangeTabIndex={this.onChangeTabIndex}

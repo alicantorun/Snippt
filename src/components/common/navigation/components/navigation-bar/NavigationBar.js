@@ -63,7 +63,7 @@ const NavigationBar = ({
       />
     ))}
     <ThemeConsumer>
-      {theme => (
+      {(theme) => (
         <WrapperExclude>
           <ExcludeBar>
             <ExcludeLeft fill={theme.colors.backgroundColor} />

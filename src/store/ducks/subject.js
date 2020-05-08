@@ -11,12 +11,12 @@ const INITIAL_STATE = {
 };
 
 export const Creators = {
-  getSubjectDetail: id => ({
+  getSubjectDetail: (id) => ({
     type: Types.GET_SUBJECT_DETAIL_REQUEST,
     payload: { id },
   }),
 
-  getSubjectDetailSuccess: data => ({
+  getSubjectDetailSuccess: (data) => ({
     type: Types.GET_SUBJECT_DETAIL_SUCCESS,
     payload: { data },
   }),

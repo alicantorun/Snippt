@@ -9,13 +9,15 @@ const IPHONEX_WIDTH = 375;
 const IPHONEX_HEIGHT = 812;
 
 const isEqualsOrLargestThanIphoneX = (): boolean => {
-  const isEqualsOrLargestThanIphoneXInPortraitMode = screenHeight >= IPHONEX_HEIGHT && screenWidth >= IPHONEX_WIDTH;
-  const isEqualsOrLargestThanIphoneXInLandscapeMode = screenHeight >= IPHONEX_WIDTH && screenWidth >= IPHONEX_HEIGHT;
+  const isEqualsOrLargestThanIphoneXInPortraitMode =
+    screenHeight >= IPHONEX_HEIGHT && screenWidth >= IPHONEX_WIDTH;
+  const isEqualsOrLargestThanIphoneXInLandscapeMode =
+    screenHeight >= IPHONEX_WIDTH && screenWidth >= IPHONEX_HEIGHT;
 
   return (
-    Platform.OS === 'ios'
-    && (isEqualsOrLargestThanIphoneXInPortraitMode
-      || isEqualsOrLargestThanIphoneXInLandscapeMode)
+    Platform.OS === 'ios' &&
+    (isEqualsOrLargestThanIphoneXInPortraitMode ||
+      isEqualsOrLargestThanIphoneXInLandscapeMode)
   );
 };
 

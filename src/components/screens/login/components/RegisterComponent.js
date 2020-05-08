@@ -43,11 +43,7 @@ const LoginComponent = ({
         iconName="email-outline"
         type="emailAddress"
       />
-      <Input
-        placeholder="Password"
-        iconName="lock-outline"
-        type="password"
-      />
+      <Input placeholder="Password" iconName="lock-outline" type="password" />
       <Input
         placeholder="Confirm Password"
         iconName="lock-reset"

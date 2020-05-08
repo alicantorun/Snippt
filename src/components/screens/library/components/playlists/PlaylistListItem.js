@@ -92,15 +92,9 @@ const PlaylistListItem = ({
           onPress: onEditPlaylist,
           type: 'primary',
         },
-      ]}
-    >
-      <ContentWrapper
-        onPress={onPress}
-      >
-        <PlaylistCompositionImages
-          images={images}
-          size="small"
-        />
+      ]}>
+      <ContentWrapper onPress={onPress}>
+        <PlaylistCompositionImages images={images} size="small" />
         <TextWrapper>
           <PlaylistTitle>{title}</PlaylistTitle>
           <BottomContentWrapper>

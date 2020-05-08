@@ -99,14 +99,16 @@ class OnboardingIntro extends Component<Props, State> {
           animated
         />
         <FlatList
-          onMomentumScrollEnd={event => this.onFlatlistMomentumScrollEnd(event)}
+          onMomentumScrollEnd={(event) =>
+            this.onFlatlistMomentumScrollEnd(event)
+          }
           renderItem={({ item, index }) => (
             <IntroScreenWrapper>
               <MiddleContent currentIndex={index} />
             </IntroScreenWrapper>
           )}
           showsHorizontalScrollIndicator={false}
-          keyExtractor={item => item}
+          keyExtractor={(item) => item}
           ref={(ref: any): void => {
             this._pagesListRef = ref;
           }}

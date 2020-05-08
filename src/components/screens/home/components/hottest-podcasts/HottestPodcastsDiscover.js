@@ -43,16 +43,17 @@ const HottestPodcastsDiscover = ({ navigation, data }: Props): Object => (
       buttonSize="small"
     />
     <HottestPodcastsDiscoverList
-      keyExtractor={podcast => `${podcast.id}`}
+      keyExtractor={(podcast) => `${podcast.id}`}
       showsHorizontalScrollIndicator={false}
       data={data.slice(0, 9)}
       horizontal
       renderItem={({ item, index }) => (
         <NewReleasesSectionItemList
-          onPress={() => navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
-            [CONSTANTS.KEYS.PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: true,
-            [CONSTANTS.PARAMS.PODCAST_DETAIL]: item,
-          })
+          onPress={() =>
+            navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
+              [CONSTANTS.KEYS.PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: true,
+              [CONSTANTS.PARAMS.PODCAST_DETAIL]: item,
+            })
           }
           isLastIndex={index === data.length - 1}
           imageURL={item.imageURL}

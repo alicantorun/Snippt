@@ -40,22 +40,12 @@ const SectionItem = ({
   title,
   theme,
 }: Props): Object => (
-  <Container
-    onPress={onPressItem}
-  >
+  <Container onPress={onPressItem}>
     <LeftContentWrapper>
-      <Icon
-        color={theme.colors.primaryColor}
-        name={iconName}
-        size={24}
-      />
+      <Icon color={theme.colors.primaryColor} name={iconName} size={24} />
       <OptionTitle>{title}</OptionTitle>
     </LeftContentWrapper>
-    <Icon
-      color={theme.colors.textColor}
-      name="chevron-right"
-      size={28}
-    />
+    <Icon color={theme.colors.textColor} name="chevron-right" size={28} />
   </Container>
 );
 

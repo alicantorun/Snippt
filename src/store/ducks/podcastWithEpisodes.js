@@ -13,12 +13,12 @@ const INITIAL_STATE = {
 };
 
 export const Creators = {
-  getPodcastWithEpisodes: id => ({
+  getPodcastWithEpisodes: (id) => ({
     type: Types.GET_PODCAST_WITH_EPISODES_REQUEST,
     id,
   }),
 
-  getPodcastWithEpisodesSuccess: data => ({
+  getPodcastWithEpisodesSuccess: (data) => ({
     type: Types.GET_PODCAST_WITH_EPISODES_SUCCESS,
     payload: { data },
   }),

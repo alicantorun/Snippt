@@ -87,15 +87,11 @@ const FeaturedListItem = ({
   index,
 }: Props): Object => (
   <Content>
-    <Container
-      onPress={onPress}
-    >
+    <Container onPress={onPress}>
       <Index>{index}</Index>
       <Wrapper>
         <MainContent>
-          <Image
-            uri={imageURL}
-          />
+          <Image uri={imageURL} />
           <TextContent>
             <Title>{title}</Title>
             <Subject>{`#${subject}`}</Subject>

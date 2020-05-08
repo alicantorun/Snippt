@@ -1,9 +1,7 @@
 // @flow
 
 import React from 'react';
-import {
-  TouchableOpacity, Platform, View, Text,
-} from 'react-native';
+import { TouchableOpacity, Platform, View, Text } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import styled from 'styled-components';
 
@@ -13,7 +11,8 @@ const Wrapper = styled(TouchableOpacity)`
   width: ${({ theme }) => theme.metrics.getWidthFromDP('60%')};
   height: ${({ theme }) => theme.metrics.getWidthFromDP('70%')};
   margin-left: ${({ theme }) => theme.metrics.largeSize}px;
-  margin-right: ${({ theme, isLastIndex }) => (isLastIndex ? theme.metrics.largeSize : 0)}px;
+  margin-right: ${({ theme, isLastIndex }) =>
+    isLastIndex ? theme.metrics.largeSize : 0}px;
   border-radius: 4px;
 `;
 
@@ -78,13 +77,8 @@ const NewReleasesDiscoverListItem = ({
   subject,
   title,
 }: Props): Object => (
-  <Wrapper
-    isLastIndex={isLastIndex}
-    onPress={onPressItem}
-  >
-    <PodcastImage
-      uri={podcastImage}
-    />
+  <Wrapper isLastIndex={isLastIndex} onPress={onPressItem}>
+    <PodcastImage uri={podcastImage} />
     <DarkLayer>
       <AuthorInfoWrapper>
         <AuthorInfo

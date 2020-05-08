@@ -86,20 +86,16 @@ const Repeat = ({
   return (
     <Wrapper>
       <Button
-        onPress={() => handlePress(
-          shouldRepeatPlaylist,
-          shouldRepeatCurrent,
-          setRepeatPlaylist,
-          disableRepetition,
-          setRepeatCurrent,
-        )
-        }
-      >
-        <Icon
-          color={color}
-          name={name}
-          size={size}
-        />
+        onPress={() =>
+          handlePress(
+            shouldRepeatPlaylist,
+            shouldRepeatCurrent,
+            setRepeatPlaylist,
+            disableRepetition,
+            setRepeatCurrent,
+          )
+        }>
+        <Icon color={color} name={name} size={size} />
       </Button>
     </Wrapper>
   );

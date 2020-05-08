@@ -52,12 +52,14 @@ class RecentlyPlayed extends PureComponent<Props, State> {
   componentDidUpdate(_, prevState) {
     const { podcastsRecentlyPlayed } = this.state;
 
-    const isListLengthChanged = podcastsRecentlyPlayed.length !== prevState.podcastsRecentlyPlayed.length;
+    const isListLengthChanged =
+      podcastsRecentlyPlayed.length !== prevState.podcastsRecentlyPlayed.length;
 
     let listOrderChanged = false;
 
     for (let i = 0; i < prevState.podcastsRecentlyPlayed.length; i++) {
-      const isSamePodcast = prevState.podcastsRecentlyPlayed[i].id === podcastsRecentlyPlayed[i].id;
+      const isSamePodcast =
+        prevState.podcastsRecentlyPlayed[i].id === podcastsRecentlyPlayed[i].id;
 
       if (!isSamePodcast) {
         listOrderChanged = true;
@@ -79,7 +81,7 @@ class RecentlyPlayed extends PureComponent<Props, State> {
     const podcastsRecentlyPlayedWithDownloadStatus = podcastsRecentlyPlayed.map(
       (podcastRecentlyPlayed) => {
         const isDownloaded = podcastsDownloaded.some(
-          podcast => podcast.id === podcastRecentlyPlayed.id,
+          (podcast) => podcast.id === podcastRecentlyPlayed.id,
         );
 
         return {
@@ -103,11 +105,12 @@ class RecentlyPlayed extends PureComponent<Props, State> {
         <RecentlyPlayedList
           renderItem={({ item, index }) => (
             <RecentlyPlayedListItem
-              onPressItem={() => navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
-                [CONSTANTS.KEYS
-                  .PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: true,
-                [CONSTANTS.PARAMS.PODCAST_DETAIL]: item,
-              })
+              onPressItem={() =>
+                navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
+                  [CONSTANTS.KEYS
+                    .PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: true,
+                  [CONSTANTS.PARAMS.PODCAST_DETAIL]: item,
+                })
               }
               shouldShowDownloadStatus
               isDownloading={false}
@@ -117,7 +120,7 @@ class RecentlyPlayed extends PureComponent<Props, State> {
             />
           )}
           showsVerticalScrollIndicator={false}
-          keyExtractor={item => `${item.id}`}
+          keyExtractor={(item) => `${item.id}`}
           data={podcastsRecentlyPlayed}
         />
       </Wrapper>
@@ -125,14 +128,12 @@ class RecentlyPlayed extends PureComponent<Props, State> {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators(PlayerCreators, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(PlayerCreators, dispatch);
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   podcastsRecentlyPlayed: state.localPodcastsManager.podcastsRecentlyPlayed,
   podcastsDownloaded: state.localPodcastsManager.podcastsDownloaded,
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(RecentlyPlayed);
+export default connect(mapStateToProps, mapDispatchToProps)(RecentlyPlayed);

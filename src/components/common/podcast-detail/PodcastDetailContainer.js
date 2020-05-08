@@ -102,10 +102,10 @@ class PodcastDetail extends Component<Props, State> {
     const { playlists } = this.props;
 
     const isPodcastDownloadedByPlaylist = playlists
-      .filter(playlist => playlist.isAvailableOffline)
-      .some(playlist =>
+      .filter((playlist) => playlist.isAvailableOffline)
+      .some((playlist) =>
         playlist.podcasts.some(
-          playlistPodcast => playlistPodcast.id === podcast.id,
+          (playlistPodcast) => playlistPodcast.id === podcast.id,
         ),
       );
 
@@ -115,7 +115,7 @@ class PodcastDetail extends Component<Props, State> {
   checkPodcastDownloadStatus = (listKey: string, podcastId: string) => {
     const { localPodcastsManager } = this.props;
 
-    const isPodcastOnTheList = localPodcastsManager[listKey].some(podcast => {
+    const isPodcastOnTheList = localPodcastsManager[listKey].some((podcast) => {
       if (typeof podcast === 'object') {
         return podcast.id === podcastId;
       }
@@ -170,13 +170,13 @@ class PodcastDetail extends Component<Props, State> {
 }
 
 //  TODO fix bad state management
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   localPodcastsManager: state.localPodcastsManager,
   playlists: state.playlist.playlists,
   podcastWithEpisodes: state.podcastWithEpisodes,
 });
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     { ...LocalPodcastsManagerCreators, ...PodcastWithEpisodesCreators },
     dispatch,

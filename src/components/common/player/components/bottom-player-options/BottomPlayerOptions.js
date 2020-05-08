@@ -65,9 +65,7 @@ const BottomPlayerOptions = ({
       isCurrentPodcastDownloaded={isCurrentPodcastDownloaded}
       currentPodcast={currentPodcast}
     />
-    <AddPodcastPlaylist
-      onToggleAddPlaylistModal={onToggleAddPlaylistModal}
-    />
+    <AddPodcastPlaylist onToggleAddPlaylistModal={onToggleAddPlaylistModal} />
   </Wrapper>
 );
 

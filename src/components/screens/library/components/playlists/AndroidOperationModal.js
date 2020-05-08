@@ -93,7 +93,7 @@ const AndroidOperationModal = ({
           <CardTitle>{`${mode} Playlist`}</CardTitle>
           {!!error && <ErrorMessage>{error}</ErrorMessage>}
           <Input
-            onChangeText={text => onTypePlaylistTitle(text)}
+            onChangeText={(text) => onTypePlaylistTitle(text)}
             value={playlistTitle}
           />
         </View>

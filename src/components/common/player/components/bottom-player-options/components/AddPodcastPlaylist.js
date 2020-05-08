@@ -11,9 +11,7 @@ type Props = {
 };
 
 const AddPodcastPlaylist = ({ onToggleAddPlaylistModal }: Props): Object => (
-  <Button
-    onPress={onToggleAddPlaylistModal}
-  >
+  <Button onPress={onToggleAddPlaylistModal}>
     <Icon
       size={appStyles.metrics.getWidthFromDP('6%') + 5}
       color={appStyles.colors.white}

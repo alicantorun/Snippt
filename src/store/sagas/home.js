@@ -22,8 +22,8 @@ export function* getHome() {
         : rawInterests;
 
     const interestsSelected = interests
-      .filter(interest => interest.isSelected)
-      .map(interest => interest.title.toLowerCase());
+      .filter((interest) => interest.isSelected)
+      .map((interest) => interest.title.toLowerCase());
 
     // This bring best podcasts for now
     const { data } = yield call(

@@ -32,11 +32,12 @@ const NewReleasesSection = ({
 }: Props): Object => (
   <Wrapper>
     <SectionWithButton
-      onPress={() => navigation.navigate(CONSTANTS.ROUTES.PLAYER, {
-        [CONSTANTS.PARAMS.PLAYER]: {
-          [CONSTANTS.KEYS.PLAYLIST]: newReleases,
-        },
-      })
+      onPress={() =>
+        navigation.navigate(CONSTANTS.ROUTES.PLAYER, {
+          [CONSTANTS.PARAMS.PLAYER]: {
+            [CONSTANTS.KEYS.PLAYLIST]: newReleases,
+          },
+        })
       }
       sectionTitle="New Releases"
       buttonText="LISTEN NOW"
@@ -44,7 +45,7 @@ const NewReleasesSection = ({
     />
     <NewReleasesList
       showsHorizontalScrollIndicator={false}
-      keyExtractor={podcast => `${podcast.id}`}
+      keyExtractor={(podcast) => `${podcast.id}`}
       data={newReleases}
       horizontal
       renderItem={({ item, index }) => (

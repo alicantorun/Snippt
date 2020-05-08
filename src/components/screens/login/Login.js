@@ -1,9 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import {
-  StatusBar, Animated, FlatList, View,
-} from 'react-native';
+import { StatusBar, Animated, FlatList, View } from 'react-native';
 import styled from 'styled-components';
 
 import RegisterComponent from './components/RegisterComponent';
@@ -93,14 +91,10 @@ class Login extends Component<Props, {}> {
           animated
         />
         <BackgroundImage />
-        <Animated.View
-          style={headerAnimation}
-        >
+        <Animated.View style={headerAnimation}>
           <Header />
         </Animated.View>
-        <Animated.View
-          style={formAnimation}
-        >
+        <Animated.View style={formAnimation}>
           <FlatList
             renderItem={({ item }) => {
               const { Layout } = item;
@@ -115,7 +109,7 @@ class Login extends Component<Props, {}> {
               );
             }}
             showsHorizontalScrollIndicator={false}
-            keyExtractor={item => item.id}
+            keyExtractor={(item) => item.id}
             ref={(ref: any): void => {
               this._flatListRef = ref;
             }}

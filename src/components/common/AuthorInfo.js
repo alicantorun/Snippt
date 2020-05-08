@@ -42,13 +42,8 @@ const AuthorInfo = ({
   name,
 }: Props): Object => (
   <Wrapper>
-    <AuthorImage
-      uri={imageURL}
-    />
-    <AuthorName
-      numberOfLines={numberOfLines}
-      textColor={textColor}
-    >
+    <AuthorImage uri={imageURL} />
+    <AuthorName numberOfLines={numberOfLines} textColor={textColor}>
       {name}
     </AuthorName>
   </Wrapper>

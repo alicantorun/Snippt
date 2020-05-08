@@ -28,7 +28,7 @@ const renderList = (
 ): Object => (
   <FlatList
     showsVerticalScrollIndicator={false}
-    keyExtractor={item => `${item.id}`}
+    keyExtractor={(item) => `${item.id}`}
     data={podcasts}
     style={{
       flex: 1,
@@ -57,9 +57,7 @@ const TrendingPodcastsList = ({ podcasts, onPress }: Props): Object => {
   const leftDataset = podcasts.slice(middleIndex, podcasts.length);
 
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-    >
+    <ScrollView showsVerticalScrollIndicator={false}>
       <ListsWrapper>
         {renderList(leftDataset, onPress, 'left')}
         {renderList(rightDataset, onPress, 'right')}

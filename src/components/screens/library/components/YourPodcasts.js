@@ -52,12 +52,14 @@ class YourPodcasts extends PureComponent<Props, State> {
   componentDidUpdate(_, prevState) {
     const { userPodcasts } = this.state;
 
-    const isListLengthChanged = userPodcasts.length !== prevState.userPodcasts.length;
+    const isListLengthChanged =
+      userPodcasts.length !== prevState.userPodcasts.length;
 
     const hasNewItemInserted = prevState.userPodcasts.some(
-      prevUserPodcast => userPodcasts.findIndex(
-        userPodcast => userPodcast.id === prevUserPodcast.id,
-      ) === -1,
+      (prevUserPodcast) =>
+        userPodcasts.findIndex(
+          (userPodcast) => userPodcast.id === prevUserPodcast.id,
+        ) === -1,
     );
 
     if (hasNewItemInserted || isListLengthChanged) {
@@ -90,9 +92,11 @@ class YourPodcasts extends PureComponent<Props, State> {
 
     const userPodcasts = podcastsFromPlaylists.concat(
       podcastsDownloaded.filter(
-        podcastDownloaded => podcastsFromPlaylists.findIndex(
-          podcastFromPlaylists => podcastFromPlaylists.id === podcastDownloaded.id,
-        ) < 0,
+        (podcastDownloaded) =>
+          podcastsFromPlaylists.findIndex(
+            (podcastFromPlaylists) =>
+              podcastFromPlaylists.id === podcastDownloaded.id,
+          ) < 0,
       ),
     );
 
@@ -102,7 +106,7 @@ class YourPodcasts extends PureComponent<Props, State> {
   removePodcastsDuplicated = (podcasts: Array<Object>): Array<Object> => {
     const podcastsWithouDuplicated = podcasts.filter((podcast, index) => {
       const podcastIndex = podcasts.findIndex(
-        podcastItem => podcastItem.id === podcast.id,
+        (podcastItem) => podcastItem.id === podcast.id,
       );
 
       return podcastIndex === index;
@@ -113,7 +117,7 @@ class YourPodcasts extends PureComponent<Props, State> {
 
   getPodcastsFromPlaylists = (playlists: Array<Playlist>): Array<Object> => {
     const podcastsFromPlaylistsWithPossibleDuplicates = playlists
-      .map(playlist => playlist.podcasts)
+      .map((playlist) => playlist.podcasts)
       .reduce((podcastsList, podcasts) => podcastsList.concat(podcasts), []);
 
     const podcastsFromPlaylists = this.removePodcastsDuplicated(
@@ -129,7 +133,7 @@ class YourPodcasts extends PureComponent<Props, State> {
   ): Array<Object> => {
     const userPodcastsWithDownloadStatus = podcasts.map((podcast) => {
       const isDownloaded = podcastsDownloaded.some(
-        podcastDownloaded => podcastDownloaded.id === podcast.id,
+        (podcastDownloaded) => podcastDownloaded.id === podcast.id,
       );
 
       return {
@@ -150,11 +154,12 @@ class YourPodcasts extends PureComponent<Props, State> {
         <FlatList
           renderItem={({ item, index }) => (
             <RecentlyPlayedListItem
-              onPressItem={() => navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
-                [CONSTANTS.KEYS
-                  .PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: true,
-                [CONSTANTS.PARAMS.PODCAST_DETAIL]: item,
-              })
+              onPressItem={() =>
+                navigation.navigate(CONSTANTS.ROUTES.PODCAST_DETAIL, {
+                  [CONSTANTS.KEYS
+                    .PODCAST_DETAIL_SHOULD_SHOW_AUTHOR_SECTION]: true,
+                  [CONSTANTS.PARAMS.PODCAST_DETAIL]: item,
+                })
               }
               shouldShowDownloadStatus
               isDownloading={false}
@@ -163,7 +168,7 @@ class YourPodcasts extends PureComponent<Props, State> {
             />
           )}
           showsVerticalScrollIndicator={false}
-          keyExtractor={item => `${item.id}`}
+          keyExtractor={(item) => `${item.id}`}
           data={userPodcasts}
         />
       </Wrapper>
@@ -171,7 +176,7 @@ class YourPodcasts extends PureComponent<Props, State> {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   podcastsDownloaded: state.localPodcastsManager.podcastsDownloaded,
   playlists: state.playlist.playlists,
 });

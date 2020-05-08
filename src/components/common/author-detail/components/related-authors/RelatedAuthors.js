@@ -47,16 +47,14 @@ type Props = {
 const RelatedAuthors = ({ relatedAuthors }: Props): Object => (
   <Wrapper>
     <TitleWrapper>
-      <SectionTitle
-        title="Related Authors"
-      />
+      <SectionTitle title="Related Authors" />
     </TitleWrapper>
     <RelatedAuthorsList
       ListFooterComponent={ListFooterComponent}
       showsHorizontalScrollIndicator={false}
       horizontal
       data={relatedAuthors}
-      keyExtractor={podcast => `${podcast.id}`}
+      keyExtractor={(podcast) => `${podcast.id}`}
       renderItem={({ item }) => (
         <RelatedAuthorsListItem
           profileImage={item.profileImageURL}

@@ -1,9 +1,7 @@
 // @flow
 
 import React, { Fragment } from 'react';
-import {
-  TouchableOpacity, Platform, View, Text,
-} from 'react-native';
+import { TouchableOpacity, Platform, View, Text } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import styled from 'styled-components';
 
@@ -87,20 +85,11 @@ const AuthorListItem = ({
 }: Props): Object => (
   <ContentWrapper>
     {withIndex && <Index>{index}</Index>}
-    <AuthorImage
-      uri={author.profileImageURL}
-    />
-    <RightContent
-      withIndex={withIndex}
-    >
+    <AuthorImage uri={author.profileImageURL} />
+    <RightContent withIndex={withIndex}>
       <AuthorName>{author.name}</AuthorName>
-      <DetailButton
-        onPress={onPressItem}
-      >
-        <Icon
-          size={22}
-          name="magnify"
-        />
+      <DetailButton onPress={onPressItem}>
+        <Icon size={22} name="magnify" />
       </DetailButton>
     </RightContent>
   </ContentWrapper>

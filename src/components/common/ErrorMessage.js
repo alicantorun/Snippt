@@ -48,10 +48,7 @@ type Props = {
 const ErrorMessage = ({ message, title, icon }: Props): Object => (
   <Wrapper>
     <ContentWrapper>
-      <Icon
-        name={icon}
-        size={150}
-      />
+      <Icon name={icon} size={150} />
       <Title>{title}</Title>
       <Message>{message}</Message>
     </ContentWrapper>

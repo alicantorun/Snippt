@@ -25,7 +25,7 @@ const iOSModalAlert = (
       },
       {
         text: mode.toUpperCase(),
-        onPress: playlistTitle => mainAction(playlistTitle),
+        onPress: (playlistTitle) => mainAction(playlistTitle),
       },
     ],
     'plain-text',

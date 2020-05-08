@@ -94,11 +94,8 @@ class ThemeContextProvider extends Component<Props, State> {
         value={{
           onToggleDarkTheme: this.onToggleDarkTheme,
           isDarkThemeActivated,
-        }}
-      >
-        <ThemeProvider
-          theme={appTheme}
-        >
+        }}>
+        <ThemeProvider theme={appTheme}>
           <Fragment>
             <StatusBar
               backgroundColor={appTheme.colors.androidToolbarColor}

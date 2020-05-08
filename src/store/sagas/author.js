@@ -9,7 +9,7 @@ export function* searchAuthorByName({ payload }) {
     const { name } = payload;
 
     const { data } = yield call(api.get, '/authors/filter', {
-      paramsSerializer: params => parseParams(params),
+      paramsSerializer: (params) => parseParams(params),
       params: { name },
     });
 

@@ -44,47 +44,47 @@ export const Creators = {
     type: Types.SET_PODCASTS_DOWNLOADED_LIST_REQUEST,
   }),
 
-  setPodcastsDownloadedListSuccess: podcastsDownloaded => ({
+  setPodcastsDownloadedListSuccess: (podcastsDownloaded) => ({
     type: Types.SET_PODCASTS_DOWNLOADED_LIST_SUCCESS,
     payload: { podcastsDownloaded },
   }),
 
-  removeFromDownloadedList: id => ({
+  removeFromDownloadedList: (id) => ({
     type: Types.REMOVE_FROM_DOWNLOADED_LIST,
     payload: { id },
   }),
 
-  addToDownloadedList: podcast => ({
+  addToDownloadedList: (podcast) => ({
     type: Types.ADD_TO_DOWNLOADED_LIST,
     payload: { podcast },
   }),
 
-  removeFromDownloadingList: id => ({
+  removeFromDownloadingList: (id) => ({
     type: Types.REMOVE_FROM_DOWNLOADING_LIST,
     payload: { id },
   }),
 
-  addToDownloadingList: downloadInfo => ({
+  addToDownloadingList: (downloadInfo) => ({
     type: Types.ADD_TO_DOWNLOADING_LIST,
     payload: { downloadInfo },
   }),
 
-  downloadPodcast: podcast => ({
+  downloadPodcast: (podcast) => ({
     type: Types.DOWNLOAD_PODCAST,
     payload: { podcast },
   }),
 
-  removePodcast: podcast => ({
+  removePodcast: (podcast) => ({
     type: Types.REMOVE_PODCAST,
     payload: { podcast },
   }),
 
-  addPodcastToRecentlyPlayedList: podcast => ({
+  addPodcastToRecentlyPlayedList: (podcast) => ({
     type: Types.ADD_PODCAST_RECENTLY_PLAYED_REQUEST,
     payload: { podcast },
   }),
 
-  addPodcastToRecentlyPlayedListSuccess: podcastsRecentlyPlayed => ({
+  addPodcastToRecentlyPlayedListSuccess: (podcastsRecentlyPlayed) => ({
     type: Types.ADD_PODCAST_RECENTLY_PLAYED_SUCCESS,
     payload: { podcastsRecentlyPlayed },
   }),
@@ -93,7 +93,7 @@ export const Creators = {
     type: Types.LOAD_PODCASTS_RECENTLY_PLAYED_REQUEST,
   }),
 
-  loadPodcastsRecentlyPlayedSuccess: podcastsRecentlyPlayed => ({
+  loadPodcastsRecentlyPlayedSuccess: (podcastsRecentlyPlayed) => ({
     type: Types.LOAD_PODCASTS_RECENTLY_PLAYED_SUCCESS,
     payload: { podcastsRecentlyPlayed },
   }),
@@ -119,7 +119,7 @@ const localPodcastsManagerCreators = (
       return {
         ...state,
         podcastsDownloaded: state.podcastsDownloaded.filter(
-          podcastDownloaded => podcastDownloaded.id !== payload.id,
+          (podcastDownloaded) => podcastDownloaded.id !== payload.id,
         ),
       };
 
@@ -133,7 +133,7 @@ const localPodcastsManagerCreators = (
       return {
         ...state,
         downloadingList: state.downloadingList.filter(
-          downloadInfo => downloadInfo.id !== payload.id,
+          (downloadInfo) => downloadInfo.id !== payload.id,
         ),
       };
 

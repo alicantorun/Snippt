@@ -49,7 +49,7 @@ class BestPodcastsSeeAll extends Component<Props, {}> {
     return (
       <Wrapper>
         <BestPodcastsSeeAllList
-          keyExtractor={podcast => `${podcast.id}`}
+          keyExtractor={(podcast) => `${podcast.id}`}
           showsVerticalScrollIndicator={false}
           data={bestPodcasts}
           // TODO

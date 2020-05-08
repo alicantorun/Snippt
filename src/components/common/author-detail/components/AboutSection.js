@@ -23,9 +23,7 @@ type Props = {
 
 const AboutSection = ({ about }: Props): Object => (
   <Wrapper>
-    <SectionTitle
-      title="About"
-    />
+    <SectionTitle title="About" />
     <About>{about}</About>
   </Wrapper>
 );

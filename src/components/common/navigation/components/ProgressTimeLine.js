@@ -46,7 +46,8 @@ const getCurrentTimeLineWidth = (
   const currentTimeInSeconds = getTotalSecondsFromCurrentTime(currentTime);
   const screenWidth = appStyles.metrics.width;
 
-  const currentTimeLineWidth = (currentTimeInSeconds * screenWidth) / durationInSeconds;
+  const currentTimeLineWidth =
+    (currentTimeInSeconds * screenWidth) / durationInSeconds;
 
   return currentTimeLineWidth;
 };
@@ -63,14 +64,12 @@ const ProgressTimeLine = ({
   return (
     <View>
       <TotalDurationLine />
-      <CurrentTimeLine
-        width={currentTimeLineWidth}
-      />
+      <CurrentTimeLine width={currentTimeLineWidth} />
     </View>
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   durationInSeconds: state.player.currentPodcast.durationInSeconds,
   currentTime: state.player.currentTime,
 });

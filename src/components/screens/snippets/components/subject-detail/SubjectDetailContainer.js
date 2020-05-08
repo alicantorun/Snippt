@@ -58,11 +58,12 @@ class SubjectDetailContainer extends Component<Props, {}> {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   subject: state.subject,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(SubjectCreators, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(SubjectCreators, dispatch);
 
 export default connect(
   mapStateToProps,

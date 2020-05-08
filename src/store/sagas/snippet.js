@@ -37,7 +37,7 @@ export function* loadSnippets() {
 
 export function* createSnippet({ payload }) {
   try {
-    const { snippets } = yield select(state => state.snippet);
+    const { snippets } = yield select((state) => state.snippet);
 
     const {
       podcastTitle,
@@ -96,14 +96,14 @@ export function* createSnippet({ payload }) {
 }
 
 function* _handlePersistsSnippetsUpdated(snippet, podcasts) {
-  const { snippets } = yield select(state => state.snippet);
+  const { snippets } = yield select((state) => state.snippet);
 
   const snippetUpdated = {
     ...snippet,
     podcasts,
   };
 
-  const snippetsUpdated = snippets.map(snippetFromState =>
+  const snippetsUpdated = snippets.map((snippetFromState) =>
     snippetFromState.title === snippet.title
       ? snippetUpdated
       : snippetFromState,
@@ -119,7 +119,7 @@ function* _handlePersistsSnippetsUpdated(snippet, podcasts) {
 
 export function* editSnippet({ payload }) {
   try {
-    const { snippets } = yield select(state => state.snippet);
+    const { snippets } = yield select((state) => state.snippet);
     const { snippetTitle, index } = payload;
 
     const snippetsUpdated = Object.assign([...snippets], {
@@ -142,11 +142,11 @@ export function* editSnippet({ payload }) {
 
 export function* removeSnippet({ payload }) {
   try {
-    const { snippets } = yield select(state => state.snippet);
+    const { snippets } = yield select((state) => state.snippet);
     const { snippetToRemove } = payload;
 
     const snippetsUpdated = snippets.filter(
-      snippet => snippet.title !== snippetToRemove.title,
+      (snippet) => snippet.title !== snippetToRemove.title,
     );
 
     if (snippetToRemove.isAvailableOffline) {
@@ -172,11 +172,11 @@ export function* addPodcast({ payload }) {
 
     if (snippet.isAvailableOffline) {
       const { podcastsDownloaded } = yield select(
-        state => state.localPodcastsManager,
+        (state) => state.localPodcastsManager,
       );
 
       const isPodcastAlreadyDownloaded = podcastsDownloaded.some(
-        podcastDownloaded => podcastDownloaded.id === podcast.id,
+        (podcastDownloaded) => podcastDownloaded.id === podcast.id,
       );
 
       if (!isPodcastAlreadyDownloaded) {
@@ -209,13 +209,13 @@ export function* addPodcast({ payload }) {
 
 export function* removePodcast({ payload }) {
   try {
-    const { snippets } = yield select(state => state.snippet);
+    const { snippets } = yield select((state) => state.snippet);
     const { snippet, podcastIndex } = payload;
 
     if (snippet.isAvailableOffline) {
       const podcast = snippet.podcasts[podcastIndex];
       const isPodcastDownloadedBySnippet = snippet.downloads.some(
-        podcastId => podcastId === podcast.id,
+        (podcastId) => podcastId === podcast.id,
       );
 
       if (isPodcastDownloadedBySnippet) {
@@ -253,19 +253,19 @@ export function* removePodcast({ payload }) {
 export function* getSnippet({ payload }) {
   try {
     const { title } = payload;
-    const { localPodcastsManager, snippet } = yield select(state => state);
+    const { localPodcastsManager, snippet } = yield select((state) => state);
 
     const { podcastsDownloaded } = localPodcastsManager;
     const { snippets } = snippet;
 
     const snippetSelected = snippets.find(
-      snippetInStore => snippetInStore.title === title,
+      (snippetInStore) => snippetInStore.title === title,
     );
 
-    const podcasts = snippetSelected.podcasts.map(podcast => ({
+    const podcasts = snippetSelected.podcasts.map((podcast) => ({
       ...podcast,
       isDownloaded: podcastsDownloaded.some(
-        podcastDownloaded => podcastDownloaded.id === podcast.id,
+        (podcastDownloaded) => podcastDownloaded.id === podcast.id,
       ),
     }));
 
@@ -282,14 +282,14 @@ export function* getSnippet({ payload }) {
 
 function* _setSnippetToAvailableOffline(snippetSelected) {
   try {
-    const { localPodcastsManager, snippet } = yield select(state => state);
+    const { localPodcastsManager, snippet } = yield select((state) => state);
 
     const { podcastsDownloaded } = localPodcastsManager;
     const podcastsDownloadedBySnippet = [];
 
-    const podcastsToDownload = snippetSelected.podcasts.filter(podcast => {
+    const podcastsToDownload = snippetSelected.podcasts.filter((podcast) => {
       const isPodcastAlreadyDownloaded = podcastsDownloaded.some(
-        podcastDownloaded => podcastDownloaded.id === podcast.id,
+        (podcastDownloaded) => podcastDownloaded.id === podcast.id,
       );
 
       return !isPodcastAlreadyDownloaded;
@@ -298,7 +298,7 @@ function* _setSnippetToAvailableOffline(snippetSelected) {
     const snippetUpdated = {
       ...snippetSelected,
       isAvailableOffline: true,
-      downloads: podcastsToDownload.map(podcast => podcast.id),
+      downloads: podcastsToDownload.map((podcast) => podcast.id),
     };
 
     yield call(
@@ -307,7 +307,7 @@ function* _setSnippetToAvailableOffline(snippetSelected) {
       snippetSelected.podcasts,
     );
 
-    const snippetsUpdated = snippet.snippets.map(snippet =>
+    const snippetsUpdated = snippet.snippets.map((snippet) =>
       snippet.title === snippetUpdated.title ? snippetUpdated : snippet,
     );
 
@@ -319,7 +319,7 @@ function* _setSnippetToAvailableOffline(snippetSelected) {
     );
 
     yield all(
-      podcastsToDownload.map(podcast => call(downloadPodcast, podcast)),
+      podcastsToDownload.map((podcast) => call(downloadPodcast, podcast)),
     );
   } catch (err) {
     throw err;
@@ -328,27 +328,27 @@ function* _setSnippetToAvailableOffline(snippetSelected) {
 
 function* _setSnippetToUnvailableOffline(snippetSelected) {
   try {
-    const { localPodcastsManager, snippet } = yield select(state => state);
+    const { localPodcastsManager, snippet } = yield select((state) => state);
     const { podcastsDownloaded, downloadingList } = localPodcastsManager;
 
-    const jobsToCancel = downloadingList.filter(downloadingItem => {
+    const jobsToCancel = downloadingList.filter((downloadingItem) => {
       const shouldCancelPodcatDownload = snippetSelected.downloads.some(
-        podcastId => downloadingItem.id === podcastId,
+        (podcastId) => downloadingItem.id === podcastId,
       );
       return shouldCancelPodcatDownload;
     });
 
     const podcastsAlreadyDownloadedBySnippetSelected = snippetSelected.downloads.filter(
-      podcast => {
+      (podcast) => {
         const isPodcastAlreadyDownloaded = podcastsDownloaded.some(
-          podcastDownloaded => podcastsDownloaded.id === podcast.id,
+          (podcastDownloaded) => podcastsDownloaded.id === podcast.id,
         );
         return isPodcastAlreadyDownloaded;
       },
     );
 
     yield all(
-      podcastsAlreadyDownloadedBySnippetSelected.map(id =>
+      podcastsAlreadyDownloadedBySnippetSelected.map((id) =>
         call(removePodcastFromLocalStorage, {
           payload: {
             podcast: {
@@ -359,7 +359,9 @@ function* _setSnippetToUnvailableOffline(snippetSelected) {
       ),
     );
 
-    yield all(jobsToCancel.map(jobInfo => call(stopPodcastDownload, jobInfo)));
+    yield all(
+      jobsToCancel.map((jobInfo) => call(stopPodcastDownload, jobInfo)),
+    );
 
     const snippetUpdated = {
       ...snippetSelected,
@@ -373,7 +375,7 @@ function* _setSnippetToUnvailableOffline(snippetSelected) {
       snippetSelected.podcasts,
     );
 
-    const snippetsUpdated = snippet.snippets.map(snippet =>
+    const snippetsUpdated = snippet.snippets.map((snippet) =>
       snippet.title === snippetUpdated.title ? snippetUpdated : snippet,
     );
 

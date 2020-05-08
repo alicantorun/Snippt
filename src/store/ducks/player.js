@@ -47,17 +47,17 @@ const INITIAL_STATE = {
 };
 
 export const Creators = {
-  updatePodcastURI: uri => ({
+  updatePodcastURI: (uri) => ({
     type: Types.UPDATE_PODCAST_URI,
     payload: { uri },
   }),
 
-  seekProgressTimer: seekValue => ({
+  seekProgressTimer: (seekValue) => ({
     type: Types.SEEK_PROGRESS_TIMER_REQUEST,
     payload: { seekValue },
   }),
 
-  seekProgressTimerSuccess: seekValue => ({
+  seekProgressTimerSuccess: (seekValue) => ({
     type: Types.SEEK_PROGRESS_TIMER_SUCCESS,
     payload: { seekValue },
   }),
@@ -66,7 +66,7 @@ export const Creators = {
     type: Types.SHUFFLE_PLAYLIST_REQUEST,
   }),
 
-  shufflePlaylistSuccess: payload => ({
+  shufflePlaylistSuccess: (payload) => ({
     type: Types.SHUFFLE_PLAYLIST_SUCCESS,
     payload,
   }),
@@ -75,7 +75,7 @@ export const Creators = {
     type: Types.PLAY_PREVIOUS_REQUEST,
   }),
 
-  playPreviousSuccess: payload => ({
+  playPreviousSuccess: (payload) => ({
     type: Types.PLAY_PREVIOUS_SUCCESS,
     payload,
   }),
@@ -84,7 +84,7 @@ export const Creators = {
     type: Types.SET_PODCAST_REQUEST,
   }),
 
-  setPodcastSuccess: currentPodcast => ({
+  setPodcastSuccess: (currentPodcast) => ({
     type: Types.SET_PODCAST_SUCCESS,
     payload: { currentPodcast },
   }),
@@ -93,7 +93,7 @@ export const Creators = {
     type: Types.PLAY_NEXT_REQUEST,
   }),
 
-  playNextSuccess: payload => ({
+  playNextSuccess: (payload) => ({
     type: Types.PLAY_NEXT_SUCCESS,
     payload,
   }),
@@ -106,12 +106,12 @@ export const Creators = {
     type: Types.SET_REPEAT_CURRENT,
   }),
 
-  removeFromPlaylist: id => ({
+  removeFromPlaylist: (id) => ({
     type: Types.REMOVE_FROM_PLAYLIST,
     payload: { id },
   }),
 
-  setCurrentTime: currentTime => ({
+  setCurrentTime: (currentTime) => ({
     type: Types.SET_CURRENT_TIME,
     payload: { currentTime },
   }),
@@ -125,17 +125,17 @@ export const Creators = {
     type: Types.DISABLE_REPETIION,
   }),
 
-  setupPlayer: playlist => ({
+  setupPlayer: (playlist) => ({
     type: Types.SETUP_PLAYER,
     payload: { playlist },
   }),
 
-  setupShufflePlayer: playlist => ({
+  setupShufflePlayer: (playlist) => ({
     type: Types.SETUP_SHUFFLE_PLAYER_REQUEST,
     payload: { playlist },
   }),
 
-  setupShufflePlayerSuccess: playlist => ({
+  setupShufflePlayerSuccess: (playlist) => ({
     type: Types.SETUP_SHUFFLE_PLAYER_SUCCESS,
     payload: { playlist },
   }),
@@ -144,7 +144,7 @@ export const Creators = {
     type: Types.REPEAT_CURRENT_PODCAST_REQUEST,
   }),
 
-  repeatCurrentPodcastSuccess: currentPodcast => ({
+  repeatCurrentPodcastSuccess: (currentPodcast) => ({
     type: Types.REPEAT_CURRENT_PODCAST_SUCCESS,
     payload: { currentPodcast },
   }),
@@ -157,7 +157,7 @@ export const Creators = {
     type: Types.STOP,
   }),
 
-  playSnippet: currentTime => ({
+  playSnippet: (currentTime) => ({
     type: Types.PLAY_SNIPPET,
     payload: { currentTime },
   }),
@@ -167,7 +167,7 @@ export const Creators = {
   }),
 };
 
-const parseCurrentPodcastTime = rawTime => {
+const parseCurrentPodcastTime = (rawTime) => {
   const currentTime = Math.ceil(rawTime);
 
   const currentTimeInMinutes = Math.floor(currentTime / 60);
@@ -303,7 +303,7 @@ const player = (state = INITIAL_STATE, { type, payload }) => {
     case Types.REMOVE_FROM_PLAYLIST:
       return {
         ...state,
-        playlist: state.playlist.filter(podcast => {
+        playlist: state.playlist.filter((podcast) => {
           const isRemovingCurrentPodcast =
             podcast.id === state.currentPodcast.id;
           const isLookingToOtherPodcast = podcast.id !== payload.id;

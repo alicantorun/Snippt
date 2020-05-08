@@ -44,11 +44,11 @@ export function* addPodcastToRecentlyPlayedList({ payload }) {
     const { podcast } = payload;
 
     const { podcastsRecentlyPlayed } = yield select(
-      state => state.localPodcastsManager,
+      (state) => state.localPodcastsManager,
     );
 
     const podcastsRecentlyPlayedWithourCurrentPodcast = podcastsRecentlyPlayed.filter(
-      podcastRecentlyPlayed => podcastRecentlyPlayed.id !== podcast.id,
+      (podcastRecentlyPlayed) => podcastRecentlyPlayed.id !== podcast.id,
     );
 
     const podcastsRecentlyPlayedUpdated = [
@@ -90,12 +90,12 @@ const _getPodcastsSaved = async () => {
 function* _addPodcastToSavedPodcastsList(podcastToSave) {
   try {
     const { podcastsDownloaded } = yield select(
-      state => state.localPodcastsManager,
+      (state) => state.localPodcastsManager,
     );
 
     const isPodcastSaved =
       podcastsDownloaded.findIndex(
-        podcastSaved => podcastSaved.id === podcastToSave.id,
+        (podcastSaved) => podcastSaved.id === podcastToSave.id,
       ) >= 0;
 
     if (!isPodcastSaved) {
@@ -112,11 +112,11 @@ function* _addPodcastToSavedPodcastsList(podcastToSave) {
 function* _removePersistedPodcasts(id) {
   try {
     const { podcastsDownloaded } = yield select(
-      state => state.localPodcastsManager,
+      (state) => state.localPodcastsManager,
     );
 
     const podcastsSaved = podcastsDownloaded.filter(
-      podcast => podcast.id !== id,
+      (podcast) => podcast.id !== id,
     );
 
     yield persistItemInStorage(CONSTANTS.KEYS.PODCASTS_SAVED, podcastsSaved);
@@ -132,15 +132,15 @@ function* _getPodcastsDownloadedFromFS(podcastsFromFS) {
       RNFS.DocumentDirectoryPath,
     );
 
-    const directoryFiles = directoryContent.filter(directoryItem =>
+    const directoryFiles = directoryContent.filter((directoryItem) =>
       directoryItem.isFile(),
     );
 
-    const podcastsDownloaded = podcastsFromFS.filter(podcastFromFS => {
+    const podcastsDownloaded = podcastsFromFS.filter((podcastFromFS) => {
       const podcastFilename = `${podcastFromFS.id}.mp3`;
 
       const isPodcastsStillDownloaded = directoryFiles.some(
-        file => file.name === podcastFilename,
+        (file) => file.name === podcastFilename,
       );
 
       return isPodcastsStillDownloaded;
@@ -293,16 +293,14 @@ export function* removePodcastFromLocalStorage({ payload }) {
 export function* clearAllLocalPodcastsReferences() {
   try {
     const { podcastsDownloaded } = yield select(
-      state => state.localPodcastsManager,
+      (state) => state.localPodcastsManager,
     );
 
     const hasPodcastsDownloaded = podcastsDownloaded.length > 0;
 
     if (hasPodcastsDownloaded) {
-      const removeFiles = podcastsDownloaded.map(async podcastDownloaded => {
-        const PATH_TO_FILE = `${RNFS.DocumentDirectoryPath}/${
-          podcastDownloaded.id
-        }.mp3`;
+      const removeFiles = podcastsDownloaded.map(async (podcastDownloaded) => {
+        const PATH_TO_FILE = `${RNFS.DocumentDirectoryPath}/${podcastDownloaded.id}.mp3`;
 
         return RNFS.unlink(PATH_TO_FILE);
       });

@@ -33,9 +33,7 @@ type Props = {
 
 const BackgroundImage = ({ imageURL }: Props): Object => (
   <Container>
-    <BlurredImage
-      imageURL={imageURL}
-    />
+    <BlurredImage imageURL={imageURL} />
     <BlackLayer />
   </Container>
 );

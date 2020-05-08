@@ -75,7 +75,7 @@ class Playlists extends Component<Props, State> {
   getPodcastImages = (podcasts: Array<Object>): Array<string> => {
     const images = podcasts
       .slice(0, 4)
-      .map(podcast => podcast.thumbnailImageURL);
+      .map((podcast) => podcast.thumbnailImageURL);
 
     return images;
   };
@@ -181,7 +181,7 @@ class Playlists extends Component<Props, State> {
     const { playlists } = this.props;
 
     const isTitleAlreadyInUse = playlists.some(
-      playlist => playlist.title.toUpperCase() === title.toUpperCase(),
+      (playlist) => playlist.title.toUpperCase() === title.toUpperCase(),
     );
 
     return isTitleAlreadyInUse;
@@ -235,7 +235,7 @@ class Playlists extends Component<Props, State> {
             );
           }}
           showsVerticalScrollIndicator={false}
-          keyExtractor={item => `${item.title}`}
+          keyExtractor={(item) => `${item.title}`}
           data={playlists}
         />
         {isPlaylistOperationModalOpen && (
@@ -259,14 +259,11 @@ class Playlists extends Component<Props, State> {
   }
 }
 
-const mapDispatchToProps = dispatch =>
+const mapDispatchToProps = (dispatch) =>
   bindActionCreators(PlaylistsCreators, dispatch);
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   playlists: state.playlist.playlists,
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Playlists);
+export default connect(mapStateToProps, mapDispatchToProps)(Playlists);

@@ -82,7 +82,7 @@ const renderNextPodcastsList = (
 ): Object => (
   <Playlist
     showsHorizontalScrollIndicator={false}
-    keyExtractor={item => `${item.id}`}
+    keyExtractor={(item) => `${item.id}`}
     data={nextPodcasts}
     renderItem={({ item }) => (
       <NextPodcastListItem

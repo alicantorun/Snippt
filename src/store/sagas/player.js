@@ -10,7 +10,7 @@ const _findIndexInsideOriginalPlaylist = (
   podcastSearched,
 ) => {
   const index = originalPlaylist.findIndex(
-    podcast => podcast.id === podcastSearched.id,
+    (podcast) => podcast.id === podcastSearched.id,
   );
 
   return index;
@@ -18,11 +18,11 @@ const _findIndexInsideOriginalPlaylist = (
 
 function* _getPodcastFromStorage(id) {
   const { podcastsDownloaded } = yield select(
-    state => state.localPodcastsManager,
+    (state) => state.localPodcastsManager,
   );
 
   const podcastStored = podcastsDownloaded.filter(
-    podcast => podcast.id === id,
+    (podcast) => podcast.id === id,
   )[0];
 
   return podcastStored;
@@ -49,7 +49,7 @@ function* _definePodcastURI(podcast) {
 }
 
 function* _getSecondsPassedSincePodcastStarted() {
-  const { currentTime } = yield select(state => state.player);
+  const { currentTime } = yield select((state) => state.player);
 
   const [rawMinutes, rawSeconds] = currentTime.split(':');
 
@@ -66,7 +66,7 @@ function* _rewindToPreviousPodcast(newPlaylistIndex) {
       originalPlaylistIndex,
       originalPlaylist,
       playlist,
-    } = yield select(state => state.player);
+    } = yield select((state) => state.player);
 
     let newOriginalPlaylistIndex = originalPlaylistIndex;
 
@@ -91,7 +91,7 @@ function* _rewindToPreviousPodcast(newPlaylistIndex) {
   }
 }
 
-const _shufflePlaylistItems = playlist => {
+const _shufflePlaylistItems = (playlist) => {
   const shuffledPlaylist = Object.create(playlist);
 
   let currentIndex = shuffledPlaylist.length;
@@ -117,7 +117,7 @@ export function* shufflePlaylist() {
       originalPlaylistIndex,
       originalPlaylist,
       currentPodcast,
-    } = yield select(state => state.player);
+    } = yield select((state) => state.player);
 
     if (shouldShufflePlaylist) {
       return yield put(
@@ -129,7 +129,7 @@ export function* shufflePlaylist() {
     }
 
     const playlistWithoutCurrentPodcast = originalPlaylist.filter(
-      podcast => podcast.id !== currentPodcast.id,
+      (podcast) => podcast.id !== currentPodcast.id,
     );
 
     const shuffledPlaylist = _shufflePlaylistItems(
@@ -179,7 +179,7 @@ export function* setupShufflePlayer({ payload }) {
 
 export function* setPodcast() {
   try {
-    const { playlistIndex, playlist } = yield select(state => state.player);
+    const { playlistIndex, playlist } = yield select((state) => state.player);
 
     const currentPodcast = playlist[playlistIndex];
 
@@ -205,7 +205,7 @@ function* _defineNextPodcast(nextPodcast, playlistIndex) {
     shouldShufflePlaylist,
     originalPlaylistIndex,
     originalPlaylist,
-  } = yield select(state => state.player);
+  } = yield select((state) => state.player);
 
   let originalPlaylistCurrentIndex = originalPlaylistIndex;
 
@@ -228,7 +228,7 @@ function* _defineNextPodcast(nextPodcast, playlistIndex) {
 }
 
 function* _handleRestartPlayer(firstPodcast) {
-  const { originalPlaylist } = yield select(state => state.player);
+  const { originalPlaylist } = yield select((state) => state.player);
 
   let firstPodcastPlaylist = firstPodcast;
 
@@ -251,7 +251,7 @@ function* _handleRestartPlayer(firstPodcast) {
 
 export function* repeatCurrentPodcast() {
   try {
-    const { currentPodcast } = yield select(state => state.player);
+    const { currentPodcast } = yield select((state) => state.player);
 
     const podcastWithURI = yield _definePodcastURI(currentPodcast);
 
@@ -272,7 +272,7 @@ export function* playNext() {
       backupPlaylist,
       playlistIndex,
       playlist,
-    } = yield select(state => state.player);
+    } = yield select((state) => state.player);
 
     if (shouldRepeatCurrent) {
       return yield _defineNextPodcast(currentPodcast, playlistIndex);
@@ -310,7 +310,7 @@ export function* playPrevious() {
 
     if (secondsPassedSincePodcastStarted <= 3) {
       const { shouldRepeatPlaylist, playlistIndex, playlist } = yield select(
-        state => state.player,
+        (state) => state.player,
       );
 
       if (playlistIndex === 0 && shouldRepeatPlaylist) {

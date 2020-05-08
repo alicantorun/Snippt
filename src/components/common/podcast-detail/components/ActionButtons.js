@@ -1,9 +1,7 @@
 // @flow
 
 import React from 'react';
-import {
-  TouchableOpacity, Platform, View, Text,
-} from 'react-native';
+import { TouchableOpacity, Platform, View, Text } from 'react-native';
 import styled from 'styled-components';
 
 import DefaultButton from '~/components/common/DefaultButton';
@@ -25,7 +23,8 @@ const DownloadButton = styled(TouchableOpacity)`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-right: ${({ theme }) => (Platform.OS === 'android' ? theme.metrics.extraSmallSize : 0)}px;
+  margin-right: ${({ theme }) =>
+    Platform.OS === 'android' ? theme.metrics.extraSmallSize : 0}px;
   border-radius: ${({ theme }) => theme.metrics.getWidthFromDP('8%')}px;
   background-color: ${({ theme }) => theme.colors.white};
 `;
@@ -52,9 +51,7 @@ const renderProperIcon = (
   isPodcastDownloaded,
 ): Object => {
   if (isDownloadingPodcast) {
-    return <Loading
-      size="small"
-    />;
+    return <Loading size="small" />;
   }
 
   if (isPodcastDownloaded) {
@@ -85,11 +82,7 @@ const ActionButtons = ({
 }: Props): Object => (
   <Wrapper>
     <ButtonsWrapper>
-      <DefaultButton
-        onPress={onPressPlay}
-        size="large"
-        text="PLAY"
-      />
+      <DefaultButton onPress={onPressPlay} size="large" text="PLAY" />
       <ButtonsSeparator />
       <DefaultButton
         onPress={onPressAddToPlaylist}
@@ -110,8 +103,7 @@ const ActionButtons = ({
         shadowOpacity: 0.23,
         shadowRadius: 2.62,
         elevation: 4,
-      }}
-    >
+      }}>
       {renderProperIcon(isDownloadingPodcast, isPodcastDownloaded)}
     </DownloadButton>
   </Wrapper>

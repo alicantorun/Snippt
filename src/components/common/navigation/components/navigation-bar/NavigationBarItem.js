@@ -1,9 +1,7 @@
 // @flow
 
 import React from 'react';
-import {
-  TouchableOpacity, Platform, Text, View,
-} from 'react-native';
+import { TouchableOpacity, Platform, Text, View } from 'react-native';
 import styled from 'styled-components';
 
 import Icon from '~/components/common/Icon';
@@ -16,9 +14,11 @@ const Wrapper = styled(TouchableOpacity)`
 `;
 
 const ItemText = styled(Text)`
-  margin-top: ${({ theme }) => (Platform.OS === 'android' ? theme.metrics.extraSmallSize : 0)}px;
+  margin-top: ${({ theme }) =>
+    Platform.OS === 'android' ? theme.metrics.extraSmallSize : 0}px;
   font-family: CircularStd-Book;
-  color: ${({ isSelected, theme }) => (isSelected ? theme.colors.primaryColor : theme.colors.subTextWhite)};
+  color: ${({ isSelected, theme }) =>
+    isSelected ? theme.colors.primaryColor : theme.colors.subTextWhite};
   font-size: ${({ theme }) => theme.metrics.mediumSize};
 `;
 
@@ -41,19 +41,9 @@ const NavigationBarItem = ({
   label,
   icon,
 }: Props): Object => (
-  <Wrapper
-    onPress={onPressItem}
-  >
-    <ItemIcon
-      isSelected={isSelected}
-      label={label}
-      icon={icon}
-    />
-    <ItemText
-      isSelected={isSelected}
-    >
-      {label}
-    </ItemText>
+  <Wrapper onPress={onPressItem}>
+    <ItemIcon isSelected={isSelected} label={label} icon={icon} />
+    <ItemText isSelected={isSelected}>{label}</ItemText>
   </Wrapper>
 );
 

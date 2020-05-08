@@ -30,16 +30,17 @@ const TrendingAuthorsSeeAll = ({ navigation }: Props): Object => {
   return (
     <Wrapper>
       <TrendingAuthorsList
-        keyExtractor={author => `${author.id}`}
+        keyExtractor={(author) => `${author.id}`}
         showsVerticalScrollIndicator={false}
         data={trendingAuthors}
         renderItem={({ item, index }) => (
           <AuthorsListItem
-            onPress={() => navigation.navigate(CONSTANTS.ROUTES.AUTHOR_DETAIL, {
-              [CONSTANTS.PARAMS.AUTHOR_DETAIL]: {
-                id: item.id,
-              },
-            })
+            onPress={() =>
+              navigation.navigate(CONSTANTS.ROUTES.AUTHOR_DETAIL, {
+                [CONSTANTS.PARAMS.AUTHOR_DETAIL]: {
+                  id: item.id,
+                },
+              })
             }
             numberPodcasts={item.podcasts.length}
             profileImage={item.profileImageURL}

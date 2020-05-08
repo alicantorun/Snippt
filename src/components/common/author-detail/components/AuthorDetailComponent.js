@@ -108,8 +108,7 @@ class AuthorDetailComponent extends PureComponent<Props, {}> {
             outputRange: [1, 0],
             extrapolate: 'clamp',
           }),
-        }}
-      >
+        }}>
         <ImageWrapper>
           <ProgressiveImage
             thumbnailImageURL={author.thumbnailProfileImageURL}
@@ -128,8 +127,7 @@ class AuthorDetailComponent extends PureComponent<Props, {}> {
             outputRange: [1, 1, 0],
             extrapolate: 'clamp',
           }),
-        }}
-      >
+        }}>
         <SmokeShadow />
       </Animated.View>
       <Animated.ScrollView
@@ -151,26 +149,20 @@ class AuthorDetailComponent extends PureComponent<Props, {}> {
             },
           },
         ])}
-        showsVerticalScrollIndicator={false}
-      >
+        showsVerticalScrollIndicator={false}>
         <SectionWrapper>
-          <AuthorName
-            name={author.name}
-          />
+          <AuthorName name={author.name} />
         </SectionWrapper>
         <SectionWrapper>
-          <AboutSection
-            about={author.about}
-          />
+          <AboutSection about={author.about} />
         </SectionWrapper>
         <SectionWrapper>
-          <SubjectsSection
-            subjects={author.categories}
-          />
+          <SubjectsSection subjects={author.categories} />
         </SectionWrapper>
         {author.podcasts.newReleases && author.podcasts.newReleases.length && (
           <NewReleasesSection
-            onPressItem={podcast => this.onPressPodcastListItem(podcast, navigation)
+            onPressItem={(podcast) =>
+              this.onPressPodcastListItem(podcast, navigation)
             }
             newReleases={author.podcasts.newReleases}
             navigation={navigation}
@@ -178,32 +170,29 @@ class AuthorDetailComponent extends PureComponent<Props, {}> {
         )}
         {author.podcasts.featured && author.podcasts.featured.length > 0}
         <FeaturedSection
-          onPressItem={podcast => this.onPressPodcastListItem(podcast, navigation)
+          onPressItem={(podcast) =>
+            this.onPressPodcastListItem(podcast, navigation)
           }
           navigation={navigation}
           featured={author.podcasts.featured}
         />
         {author.relatedAuthors && author.relatedAuthors.length > 0 && (
-          <RelatedAuthors
-            relatedAuthors={author.relatedAuthors}
-          />
+          <RelatedAuthors relatedAuthors={author.relatedAuthors} />
         )}
       </Animated.ScrollView>
     </Fragment>
   );
 
   render() {
-    const {
-      navigation, loading, author, error,
-    } = this.props;
+    const { navigation, loading, author, error } = this.props;
 
     return (
       <Container>
         {loading && <Loading />}
-        {!loading
-          && !error
-          && !!author
-          && this.renderContent(author, navigation)}
+        {!loading &&
+          !error &&
+          !!author &&
+          this.renderContent(author, navigation)}
         {error && (
           <ErrorMessage
             message="Seems like you're having some troubles when trying to connect with the server."

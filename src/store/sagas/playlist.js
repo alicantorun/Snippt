@@ -1,6 +1,4 @@
-import {
-  call, select, delay, put, all,
-} from 'redux-saga/effects';
+import { call, select, delay, put, all } from 'redux-saga/effects';
 
 import { Creators as PlaylistCreators } from '../ducks/playlist';
 
@@ -25,9 +23,10 @@ export function* loadPlaylists() {
       [],
     );
 
-    const playlists = typeof playlistsFromStorage === 'string'
-      ? JSON.parse(playlistsFromStorage)
-      : [];
+    const playlists =
+      typeof playlistsFromStorage === 'string'
+        ? JSON.parse(playlistsFromStorage)
+        : [];
 
     yield put(PlaylistCreators.loadPlaylistsSuccess(playlists));
   } catch (err) {
@@ -37,7 +36,7 @@ export function* loadPlaylists() {
 
 export function* createPlaylist({ payload }) {
   try {
-    const { playlists } = yield select(state => state.playlist);
+    const { playlists } = yield select((state) => state.playlist);
 
     const { title } = payload;
 
@@ -67,16 +66,18 @@ export function* createPlaylist({ payload }) {
 }
 
 function* _handlePersistsPlaylistsUpdated(playlist, podcasts) {
-  const { playlists } = yield select(state => state.playlist);
+  const { playlists } = yield select((state) => state.playlist);
 
   const playlistUpdated = {
     ...playlist,
     podcasts,
   };
 
-  const playlistsUpdated = playlists.map(playlistFromState => (playlistFromState.title === playlist.title
-    ? playlistUpdated
-    : playlistFromState));
+  const playlistsUpdated = playlists.map((playlistFromState) =>
+    playlistFromState.title === playlist.title
+      ? playlistUpdated
+      : playlistFromState,
+  );
 
   yield persistItemInStorage(
     CONSTANTS.KEYS.PLAYLIST_STORAGE_KEY,
@@ -88,7 +89,7 @@ function* _handlePersistsPlaylistsUpdated(playlist, podcasts) {
 
 export function* editPlaylist({ payload }) {
   try {
-    const { playlists } = yield select(state => state.playlist);
+    const { playlists } = yield select((state) => state.playlist);
     const { playlistTitle, index } = payload;
 
     const playlistsUpdated = Object.assign([...playlists], {
@@ -111,11 +112,11 @@ export function* editPlaylist({ payload }) {
 
 export function* removePlaylist({ payload }) {
   try {
-    const { playlists } = yield select(state => state.playlist);
+    const { playlists } = yield select((state) => state.playlist);
     const { playlistToRemove } = payload;
 
     const playlistsUpdated = playlists.filter(
-      playlist => playlist.title !== playlistToRemove.title,
+      (playlist) => playlist.title !== playlistToRemove.title,
     );
 
     if (playlistToRemove.isAvailableOffline) {
@@ -141,11 +142,11 @@ export function* addPodcast({ payload }) {
 
     if (playlist.isAvailableOffline) {
       const { podcastsDownloaded } = yield select(
-        state => state.localPodcastsManager,
+        (state) => state.localPodcastsManager,
       );
 
       const isPodcastAlreadyDownloaded = podcastsDownloaded.some(
-        podcastDownloaded => podcastDownloaded.id === podcast.id,
+        (podcastDownloaded) => podcastDownloaded.id === podcast.id,
       );
 
       if (!isPodcastAlreadyDownloaded) {
@@ -178,13 +179,13 @@ export function* addPodcast({ payload }) {
 
 export function* removePodcast({ payload }) {
   try {
-    const { playlists } = yield select(state => state.playlist);
+    const { playlists } = yield select((state) => state.playlist);
     const { playlist, podcastIndex } = payload;
 
     if (playlist.isAvailableOffline) {
       const podcast = playlist.podcasts[podcastIndex];
       const isPodcastDownloadedByPlaylist = playlist.downloads.some(
-        podcastId => podcastId === podcast.id,
+        (podcastId) => podcastId === podcast.id,
       );
 
       if (isPodcastDownloadedByPlaylist) {
@@ -222,19 +223,19 @@ export function* removePodcast({ payload }) {
 export function* getPlaylist({ payload }) {
   try {
     const { title } = payload;
-    const { localPodcastsManager, playlist } = yield select(state => state);
+    const { localPodcastsManager, playlist } = yield select((state) => state);
 
     const { podcastsDownloaded } = localPodcastsManager;
     const { playlists } = playlist;
 
     const playlistSelected = playlists.find(
-      playlistInStore => playlistInStore.title === title,
+      (playlistInStore) => playlistInStore.title === title,
     );
 
-    const podcasts = playlistSelected.podcasts.map(podcast => ({
+    const podcasts = playlistSelected.podcasts.map((podcast) => ({
       ...podcast,
       isDownloaded: podcastsDownloaded.some(
-        podcastDownloaded => podcastDownloaded.id === podcast.id,
+        (podcastDownloaded) => podcastDownloaded.id === podcast.id,
       ),
     }));
 
@@ -251,14 +252,14 @@ export function* getPlaylist({ payload }) {
 
 function* _setPlaylistToAvailableOffline(playlistSelected) {
   try {
-    const { localPodcastsManager, playlist } = yield select(state => state);
+    const { localPodcastsManager, playlist } = yield select((state) => state);
 
     const { podcastsDownloaded } = localPodcastsManager;
     const podcastsDownloadedByPlaylist = [];
 
     const podcastsToDownload = playlistSelected.podcasts.filter((podcast) => {
       const isPodcastAlreadyDownloaded = podcastsDownloaded.some(
-        podcastDownloaded => podcastDownloaded.id === podcast.id,
+        (podcastDownloaded) => podcastDownloaded.id === podcast.id,
       );
 
       return !isPodcastAlreadyDownloaded;
@@ -267,7 +268,7 @@ function* _setPlaylistToAvailableOffline(playlistSelected) {
     const playlistUpdated = {
       ...playlistSelected,
       isAvailableOffline: true,
-      downloads: podcastsToDownload.map(podcast => podcast.id),
+      downloads: podcastsToDownload.map((podcast) => podcast.id),
     };
 
     yield call(
@@ -276,7 +277,9 @@ function* _setPlaylistToAvailableOffline(playlistSelected) {
       playlistSelected.podcasts,
     );
 
-    const playlistsUpdated = playlist.playlists.map(playlist => (playlist.title === playlistUpdated.title ? playlistUpdated : playlist));
+    const playlistsUpdated = playlist.playlists.map((playlist) =>
+      playlist.title === playlistUpdated.title ? playlistUpdated : playlist,
+    );
 
     yield put(
       PlaylistCreators.setOfflineAvailabilitySuccess(
@@ -286,7 +289,7 @@ function* _setPlaylistToAvailableOffline(playlistSelected) {
     );
 
     yield all(
-      podcastsToDownload.map(podcast => call(downloadPodcast, podcast)),
+      podcastsToDownload.map((podcast) => call(downloadPodcast, podcast)),
     );
   } catch (err) {
     throw err;
@@ -295,12 +298,12 @@ function* _setPlaylistToAvailableOffline(playlistSelected) {
 
 function* _setPlaylistToUnvailableOffline(playlistSelected) {
   try {
-    const { localPodcastsManager, playlist } = yield select(state => state);
+    const { localPodcastsManager, playlist } = yield select((state) => state);
     const { podcastsDownloaded, downloadingList } = localPodcastsManager;
 
     const jobsToCancel = downloadingList.filter((downloadingItem) => {
       const shouldCancelPodcatDownload = playlistSelected.downloads.some(
-        podcastId => downloadingItem.id === podcastId,
+        (podcastId) => downloadingItem.id === podcastId,
       );
       return shouldCancelPodcatDownload;
     });
@@ -308,23 +311,27 @@ function* _setPlaylistToUnvailableOffline(playlistSelected) {
     const podcastsAlreadyDownloadedByPlaylistSelected = playlistSelected.downloads.filter(
       (podcast) => {
         const isPodcastAlreadyDownloaded = podcastsDownloaded.some(
-          podcastDownloaded => podcastsDownloaded.id === podcast.id,
+          (podcastDownloaded) => podcastsDownloaded.id === podcast.id,
         );
         return isPodcastAlreadyDownloaded;
       },
     );
 
     yield all(
-      podcastsAlreadyDownloadedByPlaylistSelected.map(id => call(removePodcastFromLocalStorage, {
-        payload: {
-          podcast: {
-            id,
+      podcastsAlreadyDownloadedByPlaylistSelected.map((id) =>
+        call(removePodcastFromLocalStorage, {
+          payload: {
+            podcast: {
+              id,
+            },
           },
-        },
-      })),
+        }),
+      ),
     );
 
-    yield all(jobsToCancel.map(jobInfo => call(stopPodcastDownload, jobInfo)));
+    yield all(
+      jobsToCancel.map((jobInfo) => call(stopPodcastDownload, jobInfo)),
+    );
 
     const playlistUpdated = {
       ...playlistSelected,
@@ -338,7 +345,9 @@ function* _setPlaylistToUnvailableOffline(playlistSelected) {
       playlistSelected.podcasts,
     );
 
-    const playlistsUpdated = playlist.playlists.map(playlist => (playlist.title === playlistUpdated.title ? playlistUpdated : playlist));
+    const playlistsUpdated = playlist.playlists.map((playlist) =>
+      playlist.title === playlistUpdated.title ? playlistUpdated : playlist,
+    );
 
     yield put(
       PlaylistCreators.setOfflineAvailabilitySuccess(

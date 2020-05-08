@@ -25,9 +25,10 @@ const checkCurrentPodcastStored = (
   currentPodcast: Object,
   podcastsDownloaded: Array<Object>,
 ): boolean => {
-  const isCurrentPodcastStored = podcastsDownloaded.findIndex(
-    podcastDownloaded => podcastDownloaded.id === currentPodcast.id,
-  ) >= 0;
+  const isCurrentPodcastStored =
+    podcastsDownloaded.findIndex(
+      (podcastDownloaded) => podcastDownloaded.id === currentPodcast.id,
+    ) >= 0;
 
   return isCurrentPodcastStored;
 };
@@ -35,13 +36,13 @@ const checkCurrentPodcastStored = (
 const getButtonConfig = (isCurrentPodcastStored: boolean): Object => {
   const buttonConfig = isCurrentPodcastStored
     ? {
-      name: 'cloud-check',
-      color: appStyles.colors.primaryColor,
-    }
+        name: 'cloud-check',
+        color: appStyles.colors.primaryColor,
+      }
     : {
-      name: 'cloud-download-outline',
-      color: appStyles.colors.white,
-    };
+        name: 'cloud-download-outline',
+        color: appStyles.colors.white,
+      };
 
   return buttonConfig;
 };
@@ -54,13 +55,13 @@ const renderAlert = (
 ): void => {
   const { action, type } = isCurrentPodcastStored
     ? {
-      action: () => removePodcast(currentPodcast),
-      type: TYPES.REMOVE_DOWNLOADED_PODCAST,
-    }
+        action: () => removePodcast(currentPodcast),
+        type: TYPES.REMOVE_DOWNLOADED_PODCAST,
+      }
     : {
-      action: () => downloadPodcast(currentPodcast),
-      type: TYPES.DOWNLOAD_PODCAST,
-    };
+        action: () => downloadPodcast(currentPodcast),
+        type: TYPES.DOWNLOAD_PODCAST,
+      };
 
   CustomAlert(type, action);
 };
@@ -80,14 +81,14 @@ const renderButton = (
 
   return (
     <Button
-      onPress={() => renderAlert(
-        isCurrentPodcastStored,
-        currentPodcast,
-        removePodcast,
-        downloadPodcast,
-      )
-      }
-    >
+      onPress={() =>
+        renderAlert(
+          isCurrentPodcastStored,
+          currentPodcast,
+          removePodcast,
+          downloadPodcast,
+        )
+      }>
       <Icon
         size={appStyles.metrics.getWidthFromDP('6%') + 4}
         color={color}
@@ -98,16 +99,16 @@ const renderButton = (
 };
 
 const renderLoading = (): Object => (
-  <ActivityIndicator
-    color={appStyles.colors.primaryColor}
-    size="small"
-  />
+  <ActivityIndicator color={appStyles.colors.primaryColor} size="small" />
 );
 
 const isDownloadingCurrentPodcast = (
   currentPodcast: Object,
   downloading: Array<Object>,
-): boolean => downloading.some(downloadingItem => downloadingItem.id === currentPodcast.id);
+): boolean =>
+  downloading.some(
+    (downloadingItem) => downloadingItem.id === currentPodcast.id,
+  );
 
 type LocalPodcastsManagerProps = {
   podcastsDownloaded: Array<Object>,
@@ -139,22 +140,20 @@ const Download = ({
       {isCurrentPodcastBeenDownloaded
         ? renderLoading()
         : renderButton(
-          podcastsDownloaded,
-          downloadPodcast,
-          removePodcast,
-          currentPodcast,
-        )}
+            podcastsDownloaded,
+            downloadPodcast,
+            removePodcast,
+            currentPodcast,
+          )}
     </Wrapper>
   );
 };
 
-const mapDispatchToProps = dispatch => bindActionCreators(LocalPodcastsManagerCreators, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(LocalPodcastsManagerCreators, dispatch);
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   localPodcastsManager: state.localPodcastsManager,
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Download);
+export default connect(mapStateToProps, mapDispatchToProps)(Download);

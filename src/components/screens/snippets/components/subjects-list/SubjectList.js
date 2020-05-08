@@ -165,7 +165,7 @@ const SubjectsList = ({
         );
       }}
       showsVerticalScrollIndicator={false}
-      keyExtractor={item => `${item.id}`}
+      keyExtractor={(item) => `${item.id}`}
       numColumns={1}
       data={snippets}
     />

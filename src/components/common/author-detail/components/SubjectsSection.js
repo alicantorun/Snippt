@@ -40,14 +40,10 @@ type Props = {
 
 const SubjectsSection = ({ subjects }: Props): Object => (
   <Wrapper>
-    <SectionTitle
-      title="Subjects"
-    />
+    <SectionTitle title="Subjects" />
     <SubjectsWrapper>
-      {subjects.map(subject => (
-        <SubjectItemWrapper
-          key={subject}
-        >
+      {subjects.map((subject) => (
+        <SubjectItemWrapper key={subject}>
           <SubjectItemText>{`#${subject}`}</SubjectItemText>
         </SubjectItemWrapper>
       ))}

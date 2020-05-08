@@ -21,14 +21,8 @@ type Props = {
 };
 
 const SwipeOutButton = ({ color, icon }: Props): Object => (
-  <Wrapper
-    color={color}
-  >
-    <Icon
-      color={appStyles.colors.white}
-      name={icon}
-      size={25}
-    />
+  <Wrapper color={color}>
+    <Icon color={appStyles.colors.white} name={icon} size={25} />
   </Wrapper>
 );
 
