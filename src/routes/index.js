@@ -24,7 +24,7 @@ const InterestsScreen = createStackNavigator(
           navigation,
           screenProps,
           'Your Interests',
-          // 'check-all',
+          'check-all',
         ),
     },
   },

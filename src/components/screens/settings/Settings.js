@@ -84,9 +84,9 @@ const items = [
     storageKey: STORAGE_KEYS.OFFLINE_MODE,
   },
   {
-    title: 'Dark Theme',
+    title: 'Dark Mode',
     description:
-      'Activate the Dark theme (the Light Theme will be activated otherwise).',
+      'Activate the Dark mode (Switch from light background to dark background).',
     stateReference: DARK_THEME_STATE_REF,
   },
   {
@@ -151,12 +151,12 @@ class Settings extends Component<Props, State> {
       <Wrapper>
         <ScreenTitle title="Settings" />
         <ThemeContextConsumer>
-          {(context) => {
+          {context => {
             const { onToggleDarkTheme, isDarkThemeActivated } = context;
 
             return (
               <OptionsWrapper>
-                {items.map((item) => {
+                {items.map(item => {
                   const value =
                     item.stateReference !== DARK_THEME_STATE_REF
                       ? this.state[item.stateReference]
